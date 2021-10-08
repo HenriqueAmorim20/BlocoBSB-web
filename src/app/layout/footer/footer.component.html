@@ -1,1 +1,62 @@
-<p>footer works!</p>
+<footer class="footer">
+    <div class="upperDiv">
+        <img class="logo" src="../../../assets/logo/teste.png" alt="">
+        <span class="spacer"></span>
+        <div class="section">
+            <div class="subSection">
+                <h3>Instituicional</h3>
+                <ul>
+                    <li class="click" [routerLink]="['/sobre']" routerLinkActive="router-link-active" >Sobre a bloco</li>
+                    <li class="click" [routerLink]="['/contato']" routerLinkActive="router-link-active" >Contato</li>
+                    <li class="click" (click)="modalTrocas()">Trocas e devoluções</li>
+                    <li class="click" (click)="modalTabela()">Tabela de tamanhos</li>
+                </ul>
+            </div>
+            <div class="subSection">
+                <h3>Pagamento</h3>
+                <ul>
+                    <li>
+                        <mat-icon>payment</mat-icon>
+                        <span> Até 10x no cartão sem juros </span>
+                    </li>
+                    <li>Inserir bandeiras dos cartões aqui</li>
+                    <li>
+                        <mat-icon>payment</mat-icon>
+                        <span>Até 5% de desconto à vista</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="subSection">
+                <h3>Segurança</h3>
+                <ul>
+                    <li>
+                        <span>Ambiente 100% Seguro</span>
+                    </li>
+                    <li>
+                        <span>Sua Informação é Protegida Pela Criptografia SSL 256-Bit.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- <span class="spacer"></span> -->
+        <div class="section">
+            <div class="socialMedia">
+                <div class="socialMediaIcon wpp"></div>
+                <div class="socialMediaIcon insta"></div>
+                <mat-icon class="socialMediaIcon email">email</mat-icon>
+            </div>
+        </div>
+    </div>
+    <div class="underDiv">
+        <h2>Fique por dentro das novidades!</h2>
+        <div>
+            <input type="text" name="" id="" placeholder="Digite seu email aqui!">
+            <button class="btnParticipar">PARTICIPAR!</button>
+        </div>
+    </div>
+    <div class="copyright">
+        <span class="spacer"></span>
+        <span>&copy; {{ data }} BlocoBSB v1.0</span>
+    </div>
+
+</footer>
