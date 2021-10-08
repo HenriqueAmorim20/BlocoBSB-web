@@ -1,7 +1,8 @@
 <div class="window">
-  <app-navbar></app-navbar>
+  <app-navbar *ngIf="innerWidth > 999" [innerWidth]="innerWidth"></app-navbar>
+  <app-navbar-mobile *ngIf="innerWidth < 1000" [innerWidth]="innerWidth"></app-navbar-mobile>
   <div class="body">
     <router-outlet></router-outlet>
   </div>
-  <app-footer></app-footer>
+  <app-footer [innerWidth]="innerWidth"></app-footer>
 </div>

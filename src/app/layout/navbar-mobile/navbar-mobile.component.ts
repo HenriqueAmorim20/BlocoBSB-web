@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-mobile',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-mobile.component.scss']
 })
 export class NavbarMobileComponent implements OnInit {
+
+  @Input() innerWidth: any;
 
   constructor() { }
 
