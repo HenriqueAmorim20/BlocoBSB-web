@@ -1,1 +1,59 @@
-<p>navbar works!</p>
+<div *ngIf="innerWidth > 1000">
+    <mat-toolbar class="topo">
+        <div class="media">
+            <a class="socialMedia" href="https://web.whatsapp.com/" target="_blank">
+                <div class="wpp"></div>
+                <span class="imageIconText">(xxx) xxxxx-xxxx</span>
+            </a>
+        
+            <a class="socialMedia" href="https://www.instagram.com/bloco.bsb/" target="_blank">
+                <div class="insta"></div>
+                <span class="imageIconText">@bloco.bsb</span>
+            </a> 
+        </div>
+    
+        <span class="spacer"></span>
+    
+        <div class="pesquisaForm">
+            <mat-icon class="pesquisaIcon">search</mat-icon>
+            <input  placeholder="Pesquisar produto...">
+        </div>
+    </mat-toolbar>
+    <mat-toolbar class="navbar" [ngClass]="{'opaco fixed': scroll >50}">
+    
+        <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" src="../../../assets/logo/logo.png" alt="">
+        <span class="spacer"></span>
+        <div (click)="goToId('novidades')" class="menuItem">
+            <div class="novidades"></div>
+            <span>Novidades</span>
+        </div>
+        <div  [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem">
+            <div class="produtos"></div>
+            <span>Produtos</span>
+        </div>
+        <div (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true" class="menuItem" style="display: flex; flex-direction: column; position: relative;">
+            <div class="flex">
+                <div class="sobre"></div>
+                <span>Sobre</span>
+            </div>
+            <div class="dropDown" [ngClass]="{show: !hideMenu}" (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true">
+                <div class="dropDownItems" [ngClass]="{opaco: scroll > 0, preto: scroll === 0}">
+                    <span class="menuItem" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre a Bloco</span>
+                    <span class="menuItem" (click)="modalTabela()">Tabela de Tamanhos</span>
+                    <span class="menuItem" (click)="modalTrocas()">Trocas e devoluções</span>
+                </div>
+            </div>
+        </div>
+        <div class="menuItem">
+            <div [routerLink]="['/contato']" routerLinkActive="router-link-active" class="contato"></div>
+            <span>Contato</span>
+        </div>
+        <span class="divider"></span>
+        <div (click)="modalLogin()" class="menuItem">
+            <div class="entrar"></div>
+            <span>Entrar</span>
+        </div>
+    </mat-toolbar>
+    <div *ngIf="scroll >50" style="height: 90px;"></div>
+</div>
+

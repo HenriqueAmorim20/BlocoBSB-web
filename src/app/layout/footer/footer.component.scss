@@ -13,13 +13,14 @@
 .logo {
     width: 250px;
     height: fit-content;
-    margin-bottom: 50px;
+    // margin-bottom: 30px;
     margin-left: 10px;
 }
 
 .upperDiv {
     display: flex;
     flex-wrap: wrap;
+    // align-items: center;
     width: 100%;
 }
 
@@ -57,7 +58,7 @@ li mat-icon {
 
 .socialMedia {
     display: flex;
-    align-items: center;
+    // align-items: center;
     margin-right: 20px;
 }
 

@@ -1,0 +1,201 @@
+.topo {
+    height: 50px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.459);
+    color: #000;
+}
+
+.navbar {
+    position: relative;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #000;
+    height: 90px;
+    width: 100%;
+    padding: 0px 5% 0px 5%;
+    transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -ms-transition: 1s all ease;
+    -o-transition: 1s all ease;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+}
+
+.opaco {
+    background-color: #000000ce;
+    transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -ms-transition: 1s all ease;
+    -o-transition: 1s all ease;
+}
+
+.logo {
+    width: 170px;
+    cursor: pointer;
+}
+
+.divider {
+    height: 50%;
+    border-left: 1px solid white;
+    margin: 0px 30px;
+}
+
+.menuItem {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin: 0px 15px;
+}
+
+.menuItem:hover {
+    color: #249bc5;
+}
+
+
+.menuItem:hover {
+   .novidades {
+        background: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=%23249bc5') no-repeat center center / contain;
+        content: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=%23249bc5');
+   }
+   .produtos {
+        background: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=%23249bc5') no-repeat center center / contain;
+        content: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=%23249bc5');
+   }
+   .sobre {
+        background: url('https://api.iconify.design/entypo/info.svg?color=%23249bc5') no-repeat center center / contain;
+        content: url('https://api.iconify.design/entypo/info.svg?color=%23249bc5'); 
+   }
+   .contato {
+        background: url('https://api.iconify.design/ic/outline-support-agent.svg?color=%23249bc5') no-repeat center center / contain;
+        content: url('https://api.iconify.design/ic/outline-support-agent.svg?color=%23249bc5');
+   }
+   .entrar {
+        background: url('https://api.iconify.design/carbon/login.svg?color=%23249bc5') no-repeat center center / contain;
+        content: url('https://api.iconify.design/carbon/login.svg?color=%23249bc5');
+   }
+}
+
+.novidades {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=white');
+}
+.produtos {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=white');
+}
+.sobre {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/entypo/info.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/entypo/info.svg?color=white'); 
+}
+.contato {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/ic/outline-support-agent.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/ic/outline-support-agent.svg?color=white');
+}
+.entrar {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/carbon/login.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/carbon/login.svg?color=white');
+}
+
+.dropDown {
+    display: none;
+    position: absolute;
+    padding-top: 41%;
+    margin-top: 30%;
+    margin-left: 150%;
+}
+
+.show{
+    display: flex;
+}
+
+.preto {
+    background-color: #000;
+    transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -ms-transition: 1s all ease;
+    -o-transition: 1s all ease;
+}
+
+.dropDownItems {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 10px 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+
+
+.media {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 1%;
+}
+
+.socialMedia {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.imageIconText {
+    font-size: 17px;
+    color: black;
+}
+
+.pesquisaForm {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 3%;
+    width: 45%;
+    max-width: 500px;
+}
+
+.pesquisaIcon {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+input {
+    background-color: #ebebeb00;
+    border: none;
+    border-bottom: 1px solid black;
+    height: 20px;
+    outline: none;
+    width: 100%;
+    color: black;
+}
+  .wpp {
+    width: 25px;
+    margin-right: 8px;
+    background: url('https://api.iconify.design/mdi/whatsapp.svg?color=black') no-repeat center center / contain;
+    content: url('https://api.iconify.design/mdi/whatsapp.svg?color=black');
+}
+
+.insta {
+    width: 25px;
+    margin-right: 8px;
+    background: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=black') no-repeat center center / contain;
+    content: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=black');
+}
