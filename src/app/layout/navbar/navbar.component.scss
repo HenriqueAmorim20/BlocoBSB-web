@@ -36,6 +36,7 @@
 .logo {
     width: 170px;
     cursor: pointer;
+    margin-right: 20px;
 }
 
 .divider {
@@ -44,40 +45,31 @@
     margin: 0px 30px;
 }
 
+.lineTransition {
+    display: inline-block;
+    width: fit-content;
+}
+
+.graylish {
+    color: #a0a0a0;
+}
+
 .menuItem {
     display: flex;
     cursor: pointer;
     align-items: center;
-    margin: 0px 15px;
+    margin: 0px 5px;
+    padding: 0px 10px 5px 10px;
 }
 
-.menuItem:hover {
-    color: #80808086;
-}
-
-
-.menuItem:hover {
-   .novidades {
-        background: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
-        content: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
-   }
-   .produtos {
-        background: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
-        content: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
-   }
-   .sobre {
-        background: url('https://api.iconify.design/entypo/info.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
-        content: url('https://api.iconify.design/entypo/info.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)'); 
-   }
-   .contato {
-        background: url('https://api.iconify.design/ic/outline-support-agent.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
-        content: url('https://api.iconify.design/ic/outline-support-agent.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
-   }
-   .entrar {
-        background: url('https://api.iconify.design/carbon/login.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
-        content: url('https://api.iconify.design/carbon/login.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
-   }
-}
+.lineTransition:after {
+    display:flex;
+    content: '';
+    border-bottom: solid 1px #fff;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+  }
+.lineTransition:hover:after { transform: scaleX(1); }
 
 .novidades {
     margin-right: 7px;
@@ -113,9 +105,10 @@
 .dropDown {
     display: none;
     position: absolute;
-    padding-top: 31%;
+    padding-top: 25%;
     padding-left: 70%;
-    margin-top: 35%;
+    margin-top: 25%;
+    z-index: 3;
 }
 
 .show{
@@ -132,12 +125,16 @@
 }
 
 .dropDownItems {
+    background-color: rgba(0, 0, 0, 0.404);
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 0px 10px 10px 10px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
 }
 
 
@@ -232,7 +229,7 @@ input {
     z-index: -1;
     color: white;
     flex-direction: column;
-    height: 100%;
+    height: calc(100vh - 80px);
     padding: 20px;
     width: 90%;
     max-width: 400px;
@@ -255,14 +252,16 @@ input {
 }
 
 .sideItem {
+    font-family: 'Courier New', Courier, monospace;
     font-size: 25px;
     margin: 20px 0px;
     width: 100%;
 }
 
 .sideSubItem {
-    font-size: 20px;
-    margin: 10px 0px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    margin: 5px 0px;
 }
 
 .sideMenu span {
