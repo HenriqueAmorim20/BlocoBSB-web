@@ -1,0 +1,171 @@
+.footer {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    background-color: black;
+    padding: 5% 3% 3% %5;
+}
+
+.logo {
+    width: 250px;
+}
+
+.imagemLogo {
+    width: 100%;
+}
+
+.upperDiv {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.subSection {
+    width: 250px;
+    padding: 0px 0px 20px 30px;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.subSection h3 {
+    color: rgb(146, 146, 146);
+}
+
+.subSection ul {
+    list-style: none;
+}
+
+.subSection li {
+    display: flex;
+    align-items: center;
+    margin-left: -40px;
+    margin-bottom: 10px;
+}
+
+li mat-icon {
+    margin-right: 7px;
+}
+
+.socialMedia {
+    display: flex;
+    justify-content:flex-start;
+    align-items: flex-start;
+}
+
+.socialMediaIcon {
+    width: 50px;
+    cursor: pointer;
+}
+
+.wpp {
+    width:100%;
+    background: url('https://api.iconify.design/mdi/whatsapp.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/mdi/whatsapp.svg?color=white');
+}
+
+.wpp:hover {
+    background: url('https://api.iconify.design/mdi/whatsapp.svg?color=green') no-repeat center center / contain;
+    content: url('https://api.iconify.design/mdi/whatsapp.svg?color=green');
+}
+
+.insta {
+    width:90%;
+    background: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=white');
+}
+
+.insta:hover {
+    background: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=%23c13584') no-repeat center center / contain;    content: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=purple');
+    content: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=%23c13584');
+}
+
+.email {
+    width:100%;
+    height: 100%;
+    font-size: 50px;
+}
+
+.email:hover {
+    color: #ff4343;
+}
+
+.underDiv {
+    width: 100%;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.underDiv h2 {
+    margin: 10px 10px;
+    font-family:'Courier New', Courier, monospace;
+}
+
+.underDiv div {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+}
+
+.underDiv input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 25px;
+    border: none;
+    width: 100%;
+    padding: 5px 10px;
+    max-width: 350px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.btnParticipar {
+    cursor: pointer;
+    border: 1px solid white;
+    color: white;
+    font-weight: lighter;
+    font-size: 18px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    padding: 5px 0px 5px 0px;
+    width: 100%;
+    max-width: 350px;
+    margin: 20px;
+}
+
+.btnParticipar:hover {
+    background-color: #249bc5;
+    color: white;
+}
+
+.copyright {
+    display: flex;
+    width: 100%;
+    padding-top: 5px;
+    border-top: 1px solid #ffffff5d;
+}
+
+.click {
+    cursor: pointer;
+}
+
+.click:hover {
+    color: #249bc5;
+}

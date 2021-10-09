@@ -1,0 +1,281 @@
+.topo {
+    height: 60px;
+    display: flex;
+    background-color: #ffffff00;
+    color: #fff;
+    padding: 0px 20px 0px 2%;
+    // box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.623);
+}
+
+.navbar {
+    position: relative;
+    font-size: 20px;
+    z-index: 4;
+    padding-right: 5%;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: transparent;
+    color: white;
+    height: 90px;
+    width: 100%;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+}
+
+.opaco {
+    background-color: #000000;
+}
+
+.logo {
+    width: 170px;
+    cursor: pointer;
+}
+
+.divider {
+    height: 50%;
+    border-left: 1px solid #ffffff;
+    margin: 0px 30px;
+}
+
+.menuItem {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    margin: 0px 15px;
+}
+
+.menuItem:hover {
+    color: #80808086;
+}
+
+
+.menuItem:hover {
+   .novidades {
+        background: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
+        content: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
+   }
+   .produtos {
+        background: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
+        content: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
+   }
+   .sobre {
+        background: url('https://api.iconify.design/entypo/info.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
+        content: url('https://api.iconify.design/entypo/info.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)'); 
+   }
+   .contato {
+        background: url('https://api.iconify.design/ic/outline-support-agent.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
+        content: url('https://api.iconify.design/ic/outline-support-agent.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
+   }
+   .entrar {
+        background: url('https://api.iconify.design/carbon/login.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)') no-repeat center center / contain;
+        content: url('https://api.iconify.design/carbon/login.svg?color=rgba(128%2C%20128%2C%20128%2C%200.5254901960784314)');
+   }
+}
+
+.novidades {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/heroicons-solid/light-bulb.svg?color=white');
+}
+.produtos {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/ri/t-shirt-2-fill.svg?color=white');
+}
+.sobre {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/entypo/info.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/entypo/info.svg?color=white'); 
+}
+.contato {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/ic/outline-support-agent.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/ic/outline-support-agent.svg?color=white');
+}
+.entrar {
+    margin-right: 7px;
+    width: 25px;
+    background: url('https://api.iconify.design/carbon/login.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/carbon/login.svg?color=white');
+}
+
+.dropDown {
+    display: none;
+    position: absolute;
+    padding-top: 31%;
+    padding-left: 70%;
+    margin-top: 35%;
+}
+
+.show{
+    display: flex;
+}
+
+.preto {
+    background-color: transparent;
+    transition: 1s all ease;
+    -webkit-transition: 1s all ease;
+    -moz-transition: 1s all ease;
+    -ms-transition: 1s all ease;
+    -o-transition: 1s all ease;
+}
+
+.dropDownItems {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 10px 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+
+
+
+.media {
+    display: flex;
+    align-items: center;
+    // position: absolute;
+    right: 1%;
+}
+
+.socialMedia {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.imageIconText {
+    font-size: 17px;
+    color: #fff;
+}
+
+.pesquisaForm {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 3%;
+    width: 45%;
+    max-width: 500px;
+}
+
+.pesquisaIcon {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+input {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    height: 20px;
+    outline: none;
+    width: 100%;
+    color: black;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+  .wpp {
+    width: 25px;
+    margin-right: 8px;
+    background: url('https://api.iconify.design/mdi/whatsapp.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/mdi/whatsapp.svg?color=white');
+}
+
+.insta {
+    width: 25px;
+    margin-right: 8px;
+    background: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=white') no-repeat center center / contain;
+    content: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=white');
+}
+
+
+.navMobile {
+    display: flex;
+    height: 60px;
+    width: 100%;
+    padding: 0px 5% 0px 10%;
+    background-color: #000;
+    color: white;
+}
+
+.navMobile mat-icon {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.pequeno {
+    width: 120px;
+}
+
+.sideMenu {
+    position: absolute;
+    right: 0px;
+    display: flex;
+    opacity: 0;
+    z-index: -1;
+    color: white;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px;
+    background-color: black;
+    transition: 0.7s all ease;
+    -webkit-transition: 0.7s all ease;
+    -moz-transition: 0.7s all ease;
+    -ms-transition: 0.7s all ease;
+    -o-transition: 0.7s all ease;
+}
+
+.showSidemenu {
+    opacity: 1;
+    z-index: 3;
+    transition: 0.7s all ease;
+    -webkit-transition: 0.7s all ease;
+    -moz-transition: 0.7s all ease;
+    -ms-transition: 0.7s all ease;
+    -o-transition: 0.7s all ease;
+}
+
+.sideItem {
+    font-size: 25px;
+    margin: 20px 0px;
+    width: 100%;
+}
+
+.sideSubItem {
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.sideMenu span {
+    margin-left: 10px;
+}
+
+.menuSobre {
+    height: 0;
+    margin-left: 10%;
+    margin-top: -15px;
+    overflow: hidden;
+}
+
+.menuSobreShow {
+    height: auto;
+}
