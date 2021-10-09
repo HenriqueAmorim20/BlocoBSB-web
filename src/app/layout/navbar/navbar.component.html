@@ -29,7 +29,7 @@
                 <span>Sobre</span>
             </div>
             <div class="dropDown" [ngClass]="{show: !hideMenu}" (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true">
-                <div class="dropDownItems" [ngClass]="{opaco: scroll > 60, preto: scroll <= 60}">
+                <div class="dropDownItems" [ngClass]="{ opaco: scroll > 60, preto: scroll <= 60}" >
                     <span class="menuItem" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre a Bloco</span>
                     <span class="menuItem" (click)="modalTabela()">Tabela de Tamanhos</span>
                     <span class="menuItem" (click)="modalTrocas()">Trocas e devoluções</span>

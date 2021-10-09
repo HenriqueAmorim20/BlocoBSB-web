@@ -1,8 +1,52 @@
 .main {
-    // background-color: red;
-    height: 300px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  overflow: hidden;
+}
+
+.slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: 50% 50%;
+  transition: background-image 1s ease-in-out;
+}
+
+.image {
+  visibility: hidden;
+  width: 130%;
+}
+
+.ImageBtn {
+  cursor: pointer;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  z-index: 3;
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+}
+
+.ImageBtn:hover {
+  background-color: rgba(0, 0, 0, 0.349);
+  transition: 0.5s all ease;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease;
+  -o-transition: 0.5s all ease;
+}
+
+.back {
+  left: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.skip {
+  right: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }

@@ -1,4 +1,11 @@
 <div id="fillerHome"></div>
 <div class="main">
-    <h1>teste</h1>
+    <div class="slide" style="background-image: url('../../../assets/slideHome/{{imageNumber}}.png');">
+      <button class="ImageBtn back" (click)="backImage()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+      <img class="image" src="../../../assets/slideHome/{{imageNumber}}.png" alt="">
+      <button class="ImageBtn skip" (click)="skipImage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </div>
+     <div class="novidades" id="novidades">
+        <h1 class="title" id="novidadesTitulo">Novidades</h1>
+    </div>
 </div>
