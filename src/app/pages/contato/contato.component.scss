@@ -1,0 +1,83 @@
+.main {
+  margin-top: 8%;
+  padding: 0 5% 5% 5%;
+}
+
+.contato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  background-color: #0000009a;
+  color: white;
+  padding: 1% 0;
+}
+
+  .title {
+    border-bottom: 1px solid #fff;
+    font-family:fantasy;
+    margin-top: 10px;
+    // font-size: 300%;
+    // width: fit-content;
+  }
+
+  .subtitle {
+      // font-family: fantasy;
+      font-size: 15px;
+  }
+
+  .content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin: 5% 10%;
+}
+
+  .campo {
+      display: flex;
+      flex-direction: column;
+      margin: 20px;
+      min-width: 45%;
+  }
+
+  .superiores {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .inferiores {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-enviar {
+    width: fit-content;
+    padding: 1% 26% 1% 26%;
+    margin: 30px;
+    background-color: black;
+    color: white;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    align-self: center;
+  }
+
+  .transicao:hover {
+    background-color: rgba(0, 0, 0, 0.76);
+    transition: 0.5s all ease;
+  }
+
+
+  .inputForm {
+      margin-top: 5px;
+      background-color: rgba(255, 255, 255, 0.445);
+      padding: 10px 20px 10px 20px;
+      border-radius: 10px;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      -ms-border-radius: 10px;
+      -o-border-radius: 10px;
+}
