@@ -5,47 +5,43 @@
                 <div class="wpp"></div>
                 <span class="imageIconText">(xxx) xxxxx-xxxx</span>
             </a>
-        
             <a class="socialMedia" href="https://www.instagram.com/bloco.bsb/" target="_blank">
                 <div class="insta"></div>
                 <span class="imageIconText">@bloco.bsb</span>
-            </a> 
+            </a>
         </div>
-    
         <span class="spacer"></span>
-    
         <div class="pesquisaForm">
             <mat-icon class="pesquisaIcon">search</mat-icon>
             <input  placeholder="Pesquisar produto...">
         </div>
     </mat-toolbar>
-    <mat-toolbar class="navbar" [ngClass]="{'opaco fixed': scroll >50}">
-    
-        <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" src="../../../assets/logo/logo.png" alt="">
+    <mat-toolbar class="navbar" [ngClass]="{'opaco fixed': scroll >60}">
+        <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" src="../../../assets/logo/logo2.jpeg" alt="">
         <span class="spacer"></span>
-        <div (click)="goToId('novidades')" class="menuItem">
-            <div class="novidades"></div>
-            <span>Novidades</span>
-        </div>
         <div  [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem">
             <div class="produtos"></div>
             <span>Produtos</span>
         </div>
         <div (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true" class="menuItem" style="display: flex; flex-direction: column; position: relative;">
-            <div class="flex">
+            <div class="flex" [routerLink]="['/sobre']" routerLinkActive="router-link-active">
                 <div class="sobre"></div>
                 <span>Sobre</span>
             </div>
             <div class="dropDown" [ngClass]="{show: !hideMenu}" (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true">
-                <div class="dropDownItems" [ngClass]="{opaco: scroll > 0, preto: scroll === 0}">
+                <div class="dropDownItems" [ngClass]="{opaco: scroll > 60, preto: scroll <= 60}">
                     <span class="menuItem" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre a Bloco</span>
                     <span class="menuItem" (click)="modalTabela()">Tabela de Tamanhos</span>
                     <span class="menuItem" (click)="modalTrocas()">Trocas e devoluções</span>
                 </div>
             </div>
         </div>
-        <div class="menuItem">
-            <div [routerLink]="['/contato']" routerLinkActive="router-link-active" class="contato"></div>
+        <div (click)="goToId('novidades')" class="menuItem">
+            <div class="novidades"></div>
+            <span>Novidades</span>
+        </div>
+        <div class="menuItem" [routerLink]="['/contato']" routerLinkActive="router-link-active">
+            <div class="contato"></div>
             <span>Contato</span>
         </div>
         <span class="divider"></span>
@@ -54,6 +50,47 @@
             <span>Entrar</span>
         </div>
     </mat-toolbar>
-    <div *ngIf="scroll >50" style="height: 90px;"></div>
+    <div *ngIf="scroll >60" style="height: 90px;"></div>
+</div>
+
+<div *ngIf="innerWidth <= 1000">
+    <mat-toolbar class="navMobile">
+        <img (click)="hideSidemenu = true" [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo pequeno" src="../../../assets/logo/logo.png" alt="">
+        <span class="spacer"></span>
+        <mat-icon (click)="toggleSidemenu(); hideSobre = true">menu</mat-icon>
+    </mat-toolbar>
+    <div class="sideMenu" [ngClass]="{showSidemenu: !hideSidemenu}">
+        <div (click)="goToId('novidades'); toggleSidemenu();" class="menuItem sideItem">
+            <div class="novidades"></div>
+            <span>Novidades</span>
+        </div>
+        <div (click)="toggleSidemenu();" [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem sideItem">
+            <div class="produtos"></div>
+            <span>Produtos</span>
+        </div>
+        <div>
+            <div class="column">
+                <div class="flex" (click)="hideSobre = !hideSobre" class="menuItem sideItem">
+                    <div class="sobre"></div>
+                    <span>Sobre</span>
+                    <span class="spacer"></span>
+                    <mat-icon>{{hideSobre ? 'keyboard_arrow_right' : 'keyboard_arrow_down'}}</mat-icon>
+                </div>
+                <div class="menuSobre" [ngClass]="{menuSobreShow: !hideSobre}">
+                    <span class="menuItem sideSubItem" (click)="toggleSidemenu();" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre a Bloco</span>
+                    <span class="menuItem sideSubItem" (click)="modalTabela();toggleSidemenu();">Tabela de Tamanhos</span>
+                    <span class="menuItem sideSubItem" (click)="modalTrocas();toggleSidemenu();">Trocas e devoluções</span>
+                </div>
+            </div>
+        </div>
+        <div class="menuItem sideItem" (click)="toggleSidemenu();" [routerLink]="['/contato']" routerLinkActive="router-link-active">
+            <div class="contato"></div>
+            <span>Contato</span>
+        </div>
+        <div (click)="modalLogin();toggleSidemenu();" class="menuItem sideItem">
+            <div class="entrar"></div>
+            <span>Entrar</span>
+        </div>
+    </div>
 </div>
 

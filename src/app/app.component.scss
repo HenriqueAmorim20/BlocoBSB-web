@@ -1,19 +1,23 @@
 .window {
-    min-height: 100%;
-    height: auto !important;
-    overflow: hidden;
+    // min-height: 100%;
+    // height: auto !important;
+    // height: 100%;
+    // overflow: hidden;
 }
 
 .background {
-    background-image: url('../assets/background/céu-de-Brasília.jpeg');
+    background-image: url('../assets/background/museu.png');
     background-size:cover;
-    background-position: 50% 90%;
+    background-position: 0% 20%;
+    background-attachment: fixed;
     background-repeat: no-repeat;
 }
 
 .body {
+    // min-height: 65vh;
+    // height: auto !important;
     height: 100%;
-    width: 100%;
+    // overflow: hidden;
 }
 
 ::ng-deep .flex {
@@ -23,4 +27,9 @@
 
 ::ng-deep .spacer{
     flex: 1 1 auto;
+}
+
+::ng-deep .column {
+    display: flex;
+    flex-direction: column;
 }
