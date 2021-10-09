@@ -22,22 +22,22 @@ export class FooterComponent implements OnInit {
 
   modalTrocas(){
     let params = this.innerWidth > 1000 ? {
-      width: '60%',
-      height: 'fit-content',
+      width: 'fit-content',
+      height: 'fit-content',panelClass: 'customDialog'
     } :
     {
       maxWidth: '100vw',
       maxHeight: '100vh',
       height: '100%',
-      width: '100%'
+      width: '100%',panelClass: 'customDialog'
     }
     this.dialog.open(ModalTrocasComponent, params);
   }
 
   modalTabela(){
     let params = this.innerWidth > 1000 ? {
-      height: '85%',
-    } : {}
+      height: '85%',panelClass: 'customDialog'
+    } : {panelClass: 'customDialog'}
     this.dialog.open(ModalTabelaTamanhosComponent, params);
   }
 

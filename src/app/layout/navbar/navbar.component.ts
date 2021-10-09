@@ -1,6 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ModalLoginComponent } from 'src/app/@shared/modal-login/modal-login.component';
 import { ModalTabelaTamanhosComponent } from 'src/app/@shared/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
 import { ModalTrocasComponent } from 'src/app/@shared/modal-trocas/modal-trocas.component';
 
@@ -33,27 +34,34 @@ export class NavbarComponent implements OnInit {
 
   modalTrocas(){
     let params = this.innerWidth > 1000 ? {
-      width: '60%',
-      height: 'fit-content',
+      width: 'fit-content',
+      height: 'fit-content',panelClass: 'customDialog'
     } :
     {
       maxWidth: '100vw',
       maxHeight: '100vh',
       height: '100%',
-      width: '100%'
+      width: '100%',panelClass: 'customDialog'
     }
     this.dialog.open(ModalTrocasComponent, params);
   }
 
   modalTabela(){
     let params = this.innerWidth > 1000 ? {
-      height: '85%',
-    } : {}
+      height: '85%',panelClass: 'customDialog'
+    } : {panelClass: 'customDialog'}
     this.dialog.open(ModalTabelaTamanhosComponent, params);
   }
 
   modalLogin() {
-    
+    let params = {
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      height: '100%',
+      width: '100%',
+      panelClass: 'customDialogLogin'
+    }
+    this.dialog.open(ModalLoginComponent, params);
   }
 
   goToId(id: string) {
