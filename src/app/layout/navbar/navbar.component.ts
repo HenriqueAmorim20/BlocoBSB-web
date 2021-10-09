@@ -16,6 +16,7 @@ export class NavbarComponent implements OnInit {
   hideMenu: boolean = true;
   hideSidemenu: boolean = true;
   hideSobre: boolean = true;
+  currentPage: string = '';
 
   constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { }
 
@@ -24,7 +25,11 @@ export class NavbarComponent implements OnInit {
     this.scroll = e.target['scrollingElement'].scrollTop;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.events.subscribe(res => {
+      this.currentPage = this.router.url.toString().replace("/", "")
+    });
+  }
 
   modalTrocas(){
     let params = this.innerWidth > 1000 ? {

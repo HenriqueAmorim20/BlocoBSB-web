@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.startSlideShow()
     const filler = document.getElementById("fillerHome") as HTMLElement
     if( window.innerWidth >= 1001) filler.style.height = "calc(100vh - 150px)"
-    else filler.style.height = "calc(100vh - 60px)"
-    this.startSlideShow()
+    else filler.style.height = "30px"
   }
 
   skipImage() {

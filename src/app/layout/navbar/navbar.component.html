@@ -18,36 +18,46 @@
     </mat-toolbar>
     <mat-toolbar class="navbar" [ngClass]="{'opaco fixed': scroll >60}">
         <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" src="../../../assets/logo/logo2.jpeg" alt="">
-        <span class="spacer"></span>
-        <div  [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem">
-            <div class="produtos"></div>
-            <span>Produtos</span>
-        </div>
-        <div (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true" class="menuItem" style="display: flex; flex-direction: column; position: relative;">
-            <div class="flex" [routerLink]="['/sobre']" routerLinkActive="router-link-active">
-                <div class="sobre"></div>
-                <span>Sobre</span>
+        <div class="lineTransition">
+            <div  [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem" [ngClass]="{selected: currentPage === 'produtos'}">
+                <div class="produtos"></div>
+                <span>Produtos</span>
             </div>
-            <div class="dropDown" [ngClass]="{show: !hideMenu}" (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true">
-                <div class="dropDownItems" [ngClass]="{ opaco: scroll > 60, preto: scroll <= 60}" >
-                    <span class="menuItem" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre a Bloco</span>
-                    <span class="menuItem" (click)="modalTabela()">Tabela de Tamanhos</span>
-                    <span class="menuItem" (click)="modalTrocas()">Trocas e devoluções</span>
+        </div>
+        <div class="lineTransition">
+            <div (click)="goToId('novidades')" class="menuItem">
+                <div class="novidades"></div>
+                <span>Novidades</span>
+            </div>
+        </div>
+        <span class="spacer"></span>
+        <div class="lineTransition">
+            <div  class="menuItem" [ngClass]="{selected: currentPage === 'sobre'}" style="display: flex; flex-direction: column; position: relative;">
+                <div (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true" class="flex" [routerLink]="['/sobre']"  routerLinkActive="router-link-active">
+                    <div class="sobre"></div>
+                    <span>Sobre</span>
+                </div>
+                <div class="dropDown" [ngClass]="{show: !hideMenu}" (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true">
+                    <div class="dropDownItems">
+                        <div class="lineTransition"><span class="menuItem" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre a Bloco</span></div>
+                        <div class="lineTransition"><span class="menuItem" (click)="modalTabela()">Tabela de Tamanhos</span></div>
+                        <div class="lineTransition"><span class="menuItem" (click)="modalTrocas()">Trocas e devoluções</span></div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div (click)="goToId('novidades')" class="menuItem">
-            <div class="novidades"></div>
-            <span>Novidades</span>
-        </div>
-        <div class="menuItem" [routerLink]="['/contato']" routerLinkActive="router-link-active">
-            <div class="contato"></div>
-            <span>Contato</span>
+        <div class="lineTransition">
+            <div class="menuItem" [ngClass]="{selected: currentPage === 'contato'}" [routerLink]="['/contato']" routerLinkActive="router-link-active">
+                <div class="contato"></div>
+                <span>Contato</span>
+            </div>
         </div>
         <span class="divider"></span>
-        <div (click)="modalLogin()" class="menuItem">
-            <div class="entrar"></div>
-            <span>Entrar</span>
+        <div class="lineTransition">
+            <div (click)="modalLogin()" class="menuItem">
+                <div class="entrar"></div>
+                <span>Entrar</span>
+            </div>
         </div>
     </mat-toolbar>
     <div *ngIf="scroll >60" style="height: 90px;"></div>
@@ -87,6 +97,7 @@
             <div class="contato"></div>
             <span>Contato</span>
         </div>
+        <span class="spacer"></span>
         <div (click)="modalLogin();toggleSidemenu();" class="menuItem sideItem">
             <div class="entrar"></div>
             <span>Entrar</span>
