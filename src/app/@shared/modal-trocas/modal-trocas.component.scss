@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-family: fantasy;
+}
+
+p {
+    margin-top: 20px;
+    text-indent: 2em;
+    font-weight: bold;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 0px 50px;
+    margin-bottom: 50px;
+}
+
+ol {
+    padding: 0px 20px 0px 60px;
+}

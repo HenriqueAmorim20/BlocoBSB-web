@@ -1,4 +1,8 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalTabelaTamanhosComponent } from 'src/app/@shared/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
+import { ModalTrocasComponent } from 'src/app/@shared/modal-trocas/modal-trocas.component';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +17,7 @@ export class NavbarComponent implements OnInit {
   hideSidemenu: boolean = true;
   hideSobre: boolean = true;
 
-  constructor() { }
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
@@ -22,11 +26,25 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  modalTabela(){
-  
-  }
   modalTrocas(){
+    let params = this.innerWidth > 1000 ? {
+      width: '60%',
+      height: 'fit-content',
+    } :
+    {
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      height: '100%',
+      width: '100%'
+    }
+    this.dialog.open(ModalTrocasComponent, params);
+  }
 
+  modalTabela(){
+    let params = this.innerWidth > 1000 ? {
+      height: '85%',
+    } : {}
+    this.dialog.open(ModalTabelaTamanhosComponent, params);
   }
 
   modalLogin() {
