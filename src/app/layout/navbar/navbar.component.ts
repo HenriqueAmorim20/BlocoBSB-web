@@ -64,8 +64,16 @@ export class NavbarComponent implements OnInit {
     this.dialog.open(ModalLoginComponent, params);
   }
 
-  goToId(id: string) {
+  goToId(id: string){
+    if(this.currentPage !== 'home'){
+      this.router.navigate(['/home'], {relativeTo: this.route}).then(() => { setTimeout(() =>{this.scrollToId(id)}, 500) })
+    } else this.scrollToId(id)
+  }
 
+  scrollToId(id: string){
+    const el = document.getElementById(id) as HTMLElement
+    const y = el.getBoundingClientRect().top - (this.innerWidth > 1000 ? 90 : 195);
+    window.scrollTo({top: y, behavior: 'smooth'});
   }
 
   toggleSidemenu(){

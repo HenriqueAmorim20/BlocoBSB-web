@@ -16,7 +16,7 @@
             <input  placeholder="Pesquisar produto...">
         </div>
     </mat-toolbar>
-    <mat-toolbar class="navbar" [ngClass]="{'opaco fixed': scroll >60}">
+    <mat-toolbar class="navbar" [ngClass]="{'dark fixed': scroll >60}">
         <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" src="../../../assets/logo/logo2.jpeg" alt="">
         <div class="lineTransition">
             <div  [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem" [ngClass]="{selected: currentPage === 'produtos'}">
@@ -38,7 +38,7 @@
                     <span>Sobre</span>
                 </div>
                 <div class="dropDown" [ngClass]="{show: !hideMenu}" (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true">
-                    <div class="dropDownItems">
+                    <div class="dropDownItems" [ngClass]="{dark: scroll > 60, opaco: scroll <= 60}">
                         <div class="lineTransition"><span class="menuItem" [routerLink]="['/sobre']" routerLinkActive="router-link-active">Sobre a Bloco</span></div>
                         <div class="lineTransition"><span class="menuItem" (click)="modalTabela()">Tabela de Tamanhos</span></div>
                         <div class="lineTransition"><span class="menuItem" (click)="modalTrocas()">Trocas e devoluções</span></div>
@@ -98,7 +98,7 @@
             <span>Contato</span>
         </div>
         <span class="spacer"></span>
-        <div (click)="toggleSidemenu();modalLogin();" class="menuItem sideItem">
+        <div (click)="toggleSidemenu();modalLogin();" class="menuItem sideItem" style="margin-bottom: 30%;">
             <div class="entrar"></div>
             <span>Entrar</span>
         </div>
