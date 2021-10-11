@@ -63,7 +63,7 @@ export class ProdutosComponent implements OnInit {
         src: "../../../assets/produtos/miniaturas/blocoPreta.jpeg",
       },
       {
-        nome: "Céu de Brasília Preta",
+        nome: "Céu de Brasília  Preta",
         preco: "75.90",
         tipo: "Adulto",
         src: "../../../assets/produtos/miniaturas/ceuPreta.jpeg",
