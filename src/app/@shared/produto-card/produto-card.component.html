@@ -1,6 +1,6 @@
 <div class="card" (mouseenter)="hideActions = false" (mouseleave)="hideActions = true">
     <img class="image" [src]="produto.src" alt="">
-    <div *ngIf="!hideActions || innerWidth <= 1000" class="actions" [ngClass]="{mobile: innerWidth <= 1000 }">
+    <div *ngIf="!hideActions" class="actions">
         <h3>{{produto.nome}}</h3>
         <h4>{{produto.tipo}}</h4>
         <h3>R$: {{produto.preco}}</h3>

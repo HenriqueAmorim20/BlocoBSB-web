@@ -22,46 +22,64 @@ export class ProdutosComponent implements OnInit {
     this.produtos = [
       {
         nome: "Foguete Branca",
-        preco: "75.90",
-        tipo: "Adulto",
-        src: "../../../assets/produtos/fogueteBranca.jpg",
+        preco: "70.90",
+        tipo: "Infantil",
+        src: "../../../assets/produtos/miniaturas/fogueteBrancaInfantil.jpeg",
       },
-      // {
-      //   nome: "Céu de Brasília preta",
-      //   preco: "75.90",
-      //   tipo: "Adulto",
-      //   src: "../../../assets/produtos/ceuDeBrasiliaPreta.jpg",
-      // },
       {
         nome: "Ipês Preta",
-        preco: "75.90",
-        tipo: "Adulto",
-        src: "../../../assets/produtos/ipesPreta2.jpg",
+        preco: "70.90",
+        tipo: "Infantil",
+        src: "../../../assets/produtos/miniaturas/ipesPretaInfantil.jpeg",
       },
       {
-        nome: "Bloco Preta",
+        nome: "Catedral Branca",
+        preco: "70.90",
+        tipo: "Infantil",
+        src: "../../../assets/produtos/miniaturas/catedralBrancaInfantil.jpeg",
+      },
+      {
+        nome: "Foguete Preta",
         preco: "75.90",
         tipo: "Adulto",
-        src: "../../../assets/produtos/blocoPreta.jpg",
+        src: "../../../assets/produtos/miniaturas/foguetePreta.jpeg",
+      },
+      {
+        nome: "Catedral Preta",
+        preco: "75.90",
+        tipo: "Adulto",
+        src: "../../../assets/produtos/miniaturas/catedralPreta.jpeg",
       },
       {
         nome: "Catedral Branca",
         preco: "75.90",
         tipo: "Adulto",
-        src: "../../../assets/produtos/catedralBranca.jpg",
+        src: "../../../assets/produtos/miniaturas/catedralBranca.jpeg",
+      },
+      {
+        nome: "Bloco Preta",
+        preco: "75.90",
+        tipo: "Adulto",
+        src: "../../../assets/produtos/miniaturas/blocoPreta.jpeg",
+      },
+      {
+        nome: "Céu de Brasília Preta",
+        preco: "75.90",
+        tipo: "Adulto",
+        src: "../../../assets/produtos/miniaturas/ceuPreta.jpeg",
       },
       {
         nome: "Ipês Preta",
         preco: "75.90",
         tipo: "Adulto",
-        src: "../../../assets/produtos/ipesPreta.jpg",
+        src: "../../../assets/produtos/miniaturas/ipesPreta.jpeg",
       },
-      // {
-      //   nome: "Foguete Branca",
-      //   preco: "75.90",
-      //   tipo: "Adulto",
-      //   src: "../../../assets/produtos/fogueteBranca2.jpg",
-      // },
+      {
+        nome: "Foguete Branca",
+        preco: "75.90",
+        tipo: "Adulto",
+        src: "../../../assets/produtos/miniaturas/fogueteBranca.jpeg",
+      },
     ]
   }
 
