@@ -1,4 +1,9 @@
-<div id="fillerHome"></div>
+<div class="fillerHome" [ngClass]="{pc: innerWidth > 1000, mobile: innerWidth <= 1000}" id="fillerHome">
+  <span class="spacer"></span>
+  <h1>Bem-Vindo(a) ao site da Bloco!</h1>
+  <span class="spacer"></span>
+  <mat-icon (click)="goToId('image')" class="fillerHomeIcon bounce">arrow_downward</mat-icon>
+</div>
 <div class="main">
     <div class="slide" style="background-image: url('../../../assets/slideHome/{{imageNumber}}.png');">
       <button class="ImageBtn back" (click)="backImage()"><mat-icon>keyboard_arrow_left</mat-icon></button>
