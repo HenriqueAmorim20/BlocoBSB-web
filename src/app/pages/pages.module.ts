@@ -8,6 +8,7 @@ import { SobreComponent } from './sobre/sobre.component';
 import { ProdutosComponent } from './produtos/produtos.component';
 import { ContatoComponent } from './contato/contato.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ProdutosComponent,
     ContatoComponent
   ],
-  imports: [MaterialModule, RouterModule, CommonModule, BrowserModule, FormsModule, ReactiveFormsModule],
+  imports: [MaterialModule, RouterModule, CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, SharedModule],
   providers: [],
   bootstrap: []
 })

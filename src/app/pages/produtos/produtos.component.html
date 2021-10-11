@@ -1,1 +1,14 @@
-<p>produtos works!</p>
+<!-- <img class="imagemPrincipal" src="../../../assets/background/ana.png" alt=""> -->
+<div class="main">
+    <div class="produtos">
+        <div class="header">
+            <h1 class="headerTitle">PRODUTOS</h1>
+        </div>
+        <div class="topImages">
+            <div *ngFor="let produto of produtos" class="topImage">
+                <app-produto-card [produto]="produto"></app-produto-card>
+            </div>
+        </div>
+    </div>
+</div>
+
