@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-produtos',
@@ -8,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class ProdutosComponent implements OnInit {
 
   produtos: Array<object> = []
+  innerWidth: any;
 
   constructor() { }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+  this.innerWidth = event.target.innerWidth;
+  }
+
   ngOnInit(): void {
+    this.innerWidth = window. innerWidth
     this.produtos = [
       {
         nome: "Foguete Branca",
@@ -49,12 +56,12 @@ export class ProdutosComponent implements OnInit {
         tipo: "Adulto",
         src: "../../../assets/produtos/ipesPreta.jpg",
       },
-      {
-        nome: "Foguete Branca",
-        preco: "75.90",
-        tipo: "Adulto",
-        src: "../../../assets/produtos/fogueteBranca2.jpg",
-      },
+      // {
+      //   nome: "Foguete Branca",
+      //   preco: "75.90",
+      //   tipo: "Adulto",
+      //   src: "../../../assets/produtos/fogueteBranca2.jpg",
+      // },
     ]
   }
 

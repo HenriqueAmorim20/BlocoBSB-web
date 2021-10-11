@@ -6,7 +6,7 @@
         </div>
         <div class="topImages">
             <div *ngFor="let produto of produtos" class="topImage">
-                <app-produto-card [produto]="produto"></app-produto-card>
+                <app-produto-card [innerWidth]="innerWidth" [produto]="produto"></app-produto-card>
             </div>
         </div>
     </div>

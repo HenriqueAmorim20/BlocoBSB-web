@@ -9,6 +9,7 @@ export class ProdutoCardComponent implements OnInit {
 
   hideActions: boolean = true;
   @Input() produto: any;
+  @Input() innerWidth: any;
 
   constructor() { }
 
