@@ -9,8 +9,8 @@ import { AppService } from 'src/app/app.service';
 export class HomeComponent implements OnInit {
 
   imagesSlide: any;
-  arraySize: any;
-  imageNumber: any;
+  imageNumber: any = 0;
+  produtosNovidades: any;
   interval: any;
   innerWidth: any;
 
@@ -23,8 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.imagesSlide = this.service.getSlideHome()
-    this.arraySize = this.imagesSlide.length - 1
-    this.imageNumber = 0
+    this.produtosNovidades = this.service.getNovidades()
     this.startSlideShow()
     this.innerWidth = window.innerWidth
     const image = document.getElementById("image") as HTMLElement
@@ -37,14 +36,14 @@ export class HomeComponent implements OnInit {
   }
 
   skipImage() {
-    if(this.imageNumber === this.arraySize) this.imageNumber = 0;
+    if(this.imageNumber === this.imagesSlide.length - 1) this.imageNumber = 0;
     else this.imageNumber = this.imageNumber + 1;
     clearInterval(this.interval);
     this.startSlideShow()
   }
 
   backImage() {
-    if(this.imageNumber === 0) this.imageNumber = this.arraySize;
+    if(this.imageNumber === 0) this.imageNumber = this.imagesSlide.length - 1;
     else this.imageNumber = this.imageNumber - 1;
     clearInterval(this.interval);
     this.startSlideShow()
@@ -52,7 +51,7 @@ export class HomeComponent implements OnInit {
 
   startSlideShow(){
     this.interval = setInterval( ()=> {
-      if(this.imageNumber === this.arraySize) this.imageNumber = 0;
+      if(this.imageNumber === this.imagesSlide.length - 1) this.imageNumber = 0;
       else this.imageNumber = this.imageNumber + 1;
     }, 5000);
   }

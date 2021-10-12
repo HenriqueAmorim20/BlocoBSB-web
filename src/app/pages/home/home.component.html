@@ -12,5 +12,10 @@
     </div>
      <div class="novidades" id="novidades">
         <h1 class="titleNovidades" id="novidadesTitulo">Novidades</h1>
+        <div class="imagesNovidades">
+          <div *ngFor="let produto of produtosNovidades" class="imageNovidades">
+            <app-produto-card [innerWidth]="innerWidth" [produto]="produto"></app-produto-card>
+          </div>
+        </div>
     </div>
 </div>
