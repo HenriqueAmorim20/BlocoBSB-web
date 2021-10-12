@@ -5,9 +5,9 @@
   <mat-icon (click)="goToId('image')" class="fillerHomeIcon bounce">arrow_downward</mat-icon>
 </div>
 <div class="main">
-    <div class="slide" style="background-image: url('../../../assets/slideHome/{{imageNumber}}.png');">
+    <div class="slide" style="background-image: url('../../../assets/slideHome/{{imagesSlide[imageNumber]}}');">
       <button class="ImageBtn back" (click)="backImage()"><mat-icon>keyboard_arrow_left</mat-icon></button>
-      <img class="image" id="image" src="../../../assets/slideHome/{{imageNumber}}.png" alt="">
+      <img class="image" id="image" src="../../../assets/slideHome/{{imagesSlide[imageNumber]}}" alt="">
       <button class="ImageBtn skip" (click)="skipImage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
      <div class="novidades" id="novidades">

@@ -29,10 +29,8 @@ export class DetalhesProdutoComponent implements OnInit {
   }
 
   skipImagem(){
-    console.log(this.produto.imagens.length)
     if(this.produto.imagens.length - 1 === this.indexImagem) this.indexImagem = 0
     else this.indexImagem = 1 + this.indexImagem
-    console.log(this.indexImagem)
   }
 
   backImagem(){
