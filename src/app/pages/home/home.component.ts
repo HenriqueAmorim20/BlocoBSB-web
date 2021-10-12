@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
       image.style.width = "110%"
     }
     else{
-      image.style.width = "140%"
+      image.style.width = "145%"
     }
   }
 
