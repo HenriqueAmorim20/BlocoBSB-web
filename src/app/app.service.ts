@@ -46,7 +46,7 @@ export class AppService {
           tipo: "Adulto",
           miniatura: "catedralPreta.jpeg",
           descricao: "Esse modelo foi inspirado no grandioso foguete de brasília, lugar que todo brasiliense conhece e remete a sua infância.",
-          imagens: ["catedralPreta.jpg","catedralPreta2.jpg","catedralPreta3.jpg","catedralPreta4.jpg"]
+          imagens: ["catedralPreta.jpeg","catedralPreta2.jpeg","catedralPreta3.jpeg","catedralPreta4.jpeg"]
         },
         {
           nome: "Catedral Branca",
