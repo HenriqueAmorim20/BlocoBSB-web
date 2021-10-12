@@ -22,9 +22,9 @@
         <h3 *ngIf="produto.descricao"><b>Descrição: </b> {{produto.descricao}}</h3>
         <span class="spacer"></span>
         <div class="actions">
-            <div class="flex">
+            <div class="flex" style="align-items: center;">
                 <h4>Quantidade: </h4>
-                <input type="number" min="1" max="100" [(ngModel)]="quantidade">
+                <input id="mouse-only-number-input" type="number" min="1" max="100" onKeyDown="return false;" [(ngModel)]="quantidade">
             </div>
             <button mat-raised-button class="btn">Comprar agora <mat-icon>arrow_right_alt</mat-icon></button>
             <button mat-raised-button class="btn">Adicionar ao Carrinho <mat-icon>add_shopping_cart</mat-icon></button>    

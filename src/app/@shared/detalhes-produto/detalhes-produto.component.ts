@@ -17,15 +17,26 @@ export class DetalhesProdutoComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<DetalhesProdutoComponent>) { }
 
   ngOnInit(): void {
+    const mouseOnlyNumberInputField = document.getElementById("mouse-only-number-input");
+    setTimeout(() => {
+      mouseOnlyNumberInputField?.blur()
+    }, 200);
+    window.onload = () => {
+      mouseOnlyNumberInputField?.addEventListener("keypress", (event) => {
+        event.preventDefault();
+      });
+    }
     this.innerWidth = this.data.innerWidth;
     this.produto = this.data.produto
   }
 
+  ngAfterContentInit() {
+    console.log('aqui')
+  }
+
   skipImagem(){
-    console.log(this.produto.imagens.length)
     if(this.produto.imagens.length - 1 === this.indexImagem) this.indexImagem = 0
     else this.indexImagem = 1 + this.indexImagem
-    console.log(this.indexImagem)
   }
 
   backImagem(){
