@@ -8,6 +8,7 @@ import { ModalLoginComponent } from './modal-login/modal-login.component';
 import { ModalTabelaTamanhosComponent } from './modal-tabela-tamanhos/modal-tabela-tamanhos.component';
 import { ModalTrocasComponent } from './modal-trocas/modal-trocas.component';
 import { ProdutoCardComponent } from './produto-card/produto-card.component';
+import { DetalhesProdutoComponent } from './detalhes-produto/detalhes-produto.component';
 
 
 @NgModule({
@@ -16,9 +17,10 @@ import { ProdutoCardComponent } from './produto-card/produto-card.component';
     ModalTrocasComponent,
     ModalTabelaTamanhosComponent,
     ModalLoginComponent,
-    ProdutoCardComponent
+    ProdutoCardComponent,
+    DetalhesProdutoComponent
   ],
-  exports: [ProdutoCardComponent],
+  exports: [ProdutoCardComponent, DetalhesProdutoComponent],
   entryComponents: [],
 })
 export class SharedModule { }

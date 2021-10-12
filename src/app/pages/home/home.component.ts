@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -9,20 +9,24 @@ export class HomeComponent implements OnInit {
 
   imageNumber: number = 1;
   interval: any;
+  innerWidth: any;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+  this.innerWidth = event.target.innerWidth;
+  }
 
   constructor() { }
 
   ngOnInit(): void {
     this.startSlideShow()
-    const filler = document.getElementById("fillerHome") as HTMLElement
+    this.innerWidth = window.innerWidth
     const image = document.getElementById("image") as HTMLElement
-    if( window.innerWidth >= 1001){
-      filler.style.height = "calc(100vh - 150px)"
-      image.style.width = "150%"
+    if(this.innerWidth >= 1001){
+      image.style.width = "110%"
     }
     else{
-      filler.style.height = "0"
-      image.style.width = "130%"
+      image.style.width = "145%"
     }
   }
 
@@ -47,4 +51,9 @@ export class HomeComponent implements OnInit {
     }, 5000);
   }
 
+  goToId(id: string){
+    const el = document.getElementById(id) as HTMLElement
+    const y = el.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 90 : 60);
+    window.scrollTo({top: y, behavior: 'smooth'});
+  }
 }

@@ -64,6 +64,7 @@
 </div>
 
 <div *ngIf="innerWidth <= 1000">
+    <div style="height: 60px;"></div>
     <mat-toolbar class="navMobile">
         <img (click)="hideSidemenu = true" [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo pequeno" src="../../../assets/logo/logo.png" alt="">
         <span class="spacer"></span>
