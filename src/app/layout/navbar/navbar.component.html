@@ -54,9 +54,10 @@
         </div>
         <span class="divider"></span>
         <div class="lineTransition">
-            <div (click)="modalLogin()" class="menuItem">
-                <div class="entrar"></div>
-                <span>Entrar</span>
+            <div [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem">
+                <div *ngIf="!logado" class="entrar"></div>
+                <mat-icon *ngIf="logado" style="margin-right: 7px;">account_circle</mat-icon>
+                <span>{{logado ? 'Conta' : 'Entrar'}}</span>
             </div>
         </div>
     </mat-toolbar>
@@ -66,7 +67,10 @@
 <div *ngIf="innerWidth <= 1000">
     <div style="height: 60px;"></div>
     <mat-toolbar class="navMobile">
-        <img (click)="hideSidemenu = true" [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo pequeno" src="../../../assets/logo/logo.png" alt="">
+        <div class="pesquisaForm" style="width: 80%; position: absolute; left: 1%;">
+            <mat-icon class="pesquisaIcon">search</mat-icon>
+            <input  placeholder="Pesquisar produto...">
+        </div>
         <span class="spacer"></span>
         <mat-icon (click)="toggleSidemenu(); hideSobre = true">menu</mat-icon>
     </mat-toolbar>
@@ -99,9 +103,10 @@
             <span>Contato</span>
         </div>
         <span class="spacer"></span>
-        <div (click)="toggleSidemenu();modalLogin();" class="menuItem sideItem" style="margin-bottom: 30%;">
-            <div class="entrar"></div>
-            <span>Entrar</span>
+        <div  (click)="toggleSidemenu();" [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem sideItem" style="margin-bottom: 30%;">
+            <div *ngIf="!logado" class="entrar"></div>
+            <mat-icon *ngIf="logado" style="margin-right: 7px;">account_circle</mat-icon>
+            <span>{{logado ? 'Conta' : 'Entrar'}}</span>
         </div>
     </div>
 </div>

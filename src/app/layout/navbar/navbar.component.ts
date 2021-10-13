@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
   hideSidemenu: boolean = true;
   hideSobre: boolean = true;
   currentPage: string = '';
+  logado: boolean = false;
 
   constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { }
 
@@ -27,6 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.logado = sessionStorage.getItem('token') ? true : false
     this.router.events.subscribe(res => {
       this.currentPage = this.router.url.toString().replace("/", "")
     });
@@ -51,17 +53,6 @@ export class NavbarComponent implements OnInit {
       height: '85%',panelClass: 'customDialog'
     } : {panelClass: 'customDialog'}
     this.dialog.open(ModalTabelaTamanhosComponent, params);
-  }
-
-  modalLogin() {
-    let params = {
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      height: '100%',
-      width: '100%',
-      panelClass: 'customDialogLogin'
-    }
-    this.dialog.open(ModalLoginComponent, params);
   }
 
   goToId(id: string){
