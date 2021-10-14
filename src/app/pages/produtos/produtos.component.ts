@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+import { AppService } from '../../services/app.service';
 @Component({
   selector: 'app-produtos',
   templateUrl: './produtos.component.html',
