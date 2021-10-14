@@ -1,9 +1,10 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModalLoginComponent } from 'src/app/@shared/modal-login/modal-login.component';
-import { ModalTabelaTamanhosComponent } from 'src/app/@shared/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
-import { ModalTrocasComponent } from 'src/app/@shared/modal-trocas/modal-trocas.component';
+import { Select } from '@ngxs/store';
+import { ModalTabelaTamanhosComponent } from 'src/app/@shared/components/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
+import { ModalTrocasComponent } from 'src/app/@shared/components/modal-trocas/modal-trocas.component';
+import { CredentialsService } from 'src/app/services/credentials.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,8 +19,10 @@ export class NavbarComponent implements OnInit {
   hideSidemenu: boolean = true;
   hideSobre: boolean = true;
   currentPage: string = '';
+  logado: boolean = false;
+  @Select((state: any) => state.login) stateLogin: any;
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router) { }
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private credentialsService: CredentialsService) { }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
@@ -27,6 +30,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.credentialsService.setCredentials({email: 'hacmelo@gmail.com', token: 'meu token'}, true)
+    this.credentialsService.setCredentials()
+    this.stateLogin.subscribe(async (res: any) => {
+      this.logado = res.email? true : false
+    });
     this.router.events.subscribe(res => {
       this.currentPage = this.router.url.toString().replace("/", "")
     });
@@ -51,17 +59,6 @@ export class NavbarComponent implements OnInit {
       height: '85%',panelClass: 'customDialog'
     } : {panelClass: 'customDialog'}
     this.dialog.open(ModalTabelaTamanhosComponent, params);
-  }
-
-  modalLogin() {
-    let params = {
-      maxWidth: '100vw',
-      maxHeight: '100vh',
-      height: '100%',
-      width: '100%',
-      panelClass: 'customDialogLogin'
-    }
-    this.dialog.open(ModalLoginComponent, params);
   }
 
   goToId(id: string){

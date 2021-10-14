@@ -1,7 +1,9 @@
 <!-- <div id="fillerContato"></div> -->
 <div class="main">
     <div class="contato" id="contato">
-        <h1 class="title">CONTATE-NOS</h1>
+        <div class="header">
+            <h1>CONTATE-NOS</h1>
+        </div>
         <span class="subtitle">blocobsb@gmail.com</span>
 
         <form class="content" [formGroup]="contatoForm" (ngSubmit)="enviarMensagem()">
@@ -12,6 +14,7 @@
                     <input matInput formControlName="email" placeholder="exemplo@gmail.com" required>
                     </mat-form-field>
                 </div>
+                <span class="spacer"></span>
                 <div class="campo">
                     <span>Nome</span>
                     <mat-form-field class="inputForm">
@@ -32,9 +35,9 @@
                     <textarea matInput formControlName="mensagem" rows="10" placeholder="Gostaria de tirar uma dúvida, é possível comprar mais de uma camiseta de uma vez?" required></textarea>
                     </mat-form-field>
                 </div>
-                <button mat-raised-button class="btn-enviar transicao" type="submit">
-                Enviar
-                </button>
+                <div class="divBtn">
+                    <button mat-raised-button class="btn-enviar transicao" type="submit"> Enviar </button>
+                </div>
             </div>
         </form>
     </div>

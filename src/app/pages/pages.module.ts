@@ -9,13 +9,15 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import { ContatoComponent } from './contato/contato.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../@shared/shared.module';
+import { ContaComponent } from './conta/conta.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SobreComponent,
     ProdutosComponent,
-    ContatoComponent
+    ContatoComponent,
+    ContaComponent
   ],
   imports: [MaterialModule, RouterModule, CommonModule, BrowserModule, FormsModule, ReactiveFormsModule, SharedModule],
   providers: [],

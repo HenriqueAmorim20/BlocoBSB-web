@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ModalTabelaTamanhosComponent } from 'src/app/@shared/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
-import { ModalTrocasComponent } from 'src/app/@shared/modal-trocas/modal-trocas.component';
+import { ModalTabelaTamanhosComponent } from 'src/app/@shared/components/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
+import { ModalTrocasComponent } from 'src/app/@shared/components/modal-trocas/modal-trocas.component';
 
 @Component({
   selector: 'app-footer',
