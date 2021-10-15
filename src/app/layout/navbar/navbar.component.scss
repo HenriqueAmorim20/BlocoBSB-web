@@ -11,7 +11,7 @@
     position: relative;
     font-size: 20px;
     z-index: 4;
-    padding-right: 5%;
+    padding-right: 3%;
     font-family: 'Courier New', Courier, monospace;
     background-color: transparent;
     color: white;
@@ -34,7 +34,7 @@
 }
 
 .logo {
-    width: 170px;
+    width: 150px;
     cursor: pointer;
     margin-right: 20px;
 }
@@ -150,11 +150,11 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    margin-right: 50px;
+    margin-right: 5%;
 }
 
 .imageIconText {
-    font-size: 17px;
+    font-size: 14px;
     color: #fff;
 }
 
@@ -176,7 +176,7 @@
     border-radius: 5px;
     border: none;
     border-bottom: 1px solid black;
-    height: 20px;
+    height: 14px;
     outline: none;
     width: 100%;
     color: black;
@@ -186,14 +186,14 @@
     -o-border-radius: 5px;
 }
   .wpp {
-    width: 25px;
+    width: 20px;
     margin-right: 8px;
     background: url('https://api.iconify.design/mdi/whatsapp.svg?color=white') no-repeat center center / contain;
     content: url('https://api.iconify.design/mdi/whatsapp.svg?color=white');
 }
 
 .insta {
-    width: 25px;
+    width: 20px;
     margin-right: 8px;
     background: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=white') no-repeat center center / contain;
     content: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=white');
