@@ -75,6 +75,10 @@
         <mat-icon (click)="toggleSidemenu(); hideSobre = true">menu</mat-icon>
     </mat-toolbar>
     <div class="sideMenu" [ngClass]="{showSidemenu: !hideSidemenu}">
+        <div (click)="toggleSidemenu();" [routerLink]="['/home']" routerLinkActive="router-link-active" class="menuItem sideItem">
+            <mat-icon style="margin-right: 7px;">home</mat-icon>
+            <span>Home</span>
+        </div>
         <div (click)="goToId('novidades'); toggleSidemenu();" class="menuItem sideItem">
             <div class="novidades"></div>
             <span>Novidades</span>
