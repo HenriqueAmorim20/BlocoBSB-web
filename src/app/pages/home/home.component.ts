@@ -27,11 +27,8 @@ export class HomeComponent implements OnInit {
     this.startSlideShow()
     this.innerWidth = window.innerWidth
     const image = document.getElementById("image") as HTMLElement
-    if(this.innerWidth >= 1001){
-      image.style.width = "110%"
-    }
-    else{
-      image.style.width = "145%"
+    if(this.innerWidth < 1001){
+      image.style.width = "135%"
     }
   }
 
