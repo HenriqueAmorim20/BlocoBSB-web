@@ -16,8 +16,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ModalLoginComponent implements OnInit {
 
-  views: Array<string> = ['registro-inicial', 'registro-email',  'login-incial', 'login-email'];
-  view: string = 'registro-inicial';
+  views: Array<string> = ['registro-inicial', 'registro-email',  'login-inicial', 'login-email'];
+  view: string = 'login-inicial';
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
