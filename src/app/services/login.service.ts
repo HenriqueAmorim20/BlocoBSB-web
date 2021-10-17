@@ -10,14 +10,14 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 export class LoginService {
 
   constructor(
-    // private httpClient: HttpClient DA ERRO AO ABRIR MODAL
+    private httpClient: HttpClient
   ) { }
 
   fazerLogin(email: string, senha: string) {
-    // return this.httpClient.post('/auth/fazer-login', {email: email, senha: senha}).pipe(catchError((err) => of(err.error.message)));
+    return this.httpClient.post('/auth/login', {email: email, senha: senha}).pipe(catchError((err) => of(err.error.message)));
   }
 
   fazerCadastro(email: string, senha: string, nome: string) {
-    // return this.httpClient.post('/auth/fazer-cadastro', {email: email, senha: senha, nome: nome}).pipe(catchError((err) => of(err.error.message)));
+    return this.httpClient.post('/user', {email: email, senha: senha, nome: nome}).pipe(catchError((err) => of(err.error.message)));
   }
 }
