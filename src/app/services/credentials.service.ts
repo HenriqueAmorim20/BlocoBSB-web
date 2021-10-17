@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { Login, Logout } from '../@state/login.store';
+import { IsAdmin, Login, Logout } from '../@state/login.store';
 import { Credentials } from '../@shared/interfaces/credentials';
+import { Observable } from 'rxjs';
 
 const credentialsKey = 'credentials';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class CredentialsService {
   private _credentials: Credentials | null = null;
 
@@ -16,6 +18,7 @@ export class CredentialsService {
     if (savedCredentials) {
       this._credentials = JSON.parse(savedCredentials);
       this.store.dispatch(new Login(this._credentials)).subscribe();
+      this.store.dispatch(new IsAdmin(this._credentials)).subscribe();
     }
   }
 
@@ -33,6 +36,8 @@ export class CredentialsService {
       const storage = remember ? localStorage : sessionStorage;
       storage.setItem(credentialsKey, JSON.stringify(credentials));
       this.store.dispatch(new Login(this._credentials)).subscribe();
+      this.store.dispatch(new IsAdmin(this._credentials)).subscribe();
+
     } else {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
