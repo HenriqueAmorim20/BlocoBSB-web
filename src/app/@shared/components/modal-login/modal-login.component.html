@@ -4,24 +4,13 @@
         <span aria-hidden="true">&times;</span>
     </span>
 </div>
-<div class="content" *ngIf="view === views[1] || view === views[0]">
+<div class="content" *ngIf="view === views[0]">
     <h1>Registre-se</h1>
     <div class="flex">
         <h4>Já é um membro?</h4>
-        <span class="login" (click)="view = views[2]">Faça Login aqui!</span>
+        <span class="login" (click)="view = views[1]">Faça Login aqui!</span>
     </div>
-
-    <div class="divBaixo" *ngIf="view === views[0]">
-        <button mat-raised-button class="btn-google">Registre-se com Google+</button>
-        <div class="ou flex">
-            <div class="line"></div>
-            <span>ou</span>
-            <div class="line"></div>
-        </div>
-        <button mat-raised-button class="btn-email" (click)="view = views[1]">Registre-se com seu email</button>
-    </div>
-
-    <div class="divBaixo" *ngIf="view === views[1]">
+    <div class="divBaixo">
         <form class="form" [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="formFields">
                 <mat-form-field>
@@ -29,7 +18,7 @@
                     <input formControlName="email" matInput type="text">
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>Nome</mat-label>
+                    <mat-label>Nome*</mat-label>
                     <input formControlName="nome" matInput type="text">
                 </mat-form-field>
                 <mat-form-field>
@@ -41,7 +30,7 @@
                     <input formControlName="confirmarSenha" matInput type="password">
                 </mat-form-field>
             </div>
-            <button mat-raised-button class="btn-email" type="submit">Registrar-se</button>
+            <button mat-raised-button class="btn-email" style="margin-top: 10px;" type="submit">Registrar-se</button>
         </form>
         <div class="ou flex">
             <div class="line"></div>
@@ -52,23 +41,13 @@
     </div>
 </div>
 
-<div class="content" *ngIf="view === views[2] || view === views[3]">
+<div class="content" *ngIf="view === views[1]">
     <h1>Entrar</h1>
     <div class="flex">
         <h4>Não é um membro?</h4>
         <span class="login" (click)="view = views[0]">Registre-se aqui!</span>
     </div>
-    <div class="divBaixo" *ngIf="view === views[2]">
-        <button mat-raised-button class="btn-google">Login com Google+</button>
-        <div class="ou flex">
-            <div class="line"></div>
-            <span>ou</span>
-            <div class="line"></div>
-        </div>
-        <button mat-raised-button class="btn-email" (click)="view = views[3]">Login com seu email</button>
-    </div>
-
-    <div class="divBaixo" *ngIf="view === views[3]">
+    <div class="divBaixo">
         <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="formFields">
                 <mat-form-field>
@@ -91,3 +70,5 @@
         <button>Google+</button>
     </div>
 </div>
+
+

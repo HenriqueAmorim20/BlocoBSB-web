@@ -7,6 +7,7 @@ import { untilDestroyed } from '../../../@core/until-destroyed';
 import { Credentials } from '../../interfaces/credentials';
 import { LoginService } from '../../../services/login.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationsService } from 'angular2-notifications';
 
 
 @Component({
@@ -16,8 +17,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ModalLoginComponent implements OnInit {
 
-  views: Array<string> = ['registro-inicial', 'registro-email',  'login-inicial', 'login-email'];
-  view: string = 'login-inicial';
+  views: Array<string> = ['registro', 'login', 'esqueceu-senha'];
+  view: string = 'login';
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
@@ -26,7 +27,7 @@ export class ModalLoginComponent implements OnInit {
 
   registerForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
-    nome: new FormControl('', []),
+    nome: new FormControl('', [Validators.required]),
     senha: new FormControl('', [Validators.required]),
     confirmarSenha: new FormControl('', [Validators.required])
   });
@@ -34,22 +35,36 @@ export class ModalLoginComponent implements OnInit {
   isLoading: boolean = false;
   token: any;
 
-  constructor(public dialogRef: MatDialogRef<ModalLoginComponent>, private router: Router, private authenticationService: AuthService, private loginService: LoginService) { }
+  constructor(public dialogRef: MatDialogRef<ModalLoginComponent>, private router: Router, private authenticationService: AuthService, private loginService: LoginService, private notification: NotificationsService) { }
 
   ngOnInit(): void {
   }
 
+  ngOnDestroy() {}
+
   async login(){
-    if(!this.loginForm.valid) return
+    if(!this.loginForm.valid) {
+      this.notification.info('Atenção!', 'Campos inválidos.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
     try {
-      console.log(this.loginForm.value)
-      // const result = await this.loginService.fazerLogin(this.loginForm.value.email, this.loginForm.value.senha).toPromise()
-      // if(!result){
-      //   console.log('Email ou senha incorretos!')
-      //   return;
-      // }
-      // this.auth(result.token)
+      const login = await this.loginService.fazerLogin(this.loginForm.value.email, this.loginForm.value.senha).toPromise()
+      this.auth(login)
+      this.notification.success('Sucesso!', `Seja bem-vindo(a) ${login.user.email}.`, {
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: true,
+        })
     } catch (error) {
+      this.notification.error('Erro!', 'Email ou senha inválidos.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
       console.log(error)
     }
   }
@@ -57,43 +72,40 @@ export class ModalLoginComponent implements OnInit {
   async register() {
     if(!this.registerForm.valid) return
     try {
-      console.log(this.registerForm.value)
-      // const result = await this.loginService.fazerCadastro(this.loginForm.value.email, this.loginForm.value.senha, this.loginForm.value.nome).toPromise()
-      // if(!result){
-      //   console.log('Email já cadastrado')
-      //   return;
-      // }
-      // this.auth(result.token)
+      const cadastro = await this.loginService.fazerCadastro(this.registerForm.value.email, this.registerForm.value.senha, this.registerForm.value.nome).toPromise()
+      if(cadastro.user) {
+        const login = await this.loginService.fazerLogin(this.registerForm.value.email, this.registerForm.value.senha).toPromise()
+        if(login.token) this.auth(login)
+      }
     } catch (error) {
       console.log(error)
     }
   }
 
-  // auth(token: any){
-  //     const credential: Credentials = {
-  //       email: this.loginForm.value.email,
-  //       token: token,
-  //     };
-  //     this.isLoading = true;
-  //     this.authenticationService
-  //     .login(credential)
-  //     .pipe(
-  //       finalize(() => {
-  //         this.isLoading = false;
-  //       }),
-  //       untilDestroyed(this)
-  //     )
-  //     .subscribe(
-  //       (credentials: any) => {
-  //         console.log(credentials)
-  //         this.router.navigate(['home']).then(() => {
-  //           window.location.reload();
-  //         });
-  //       },
-  //       (error: any) => {
-  //         console.log(error)
-  //       }
-  //     );
-  // }
+  auth(cred: any){
+      const credential: Credentials = {
+        email: cred.user.email,
+        nome: cred.user.nome,
+        token: cred.token,
+      };
+      this.isLoading = true;
+      this.authenticationService
+      .login(credential)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        }),
+        untilDestroyed(this)
+      )
+      .subscribe(
+        (credentials: any) => {
+          this.router.navigate(['home'])
+          this.dialogRef.close()
+        },
+        (error: any) => {
+          console.log(error)
+        }
+      );
+  }
 
 }
