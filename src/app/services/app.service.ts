@@ -1,10 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppService {
-  constructor() {}
+  constructor( private httpClient: HttpClient) {}
+
+  sendFeedback(payload: any) {
+    return this.httpClient.post('/feedback', payload).pipe(catchError((err) => of(err.error.message)));
+  }
+
+  getDestaque() {
+    return {
+      nome: "Foguete Preta",
+      preco: "75.90",
+      tipo: "Adulto",
+      descricao: "Esse modelo foi inspirado no grandioso foguete de brasília, lugar que todo brasiliense conhece e remete a sua infância.",
+      miniatura: "foguetePreta.jpeg",
+      imagens: ["foguetePreta.jpeg","foguetePreta2.jpeg","foguetePreta3.jpeg","foguetePreta4.jpeg"]
+    }
+  }
 
   getProdutos(){
       return [
