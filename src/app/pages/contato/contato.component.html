@@ -7,7 +7,7 @@
         <span class="subtitle">blocobsb@gmail.com</span>
 
         <form class="content" [formGroup]="contatoForm" (ngSubmit)="enviarMensagem()">
-            <div class="superiores">
+            <div *ngIf="!logado" class="superiores">
                 <div class="campo">
                     <span>Email *</span>
                     <mat-form-field class="inputForm">
@@ -36,7 +36,7 @@
                     </mat-form-field>
                 </div>
                 <div class="divBtn">
-                    <button mat-raised-button class="btn-enviar transicao" type="submit"> Enviar </button>
+                    <button mat-raised-button class="btn transicao" type="submit"> Enviar </button>
                 </div>
             </div>
         </form>

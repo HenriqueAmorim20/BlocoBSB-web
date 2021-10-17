@@ -71,7 +71,7 @@
   display: flex;
   justify-content: center;
 }
-.btn-enviar {
+.btn {
   margin: 2%;
   font-family: 'Courier New', Courier, monospace;
   font-size: 18px;
@@ -95,6 +95,7 @@
 .inputForm {
   margin-top: 5px;
   background-color: rgba(0, 0, 0, 0.205);
+  color: #fff;
   padding: 5px 20px 5px 20px;
   border-radius: 5px;
   -webkit-border-radius: 5px;
