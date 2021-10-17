@@ -6,16 +6,47 @@
 </div>
 <div class="main">
     <div class="slide" style="background-image: url('../../../assets/slideHome/{{imagesSlide[imageNumber]}}');">
+      <button *ngIf="isAdmin" mat-raised-button class="btn-editar-slide"><mat-icon>edit</mat-icon>Editar Slide</button>
       <button class="ImageBtn back" (click)="backImage()"><mat-icon>keyboard_arrow_left</mat-icon></button>
       <img class="image" id="image" src="../../../assets/slideHome/{{imagesSlide[imageNumber]}}" alt="">
       <button class="ImageBtn skip" (click)="skipImage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
+    <div class="destaque" id="destaque">
+      <div *ngIf="isAdmin" class="flex" style="width: 100%; margin: 20px;">
+        <span class="spacer"></span>
+        <button mat-raised-button class="btn-editar-novidades"><mat-icon>edit</mat-icon>Editar Destaque</button>
+      </div>
+      <div class="header" id="novidadesTitulo">
+        <h1>DESTAQUE</h1>
+      </div>
+      <div class="produtoDestaque" [ngClass]="{produtoDestaqueMobile: innerWidth < 1001}">
+        <img class="imagemDestaque" [ngClass]="{imagemDestaqueMobile: innerWidth < 1001}" src="../../../assets/produtos/miniaturas/{{produtoDestaque.miniatura}}">
+        <div class="infoDestaque">
+          <h1>{{produtoDestaque.nome}}</h1>
+          <span class="spacer"></span>
+          <h3 *ngIf="produtoDestaque.descricao"><b>Descrição: </b> {{produtoDestaque.descricao}}</h3>
+          <button mat-raised-button (click)="modalDetalhar(produtoDestaque)"><mat-icon>info</mat-icon> Detalhar</button>
+          <span class="spacer"></span>
+        </div>
+      </div>
+    </div>
      <div class="novidades" id="novidades">
-        <h1 class="titleNovidades" id="novidadesTitulo">Novidades</h1>
-        <div class="imagesNovidades">
-          <div *ngFor="let produto of produtosNovidades" class="imageNovidades">
-            <app-produto-card [innerWidth]="innerWidth" [produto]="produto"></app-produto-card>
+        <div class="header" id="novidadesTitulo">
+          <h1>NOVIDADES</h1>
+        </div>
+        <div *ngFor="let produto of produtosNovidades">
+          <div class="produtoDestaque" [ngClass]="{produtoDestaqueMobile: innerWidth < 1001, reversed: produto !== produtosNovidades[1] && innerWidth > 1000}">
+            <img class="imagemDestaque" [ngClass]="{imagemDestaqueMobile: innerWidth < 1001}" src="../../../assets/produtos/miniaturas/{{produto.miniatura}}">
+            <div class="infoDestaque">
+              <h1>{{produto.nome}}</h1>
+              <span class="spacer"></span>
+              <h3 *ngIf="produto.descricao"><b>Descrição: </b> {{produto.descricao}}</h3>
+              <button mat-raised-button (click)="modalDetalhar(produto)"><mat-icon>info</mat-icon> Detalhar</button>
+              <span class="spacer"></span>
+            </div>
           </div>
+          <div style="width: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.425); margin: 5% 0;"></div>
         </div>
     </div>
+    <div style="height: 20px;"></div>
 </div>

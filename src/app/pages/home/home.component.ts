@@ -1,4 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Select } from '@ngxs/store';
+import { DetalhesProdutoComponent } from 'src/app/@shared/components/detalhes-produto/detalhes-produto.component';
 import { AppService } from 'src/app/services/app.service';
 
 @Component({
@@ -11,19 +14,26 @@ export class HomeComponent implements OnInit {
   imagesSlide: any;
   imageNumber: any = 0;
   produtosNovidades: any;
+  produtoDestaque: any;
   interval: any;
   innerWidth: any;
+  @Select((state: any) => state.login) stateLogin: any;
+  isAdmin: boolean = false;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
   this.innerWidth = event.target.innerWidth;
   }
 
-  constructor(private service: AppService) { }
+  constructor(private service: AppService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    this.stateLogin.subscribe(async (res: any) => {
+      this.isAdmin = res.isAdmin
+    });
     this.imagesSlide = this.service.getSlideHome()
     this.produtosNovidades = this.service.getNovidades()
+    this.produtoDestaque = this.service.getDestaque()
     this.startSlideShow()
     this.innerWidth = window.innerWidth
     const image = document.getElementById("image") as HTMLElement
@@ -57,5 +67,24 @@ export class HomeComponent implements OnInit {
     const el = document.getElementById(id) as HTMLElement
     const y = el.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 90 : 60);
     window.scrollTo({top: y, behavior: 'smooth'});
+  }
+
+  modalDetalhar(produto: any){
+    let params = this.innerWidth > 1000 ?
+    {
+      width: '85%',
+      height: '70%',
+      panelClass: 'detalheDialog',
+      data: {produto: produto, innerWidth: this.innerWidth}
+    }
+    : {
+          maxWidth: '100vw',
+          maxHeight: '100vh',
+          height: '100%',
+          width: '100%',
+          panelClass: 'detalheDialog',
+          data: {produto: produto, innerWidth: this.innerWidth}
+        }
+    this.dialog.open(DetalhesProdutoComponent, params);
   }
 }
