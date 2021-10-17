@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CredentialsService } from 'src/app/services/credentials.service';
 
 @Component({
   selector: 'app-conta',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private credentialService: CredentialsService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.credentialService.setCredentials()
+    this.router.navigate(['/home']).then(()=>{window.location.reload()})
   }
 
 }

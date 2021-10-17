@@ -18,9 +18,6 @@ export class DetalhesProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     const mouseOnlyNumberInputField = document.getElementById("mouse-only-number-input");
-    setTimeout(() => {
-      mouseOnlyNumberInputField?.blur()
-    }, 200);
     window.onload = () => {
       mouseOnlyNumberInputField?.addEventListener("keypress", (event) => {
         event.preventDefault();
@@ -28,10 +25,6 @@ export class DetalhesProdutoComponent implements OnInit {
     }
     this.innerWidth = this.data.innerWidth;
     this.produto = this.data.produto
-  }
-
-  ngAfterContentInit() {
-    console.log('aqui')
   }
 
   skipImagem(){
