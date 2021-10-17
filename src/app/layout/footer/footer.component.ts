@@ -36,8 +36,8 @@ export class FooterComponent implements OnInit {
 
   modalTabela(){
     let params = this.innerWidth > 1000 ? {
-      height: '85%',panelClass: 'customDialog'
-    } : {panelClass: 'customDialog'}
+      height: '85%',panelClass: 'customDialogTabela'
+    } : {panelClass: 'customDialogTabela'}
     this.dialog.open(ModalTabelaTamanhosComponent, params);
   }
 
