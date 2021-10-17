@@ -30,8 +30,6 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.credentialsService.setCredentials({email: 'hacmelo@gmail.com', token: 'meu token'}, true)
-    this.credentialsService.setCredentials()
     this.stateLogin.subscribe(async (res: any) => {
       this.logado = res.email? true : false
     });
@@ -56,8 +54,8 @@ export class NavbarComponent implements OnInit {
 
   modalTabela(){
     let params = this.innerWidth > 1000 ? {
-      height: '85%',panelClass: 'customDialog'
-    } : {panelClass: 'customDialog'}
+      height: '85%',panelClass: 'customDialogTabela'
+    } : {panelClass: 'customDialogTabela'}
     this.dialog.open(ModalTabelaTamanhosComponent, params);
   }
 
