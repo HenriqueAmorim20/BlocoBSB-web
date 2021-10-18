@@ -36,10 +36,6 @@ export class HomeComponent implements OnInit {
     });
     this.load()
     this.innerWidth = window.innerWidth
-    const image = document.getElementById("image") as HTMLElement
-    if(this.innerWidth < 1001){
-      image.style.width = "135%"
-    }
   }
 
   async load() {

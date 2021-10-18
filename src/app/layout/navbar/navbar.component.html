@@ -12,8 +12,24 @@
         </div>
         <span class="spacer"></span>
         <div class="pesquisaForm">
-            <mat-icon class="pesquisaIcon">search</mat-icon>
-            <input  placeholder="Pesquisar produto...">
+            <div class="flex" style="width: 100%;">
+                <mat-icon *ngIf="searchResult.length === 0" class="pesquisaIcon">search</mat-icon>
+                <mat-icon *ngIf="searchResult.length > 0" (click)="searchResult = []; searchInput = ''" class="pesquisaIcon">close</mat-icon>
+                <input (keyup)="searchProduct($event)" [(ngModel)]="searchInput" placeholder="Pesquisar produto...">
+            </div>
+            <div *ngIf="searchResult.length > 0" class="searchResults">
+                <div *ngFor="let produto of searchResult" class="searchResult">
+                    <div class="searchResultElements" (click)="modalDetalhar(produto)">
+                        <img class="imgResult" src="{{produto.urlMiniatura}}" alt="">
+                        <span class="spacer"></span>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <h3>{{produto.nome}}</h3>
+                            <p style="font-family: 'Courier New', Courier, monospace; font-size: 14px;">{{produto.tipo}}</p>
+                        </div>
+                        <span class="spacer"></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </mat-toolbar>
     <mat-toolbar class="navbar" [ngClass]="{'dark fixed': scroll >60}">
@@ -68,8 +84,24 @@
     <div style="height: 60px;"></div>
     <mat-toolbar class="navMobile">
         <div class="pesquisaForm" style="width: 80%; position: absolute; left: 1%;">
-            <mat-icon class="pesquisaIcon">search</mat-icon>
-            <input  placeholder="Pesquisar produto...">
+            <div class="flex" style="width: 100%;">
+                <mat-icon *ngIf="searchResult.length === 0" class="pesquisaIcon">search</mat-icon>
+                <mat-icon *ngIf="searchResult.length > 0" (click)="searchResult = []; searchInput = ''" class="pesquisaIcon">close</mat-icon>
+                <input (keyup)="searchProduct($event)" [(ngModel)]="searchInput" placeholder="Pesquisar produto...">
+            </div>
+            <div *ngIf="searchResult.length > 0" class="searchResults" style="width: 115%; left: 0;">
+                <div *ngFor="let produto of searchResult" class="searchResult">
+                    <div class="searchResultElements" (click)="modalDetalhar(produto)">
+                        <img class="imgResult" style="min-width: 100px; width: 100px;  min-height: 70px;  height: 70px;" src="{{produto.urlMiniatura}}" alt="">
+                        <span class="spacer"></span>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <h3>{{produto.nome}}</h3>
+                            <p style="font-family: 'Courier New', Courier, monospace; font-size: 14px;">{{produto.tipo}}</p>
+                        </div>
+                        <span class="spacer"></span>
+                    </div>
+                </div>
+            </div>
         </div>
         <span class="spacer"></span>
         <mat-icon (click)="toggleSidemenu(); hideSobre = true">menu</mat-icon>

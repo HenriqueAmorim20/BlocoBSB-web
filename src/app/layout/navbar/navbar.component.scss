@@ -159,7 +159,9 @@
 
 .pesquisaForm {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    position: relative;
     width: 45%;
     max-width: 500px;
 }
@@ -184,6 +186,60 @@
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
 }
+
+.searchResults {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.835);
+    color: #000;
+    z-index: 11;
+    position: absolute;
+    margin-top: 50px;
+    width: 90%;
+    border-radius: 10px;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    max-height: 550px;
+    overflow:auto;
+}
+
+.searchResult {
+    width: 100%;
+    cursor: pointer;
+}
+
+.searchResultElements {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+}
+
+.searchResultElements:hover {
+   background-color: rgba(0, 0, 0, 0.185);
+}
+
+.searchResult h3 {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.imgResult {
+    min-width: 180px;
+    width: 180px;
+    min-height: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.searchResultDivider {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.164);
+    margin: 5px 0;
+}
+
   .wpp {
     width: 20px;
     margin-right: 8px;

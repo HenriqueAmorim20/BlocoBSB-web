@@ -56,8 +56,11 @@ export class AppService {
     return ["sobre.jpg"]
   }
 
-  getImagemEntrar(){
-
+  searchProducts(nome: any){
+    let params = new HttpParams();
+    const filter = {nome: nome, search: true};
+    params = params.append('filtros', JSON.stringify(filter));
+    return this.httpClient.get(`/produto`, { params }).pipe(catchError((err) => of(err.error.message)));
   }
 
   addNewsletter(payload: any){

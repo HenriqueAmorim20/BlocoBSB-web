@@ -1,9 +1,12 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Select } from '@ngxs/store';
+import { DetalhesProdutoComponent } from 'src/app/@shared/components/detalhes-produto/detalhes-produto.component';
 import { ModalTabelaTamanhosComponent } from 'src/app/@shared/components/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
 import { ModalTrocasComponent } from 'src/app/@shared/components/modal-trocas/modal-trocas.component';
+import { AppService } from 'src/app/services/app.service';
 import { CredentialsService } from 'src/app/services/credentials.service';
 
 @Component({
@@ -20,9 +23,12 @@ export class NavbarComponent implements OnInit {
   hideSobre: boolean = true;
   currentPage: string = '';
   logado: boolean = false;
+  searchResult: any = [];
+  searchInput: string = '';
+  timeout: any;
   @Select((state: any) => state.login) stateLogin: any;
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private credentialsService: CredentialsService) { }
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private service: AppService) { }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
@@ -36,6 +42,39 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe(res => {
       this.currentPage = this.router.url.toString().replace("/", "")
     });
+  }
+
+  searchProduct(event?: any){
+    clearTimeout(this.timeout)
+    this.searchInput = event.target.value;
+    if(this.searchInput.length < 2){
+      this.searchResult = []
+      return
+    }
+    this.timeout = setTimeout(async() => {
+      this.searchResult = await this.service.searchProducts(this.searchInput).toPromise()
+    }, 800);
+  }
+
+  modalDetalhar(produto: any){
+    this.searchInput = ''
+    this.searchResult = []
+    let params = this.innerWidth > 1000 ?
+    {
+      width: '85%',
+      height: '70%',
+      panelClass: 'detalheDialog',
+      data: {produto: produto, innerWidth: this.innerWidth}
+    }
+    : {
+          maxWidth: '100vw',
+          maxHeight: '100vh',
+          height: '100%',
+          width: '100%',
+          panelClass: 'detalheDialog',
+          data: {produto: produto, innerWidth: this.innerWidth}
+        }
+    this.dialog.open(DetalhesProdutoComponent, params);
   }
 
   modalTrocas(){
