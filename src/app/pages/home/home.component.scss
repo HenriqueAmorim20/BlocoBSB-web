@@ -44,7 +44,7 @@
   -moz-border-radius: 40%;
   -ms-border-radius: 40%;
   -o-border-radius: 40%;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .bounce {
@@ -219,7 +219,9 @@
 }
 
 .imagemDestaque {
-  width: 55%;
+  width: 60%;
+  max-height: 500px;
+  object-fit: cover;
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.616);
   margin: 1%;
 }

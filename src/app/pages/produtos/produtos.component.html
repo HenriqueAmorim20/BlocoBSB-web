@@ -3,7 +3,7 @@
     <div class="produtos">
         <div *ngIf="isAdmin" class="flex" style="width: 100%; margin: 20px;">
             <span class="spacer"></span>
-            <button mat-raised-button class="btn-add-produto"><mat-icon>add</mat-icon> Novo produto</button>
+            <button mat-raised-button class="btn-add-produto" (click)="adicionaProduto()"><mat-icon>add</mat-icon> Novo produto</button>
         </div>
         <div class="header">
             <h1 class="headerTitle">PRODUTOS</h1>
@@ -11,7 +11,8 @@
         <div class="topImages">
             <div *ngFor="let produto of produtos" class="topImage">
                 <app-produto-card [innerWidth]="innerWidth" [produto]="produto"></app-produto-card>
-                <button *ngIf="isAdmin" mat-raised-button class="btn-remove-produto"><mat-icon>delete</mat-icon></button>
+                <button *ngIf="isAdmin" mat-raised-button class="btn-remove-produto" (click)="modalConfirmacao(true, produto._id)"><mat-icon>delete</mat-icon></button>
+                <button *ngIf="isAdmin" mat-raised-button class="btn-destaca-produto" (click)="modalConfirmacao(false, produto._id)"><mat-icon>star</mat-icon></button>
             </div>
         </div>
     </div>

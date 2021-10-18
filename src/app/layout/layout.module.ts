@@ -5,6 +5,7 @@ import { MaterialModule } from '../material.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { BrowserModule } from '@angular/platform-browser';
     NavbarComponent,
     FooterComponent
   ],
-  imports: [MaterialModule, RouterModule, CommonModule, BrowserModule],
+  imports: [MaterialModule, RouterModule, CommonModule, BrowserModule, FormsModule, ReactiveFormsModule],
   exports: [
     NavbarComponent,
     FooterComponent

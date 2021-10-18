@@ -32,14 +32,20 @@ export class HomeComponent implements OnInit {
       this.isAdmin = res.isAdmin
     });
     this.imagesSlide = this.service.getSlideHome()
-    this.produtosNovidades = this.service.getNovidades()
-    this.produtoDestaque = this.service.getDestaque()
     this.startSlideShow()
+    this.load()
     this.innerWidth = window.innerWidth
     const image = document.getElementById("image") as HTMLElement
     if(this.innerWidth < 1001){
       image.style.width = "135%"
     }
+  }
+
+  async load() {
+    this.produtosNovidades = await this.service.getNovidades().toPromise()
+    this.produtosNovidades = this.produtosNovidades.slice(-3)
+    this.produtoDestaque = await this.service.findProdutoByDestaque().toPromise()
+    this.produtoDestaque = this.produtoDestaque[0]
   }
 
   skipImage() {
@@ -65,7 +71,7 @@ export class HomeComponent implements OnInit {
 
   goToId(id: string){
     const el = document.getElementById(id) as HTMLElement
-    const y = el.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 90 : 60);
+    const y = el?.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 90 : 60);
     window.scrollTo({top: y, behavior: 'smooth'});
   }
 

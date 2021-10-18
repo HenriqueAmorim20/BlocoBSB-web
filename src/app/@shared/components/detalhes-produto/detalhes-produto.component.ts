@@ -28,12 +28,12 @@ export class DetalhesProdutoComponent implements OnInit {
   }
 
   skipImagem(){
-    if(this.produto.imagens.length - 1 === this.indexImagem) this.indexImagem = 0
+    if(this.produto.urlImagens.length - 1 === this.indexImagem) this.indexImagem = 0
     else this.indexImagem = 1 + this.indexImagem
   }
 
   backImagem(){
-    if(0 === this.indexImagem) this.indexImagem = this.produto.imagens.length - 1
+    if(0 === this.indexImagem) this.indexImagem = this.produto.urlImagens.length - 1
     else this.indexImagem = this.indexImagem - 1
   }
 }

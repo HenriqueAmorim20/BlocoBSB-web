@@ -67,7 +67,7 @@ export class NavbarComponent implements OnInit {
 
   scrollToId(id: string){
     const el = document.getElementById(id) as HTMLElement
-    const y = el.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 90 : 60);
+    const y = el?.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 90 : 60);
     window.scrollTo({top: y, behavior: 'smooth'});
   }
 

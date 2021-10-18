@@ -1,0 +1,73 @@
+<div class="header">
+    <h2>Adicionar produto</h2>
+    <span style="flex: 1 1 auto;"></span>
+    <span class="close" aria-label="Close" (click)="dialogRef.close()">
+        <span aria-hidden="true">&times;</span>
+    </span>
+</div>
+
+<form class="form" [formGroup]="produtoForm" (ngSubmit)="adicionarProduto()">
+    <span class="spacer"></span>
+    <div class="flex" style="width: 100%;display: flex; flex-wrap: wrap;">
+        <div class="campo">
+            <span>Nome *</span>
+            <mat-form-field class="inputForm">
+            <input matInput formControlName="nome" placeholder="Foguete Preta" required>
+            </mat-form-field>
+        </div>
+        <div class="campo">
+            <span>Preço *</span>
+            <mat-form-field class="inputForm">
+            <input matInput formControlName="preco" placeholder="75,90" required>
+            </mat-form-field>
+        </div>
+        <div class="campo">
+            <span>Tipo * </span>
+            <mat-form-field class="inputForm">
+                <mat-label>Selecione o tipo</mat-label>
+                <mat-select formControlName="tipo">
+                    <mat-option [value]="adulto">
+                        Adulto
+                    </mat-option>
+                    <mat-option [value]="infantil">
+                        Infantil
+                    </mat-option>
+                  </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="campo">
+        <span>Descrição *</span>
+        <mat-form-field class="inputForm">
+        <textarea matInput formControlName="descricao" rows="5" placeholder="Esse modelo foi inspirado no grandioso foguete de brasília, lugar que todo brasiliense conhece e remete a sua infância." required></textarea>
+        </mat-form-field>
+    </div>
+    <div class="campo">
+        <span>Url Miniatura * </span>
+        <mat-form-field class="inputForm">
+        <input matInput formControlName="urlMiniatura" placeholder="https://i.ibb.co/dcg5Nd3/ana.jpg" required>
+        </mat-form-field>
+    </div>
+    <div class="campo">
+        <span>Urls Imagens * </span>
+        <mat-chip-list #chipList aria-label="Urls">
+            <mat-chip *ngFor="let value of  produtoForm.value.urlImagens" [selectable]="selectable"
+                     [removable]="removable" (removed)="remove(value)">
+              {{value}}
+              <button matChipRemove *ngIf="removable">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input placeholder="Nova Url..."
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+    </div>
+    <div class="flex">
+        <span class="spacer"></span>
+        <button mat-raised-button class="btn nao" (click)="dialogRef.close()">Cancelar</button>
+        <button mat-raised-button class="btn sim" type="submit">Adicionar</button>
+    </div>
+</form>

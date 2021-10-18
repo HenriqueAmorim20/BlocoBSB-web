@@ -1,0 +1,41 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.texto {
+    margin-top: 5%;
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+.btn {
+    margin: 0 1%;
+    padding: 0 10%;
+}
+
+.sim {
+    background-color: #249bc5;
+}
+
+.sim:hover {
+    background-color: #37809b;
+}
+
+.nao {
+    background-color: #e24d4d;
+}
+
+.nao:hover {
+    background-color: #b45454;
+}
