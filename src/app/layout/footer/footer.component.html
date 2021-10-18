@@ -55,10 +55,10 @@
     </div>
     <div class="underDiv">
         <h2>Fique por dentro das novidades!</h2>
-        <div>
-            <input type="text" name="" id="" placeholder="Digite seu email aqui!">
-            <button class="btnParticipar">PARTICIPAR!</button>
-        </div>
+        <form class="form" [formGroup]="newsletterForm">
+            <input type="text" placeholder="Digite seu email aqui!" formControlName="email">
+            <button class="btnParticipar" (click)="addNewsletter()">PARTICIPAR!</button>
+        </form>
     </div>
     <div class="copyright">
         <span class="spacer"></span>
