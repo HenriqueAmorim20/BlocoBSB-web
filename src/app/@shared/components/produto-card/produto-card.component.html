@@ -1,6 +1,6 @@
 <div class="card" (mouseenter)="hideActions = false" (mouseleave)="hideActions = true">
     <h3 *ngIf="hideActions" class="cardTitle">{{produto.nome}}</h3>
-    <img class="image" src="../../../assets/produtos/miniaturas/{{produto.urlMiniatura}}" alt="">
+    <img class="image" src="{{produto.urlMiniatura}}" alt="">
     <div class="actions" [ngClass]="{show: !hideActions}">
         <h3>{{produto.nome}}</h3>
         <h4>{{produto.tipo}}</h4>

@@ -36,13 +36,20 @@ export class AppService {
     return this.httpClient.get(`/produto`).pipe(catchError((err) => of(err.error.message)));
   }
 
+  addSlideHome(payload: any) {
+    return this.httpClient.post('/slide', payload).pipe(catchError((err) => of(err.error.message)));
+  }
+
+  deleteSlideHome(id: any) {
+    return this.httpClient.delete(`/slide/${id}`).pipe(catchError((err) => of(err.error.message)));
+  }
+
   getSlideHome(){
-    return ["1.png", "2.png", "3.png", "4.png"]
+    return this.httpClient.get(`/slide`).pipe(catchError((err) => of(err.error.message)));
   }
 
   getNovidades(){
     return this.httpClient.get(`/produto`).pipe(catchError((err) => of(err.error.message)));
-
   }
 
   getImagemSobre(){

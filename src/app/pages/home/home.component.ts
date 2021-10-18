@@ -1,7 +1,10 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Select } from '@ngxs/store';
+import { NotificationsService } from 'angular2-notifications';
 import { DetalhesProdutoComponent } from 'src/app/@shared/components/detalhes-produto/detalhes-produto.component';
+import { ModalAdicionaSlideComponent } from 'src/app/@shared/components/modal-adiciona-slide/modal-adiciona-slide.component';
+import { ModalConfirmacaoComponent } from 'src/app/@shared/components/modal-confirmacao/modal-confirmacao.component';
 import { AppService } from 'src/app/services/app.service';
 
 @Component({
@@ -25,14 +28,12 @@ export class HomeComponent implements OnInit {
   this.innerWidth = event.target.innerWidth;
   }
 
-  constructor(private service: AppService, private dialog: MatDialog) { }
+  constructor(private service: AppService, private dialog: MatDialog, private notification: NotificationsService) { }
 
   ngOnInit(): void {
     this.stateLogin.subscribe(async (res: any) => {
       this.isAdmin = res.isAdmin
     });
-    this.imagesSlide = this.service.getSlideHome()
-    this.startSlideShow()
     this.load()
     this.innerWidth = window.innerWidth
     const image = document.getElementById("image") as HTMLElement
@@ -42,10 +43,34 @@ export class HomeComponent implements OnInit {
   }
 
   async load() {
+    this.imagesSlide = await this.service.getSlideHome().toPromise()
+    this.startSlideShow()
     this.produtosNovidades = await this.service.getNovidades().toPromise()
     this.produtosNovidades = this.produtosNovidades.slice(-3)
     this.produtoDestaque = await this.service.findProdutoByDestaque().toPromise()
     this.produtoDestaque = this.produtoDestaque[0]
+  }
+
+  adicionarSlide() {
+    this.dialog.open(ModalAdicionaSlideComponent, {panelClass: 'customDialog'})
+  }
+
+  deletaSlide(id: any) {
+    let texto = 'Deseja realmente excluir essa imagem do slide?'
+    this.dialog.open(ModalConfirmacaoComponent, {data: texto, width: 'fit-content', panelClass: 'customDialog'}).afterClosed().subscribe(async (res)=> {
+      if(res){
+        try {
+          const result = await this.service.deleteSlideHome(id).toPromise()
+          window.location.reload()
+        } catch (error) {
+          this.notification.error("Erro!", "Não foi possível deletar slide.", {
+            timeOut: 5000,
+            showProgressBar: true,
+            pauseOnHover: true,
+          })
+        }
+      }
+    })
   }
 
   skipImage() {

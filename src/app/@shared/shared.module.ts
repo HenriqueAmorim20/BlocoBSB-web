@@ -9,6 +9,7 @@ import { ProdutoCardComponent } from './components/produto-card/produto-card.com
 import { DetalhesProdutoComponent } from './components/detalhes-produto/detalhes-produto.component';
 import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
 import { ModalAdicionaProdutoComponent } from './components/modal-adiciona-produto/modal-adiciona-produto.component';
+import { ModalAdicionaSlideComponent } from './components/modal-adiciona-slide/modal-adiciona-slide.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ModalAdicionaProdutoComponent } from './components/modal-adiciona-produ
     ProdutoCardComponent,
     DetalhesProdutoComponent,
     ModalConfirmacaoComponent,
-    ModalAdicionaProdutoComponent
+    ModalAdicionaProdutoComponent,
+    ModalAdicionaSlideComponent
   ],
   exports: [ProdutoCardComponent, DetalhesProdutoComponent],
   entryComponents: [],

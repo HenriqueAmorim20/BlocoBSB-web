@@ -243,6 +243,7 @@
   font-family: 'Courier New', Courier, monospace;
   padding: 5px 10px;
   background-color: rgb(0, 0, 0);
+  text-align: center;
   margin-left: 0;
   color:#fff;
   width: fit-content;
@@ -272,4 +273,38 @@
 
 .infoDestaque button:hover {
   background: #249bc5;
+}
+
+.actionsAdminSlide {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.adicionar-slide {
+  margin: 2%;
+  background-color: #249bc5;
+}
+
+.adicionar-slide:hover {
+  background-color: #37809b;
+}
+
+
+.deleta-slide {
+  margin: 2%;
+  background-color: #e24d4d;
+}
+
+.deleta-slide:hover {
+  background-color: #b45454;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 2% 0;
 }

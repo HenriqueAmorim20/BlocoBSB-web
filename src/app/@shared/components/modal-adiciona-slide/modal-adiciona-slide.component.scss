@@ -1,0 +1,59 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+}
+
+.btn {
+    margin: 20px 1%;
+    padding: 0 10%;
+}
+
+.sim {
+    background-color: #249bc5;
+}
+
+.sim:hover {
+    background-color: #37809b;
+}
+
+.nao {
+    background-color: #e24d4d;
+}
+
+.nao:hover {
+    background-color: #b45454;
+}
+
+.form {
+    margin-top: 20px;
+    display: flex;
+    color: #fff;
+    flex-direction: column;
+    padding: 0px 1%;
+}
+
+.campo {
+    background-color: rgba(0, 0, 0, 0.746);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 1% 1%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
