@@ -35,7 +35,7 @@
     <mat-toolbar class="navbar" [ngClass]="{'dark fixed': scroll >60}">
         <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" src="../../../assets/logo/logo.jpeg" alt="">
         <div class="lineTransition">
-            <div  [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem" [ngClass]="{selected: currentPage === 'produtos'}">
+            <div  [routerLink]="['/produtos']" routerLinkActive="router-link-active" class="menuItem">
                 <div class="produtos"></div>
                 <span>Produtos</span>
             </div>
@@ -48,7 +48,7 @@
         </div>
         <span class="spacer"></span>
         <div class="lineTransition">
-            <div  class="menuItem" [ngClass]="{selected: currentPage === 'sobre'}" style="display: flex; flex-direction: column; position: relative;">
+            <div  class="menuItem" style="display: flex; flex-direction: column; position: relative;">
                 <div (mouseenter)="hideMenu = false" (mouseleave)="hideMenu = true" class="flex" [routerLink]="['/sobre']"  routerLinkActive="router-link-active">
                     <div class="sobre"></div>
                     <span>Sobre</span>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="lineTransition">
-            <div class="menuItem" [ngClass]="{selected: currentPage === 'contato'}" [routerLink]="['/contato']" routerLinkActive="router-link-active">
+            <div class="menuItem" [routerLink]="['/contato']" routerLinkActive="router-link-active">
                 <div class="contato"></div>
                 <span>Contato</span>
             </div>
@@ -71,9 +71,9 @@
         <span class="divider"></span>
         <div class="lineTransition">
             <div [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem">
-                <div *ngIf="!logado" class="entrar"></div>
-                <mat-icon *ngIf="logado" style="margin-right: 7px;">account_circle</mat-icon>
-                <span>{{logado ? 'Conta' : 'Entrar'}}</span>
+                <div *ngIf="!userState.email" class="entrar"></div>
+                <mat-icon *ngIf="userState.email" style="margin-right: 7px;">account_circle</mat-icon>
+                <span>{{userState.email ? 'Conta' : 'Entrar'}}</span>
             </div>
         </div>
     </mat-toolbar>
@@ -140,9 +140,9 @@
         </div>
         <span class="spacer"></span>
         <div  (click)="toggleSidemenu();" [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem sideItem" style="margin-bottom: 30%;">
-            <div *ngIf="!logado" class="entrar"></div>
-            <mat-icon *ngIf="logado" style="margin-right: 7px;">account_circle</mat-icon>
-            <span>{{logado ? 'Conta' : 'Entrar'}}</span>
+            <div *ngIf="!userState.email" class="entrar"></div>
+            <mat-icon *ngIf="userState.email" style="margin-right: 7px;">account_circle</mat-icon>
+            <span>{{userState.email ? 'Conta' : 'Entrar'}}</span>
         </div>
     </div>
 </div>

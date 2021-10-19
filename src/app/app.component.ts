@@ -1,4 +1,6 @@
 import { Component, HostListener } from '@angular/core';
+import { Select } from '@ngxs/store';
+import { CredentialsService } from './services/credentials.service';
 
 @Component({
   selector: 'app-root',
@@ -8,22 +10,20 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   title = 'front';
   innerWidth: any;
-  // images = [
-  //   "../assets/background/ana.png",
-  //   "../assets/background/museu.png",
-  //   "../assets/imagemSobre/sobre.jpg",
-  //   "../assets/slideHome/1.png",
-  //   "../assets/slideHome/2.png",
-  //   "../assets/slideHome/3.png",
-  //   "../assets/slideHome/4.png",
-  //   "../assets/tabela/tabela.png"];
+  userState: any
+  @Select((state: any) => state.login) stateLogin: any;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
   this.innerWidth = event.target.innerWidth;
   }
 
+  constructor(private credentialService: CredentialsService){}
+
   ngOnInit(): void {
+    this.stateLogin.subscribe((res: any) => {
+      this.userState = res
+    })
     this.innerWidth = window.innerWidth;
   }
 }

@@ -66,4 +66,8 @@ export class AppService {
   addNewsletter(payload: any){
     return this.httpClient.post('/newsletter', payload).pipe(catchError((err) => of(err.error.message)));
   }
+  
+  getNewsletter(){
+    return this.httpClient.get(`/newsletter`).pipe(catchError((err) => of(err.error.message)));
+  }
 }

@@ -17,6 +17,7 @@ import { CredentialsService } from 'src/app/services/credentials.service';
 export class NavbarComponent implements OnInit {
 
   @Input() innerWidth: any;
+  @Input() userState: any;
   scroll: number = 0;
   hideMenu: boolean = true;
   hideSidemenu: boolean = true;
@@ -26,7 +27,6 @@ export class NavbarComponent implements OnInit {
   searchResult: any = [];
   searchInput: string = '';
   timeout: any;
-  @Select((state: any) => state.login) stateLogin: any;
 
   constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private service: AppService) { }
 
@@ -35,14 +35,7 @@ export class NavbarComponent implements OnInit {
     this.scroll = e.target['scrollingElement'].scrollTop;
   }
 
-  ngOnInit(): void {
-    this.stateLogin.subscribe(async (res: any) => {
-      this.logado = res.email? true : false
-    });
-    this.router.events.subscribe(res => {
-      this.currentPage = this.router.url.toString().replace("/", "")
-    });
-  }
+  ngOnInit(): void {}
 
   searchProduct(event?: any){
     clearTimeout(this.timeout)

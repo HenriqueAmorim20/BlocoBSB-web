@@ -26,7 +26,11 @@ export class ContaComponent implements OnInit {
 
   logout() {
     this.credentialService.setCredentials()
-    this.router.navigate(['/home']).then(()=>{ this.notification.success('Sucesso!', 'Você foi deslogado.')})
+    this.router.navigate(['/home']).then(()=>{ this.notification.success('Sucesso!', 'Você foi deslogado.', {
+      timeOut: 5000,
+      showProgressBar: true,
+      pauseOnHover: true,
+    })})
   }
 
 }

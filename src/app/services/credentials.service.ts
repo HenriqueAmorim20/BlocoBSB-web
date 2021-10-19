@@ -42,6 +42,8 @@ export class CredentialsService {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
       this.store.dispatch(new Logout()).subscribe();
+      this.store.dispatch(new IsAdmin(null)).subscribe();
+
     }
   }
 }
