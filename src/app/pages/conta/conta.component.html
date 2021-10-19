@@ -1,3 +1,18 @@
-<p>conta works!</p>
-
-<button (click)="logout()">logout</button>
+<div class="main">
+    <div class="content">
+        <div class="header">
+            <h3>Olá, {{nome}}</h3>
+            <span class="spacer"></span>
+            <div class="lineTransition" (click)="logout()">
+                <div class="logout">
+                    <div class="sair"></div> 
+                    Sair
+                </div>
+            </div>
+        </div>
+        <div class="TODO">
+            <h3>Email autenticado: {{email}}</h3>
+            <span>Em breve você poderá vizualizar e gerenciar seus pedidos por aqui :)</span>
+        </div>
+    </div>
+</div>
