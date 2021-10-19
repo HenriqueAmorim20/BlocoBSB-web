@@ -60,35 +60,18 @@ h4 {
 
 .btn-detalhes {
     position: absolute;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: lighter;
     box-shadow: none;
     background-color: transparent;
-    height: fit-content;
-    width: 80%;
     border: 1px solid white;
+    color: white;
     bottom: 10%;
-    padding: 0;
-    margin: 0;
+    padding: 10px 50px;
     font-family: 'Courier New', Courier, monospace;
-    transition: 0.5s all ease;
-    -webkit-transition: 0.5s all ease;
-    -moz-transition: 0.5s all ease;
-    -ms-transition: 0.5s all ease;
-    -o-transition: 0.5s all ease;
 }
 
 .btn-detalhes:hover {
-    transition: 0.5s all ease;
-    transform: scale(1.1, 1);
     border: 1px solid #28addd;
     color: #28addd;
-    -webkit-transform: scale(1.1, 1);
-    -moz-transform: scale(1.1, 1);
-    -ms-transform: scale(1.1, 1);
-    -o-transform: scale(1.1, 1);
-    -webkit-transition: 0.5s all ease;
-    -moz-transition: 0.5s all ease;
-    -ms-transition: 0.5s all ease;
-    -o-transition: 0.5s all ease;
 }
