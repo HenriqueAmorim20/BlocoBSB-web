@@ -8,7 +8,7 @@
 <div class="main" [ngClass]="{column: innerWidth < 1000}">
     <div class="imagem" [ngClass]="{imageMobile: innerWidth < 1000}">
         <button *ngIf="produto.urlImagens.length > 1" class="ImageBtn back" (click)="backImagem()"><mat-icon>keyboard_arrow_left</mat-icon></button>
-        <img src='{{produto.urlImagens[indexImagem]}}' style="width: 100%;"  alt="">
+        <img src='{{produto.urlImagens[indexImagem]}}'  alt="">
         <button *ngIf="produto.urlImagens.length > 1" class="ImageBtn skip" (click)="skipImagem()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
     <div class="info" [ngClass]="{infoMobile: innerWidth < 1000}">

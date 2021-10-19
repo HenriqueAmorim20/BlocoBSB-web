@@ -10,10 +10,11 @@ import { DetalhesProdutoComponent } from './components/detalhes-produto/detalhes
 import { ModalConfirmacaoComponent } from './components/modal-confirmacao/modal-confirmacao.component';
 import { ModalAdicionaProdutoComponent } from './components/modal-adiciona-produto/modal-adiciona-produto.component';
 import { ModalAdicionaSlideComponent } from './components/modal-adiciona-slide/modal-adiciona-slide.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 
 @NgModule({
-  imports: [MaterialModule, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [MaterialModule, CommonModule, FormsModule, ReactiveFormsModule, SimpleNotificationsModule.forRoot()],
   declarations: [
     ModalConfirmacaoComponent,
     ModalTrocasComponent,

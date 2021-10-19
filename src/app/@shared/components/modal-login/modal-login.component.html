@@ -1,5 +1,5 @@
 <div class="header">
-    <span style="flex: 1 1 auto;"></span>
+    <span class="spacer"></span>
     <span class="close" aria-label="Close" (click)="dialogRef.close()">
         <span aria-hidden="true">&times;</span>
     </span>
@@ -7,7 +7,7 @@
 <div class="content" *ngIf="view === views[0]">
     <h1>Registre-se</h1>
     <div class="flex">
-        <h4>Já é um membro?</h4>
+        <h4 style="margin: 0 10px;">Já é um membro?</h4>
         <span class="login" (click)="view = views[1]">Faça Login aqui!</span>
     </div>
     <div class="divBaixo">
@@ -44,7 +44,7 @@
 <div class="content" *ngIf="view === views[1]">
     <h1>Entrar</h1>
     <div class="flex">
-        <h4>Não é um membro?</h4>
+        <h4 style="margin: 0 10px;">Não é um membro?</h4>
         <span class="login" (click)="view = views[0]">Registre-se aqui!</span>
     </div>
     <div class="divBaixo">
@@ -71,4 +71,5 @@
     </div>
 </div>
 
+<simple-notifications></simple-notifications>
 

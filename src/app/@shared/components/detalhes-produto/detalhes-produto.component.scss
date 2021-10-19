@@ -23,10 +23,12 @@
     align-items: center;
     position: relative;
     width: 60%;
-    max-height: 100%;
-    overflow: hidden;
+    height: 100%;
     border: 1px solid black;
-    // margin: 1%;
+}
+
+.imagem img {
+    width: 100%; object-fit: cover; height: 100%;
 }
 
 .info {

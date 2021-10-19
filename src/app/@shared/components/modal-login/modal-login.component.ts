@@ -60,7 +60,7 @@ export class ModalLoginComponent implements OnInit {
           pauseOnHover: true,
         })
     } catch (error) {
-      this.notification.error('Erro!', 'Email ou senha inválidos.', {
+      this.notification.error('Erro!', 'Email ou senha incorretos.', {
         timeOut: 5000,
         showProgressBar: true,
         pauseOnHover: true,
@@ -70,14 +70,57 @@ export class ModalLoginComponent implements OnInit {
   }
 
   async register() {
-    if(!this.registerForm.valid) return
+    if(!this.registerForm.valid){
+      this.notification.info('Atenção!', 'Campos inválidos.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+
+    if(this.registerForm.value.senha.length < 6) {
+      this.notification.info('Atenção!', 'Sua senha deve conter no mínimo 6 caracteres.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+
+    if(this.registerForm.value.senha !==  this.registerForm.value.confirmarSenha) {
+      this.notification.info('Atenção!', 'Suas senhas não coincidem.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+
+    const user = await this.loginService.getUserByEmail(this.registerForm.value.email).toPromise()
+    if(user[0]?.email) {
+      this.notification.info('Atenção!', 'Email já cadastrado no sistema.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
     try {
-      const cadastro = await this.loginService.fazerCadastro(this.registerForm.value.email, this.registerForm.value.senha, this.registerForm.value.nome).toPromise()
-      if(cadastro.user) {
-        const login = await this.loginService.fazerLogin(this.registerForm.value.email, this.registerForm.value.senha).toPromise()
-        if(login.token) this.auth(login)
-      }
+      await this.loginService.fazerCadastro(this.registerForm.value.email, this.registerForm.value.senha, this.registerForm.value.nome).toPromise()
+      const login = await this.loginService.fazerLogin(this.registerForm.value.email, this.registerForm.value.senha).toPromise()
+      this.auth(login)
+      this.notification.success('Sucesso!', `Cadastro Efetuado! Seja bem-vindo(a) ${login.user.email}.`, {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
     } catch (error) {
+      this.notification.error('Erro!', 'Não foi possível efetuar cadastro.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
       console.log(error)
     }
   }
