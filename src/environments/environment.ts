@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   serverUrl: 'http://localhost:4044/api',
-  admin: 'admin@gmail.com'
+  admin: 'blocobsb@gmail.com'
 };
 
 /*
