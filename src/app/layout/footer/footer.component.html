@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="upperDiv">
         <div [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo">
-            <img class="imagemLogo" src="../../../assets/logo/logo.jpeg" alt="">
+            <img class="imagemLogo" src="../../../assets/logo/logowhite.png" alt="">
         </div>
         <!-- <span class="spacer"></span> -->
         <div class="section">
@@ -40,22 +40,22 @@
             </div>
         </div>
         <div class="socialMedia">
-            <a href="https://web.whatsapp.com/" target="_blank" class="socialMediaIcon">
+            <a href="https://wa.me/5561981889864?text={{getMensagem()}}" target="_blank" class="socialMediaIcon">
                 <span class="wpp"></span>
             </a>
             <a href="https://www.instagram.com/bloco.bsb/" target="_blank" class="socialMediaIcon">
                 <span class="insta"></span>
             </a>
-            <a href="https://www.google.com.br/" style="color: white;" target="_blank" class="socialMediaIcon">
+            <!-- <a href="https://www.google.com.br/" style="color: white;" target="_blank" class="socialMediaIcon">
                 <mat-icon class="email">email</mat-icon>
-            </a>
+            </a> -->
         </div>
     </div>
     <div class="underDiv">
         <h2>Fique por dentro das novidades!</h2>
         <button *ngIf="userState.isAdmin" mat-raised-button class="btn-download" (click)="downloadNewsletter()"><mat-icon>download</mat-icon>Lista</button>
         <form class="form" [formGroup]="newsletterForm">
-            <input type="text" placeholder="Digite seu email aqui!" formControlName="email">
+            <input type="text" placeholder="Digite seu email aqui!" formControlName="email" [value]="newsletterForm.value.email">
             <button class="btnParticipar" (click)="addNewsletter()">PARTICIPAR!</button>
         </form>
     </div>

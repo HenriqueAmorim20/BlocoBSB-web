@@ -6,6 +6,7 @@ import { NotificationsService } from 'angular2-notifications';
 import { ModalTabelaTamanhosComponent } from 'src/app/@shared/components/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
 import { ModalTrocasComponent } from 'src/app/@shared/components/modal-trocas/modal-trocas.component';
 import { AppService } from 'src/app/services/app.service';
+import { CredentialsService } from 'src/app/services/credentials.service';
 
 @Component({
   selector: 'app-footer',
@@ -22,11 +23,19 @@ export class FooterComponent implements OnInit {
     email: new FormControl('', [Validators.email, Validators.required ])
   });
 
-  constructor(public dialog: MatDialog, private notification: NotificationsService, private service: AppService) { }
+  constructor(public dialog: MatDialog, private credentialService: CredentialsService, private notification: NotificationsService, private service: AppService) { }
 
   ngOnInit(): void {
     const currentdate = new Date();
     this.data = currentdate.getFullYear();
+  }
+
+  getMensagem(){
+    if(this.userState.email){
+      let info = this.credentialService.credentials
+      return `Olá, me chamo ${info?.nome}, tudo bem? Gostaria de tirar umas dúvidas com vocês :)`
+    }
+    return 'Olá, tudo bem? Gostaria de tirar umas dúvidas com vocês :)'
   }
 
   async addNewsletter(){
@@ -45,6 +54,8 @@ export class FooterComponent implements OnInit {
         showProgressBar: true,
         pauseOnHover: true,
       })
+      this.newsletterForm.value.email = null
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       this.notification.error('Erro!', 'Não foi possível te cadastrar na newsletter, email existente.', {
         timeOut: 5000,

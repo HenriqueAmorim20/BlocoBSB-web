@@ -1,3 +1,5 @@
+
+
 .topo {
     height: 60px;
     display: flex;
@@ -11,7 +13,8 @@
     font-size: 20px;
     z-index: 4;
     padding-right: 3%;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
+    text-transform: uppercase;
     background-color: transparent;
     color: white;
     height: 90px;
@@ -33,7 +36,8 @@
 }
 
 .logo {
-    width: 150px;
+    border: 1px solid black;
+    width: 140px;
     cursor: pointer;
     margin-right: 20px;
 }
@@ -112,7 +116,7 @@
 
 .conta {
     padding-left: 0;
-    right: -50px;
+    right: 0%;
 }
 
 .show{
@@ -229,7 +233,7 @@
 }
 
 .searchResult h3 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
 }
 
 .imgResult {
@@ -283,16 +287,15 @@
 
 .sideMenu {
     position: fixed;
-    right: 0px;
+    right: -400px;
     display: flex;
-    opacity: 0;
-    z-index: -1;
+    z-index: 3;
     color: white;
     flex-direction: column;
     height: calc(100vh - 80px);
     padding: 20px;
     width: 90%;
-    max-width: 400px;
+    max-width: 350px;
     background-color: black;
     transition: 0.7s all ease;
     -webkit-transition: 0.7s all ease;
@@ -302,8 +305,7 @@
 }
 
 .showSidemenu {
-    opacity: 1;
-    z-index: 10;
+    right: 0px;
     transition: 0.7s all ease;
     -webkit-transition: 0.7s all ease;
     -moz-transition: 0.7s all ease;
@@ -312,14 +314,14 @@
 }
 
 .sideItem {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
     font-size: 25px;
     margin: 20px 0px;
     width: 100%;
 }
 
 .sideSubItem {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
     font-size: 18px;
     margin: 5px 0px;
 }

@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,14 +30,32 @@ export class NavbarComponent implements OnInit {
   searchInput: string = '';
   timeout: any;
 
-  constructor(public dialog: MatDialog, private notification: NotificationsService, private credentialService: CredentialsService, private route: ActivatedRoute, private router: Router, private service: AppService) { }
+  constructor(private eRef: ElementRef, public dialog: MatDialog, private notification: NotificationsService, private credentialService: CredentialsService, private route: ActivatedRoute, private router: Router, private service: AppService) { }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
     this.scroll = e.target['scrollingElement'].scrollTop;
   }
 
+  @HostListener('document:click', ['$event'])
+  clickout(event: any) {
+    if(this.eRef.nativeElement.contains(event.target)) {
+    } else {
+      this.searchResult = []
+      this.searchInput = ''
+      this.hideSidemenu = true
+    }
+  }
+
   ngOnInit(): void {}
+
+  getMensagem(){
+    if(this.userState.email){
+      let info = this.credentialService.credentials
+      return `Olá, me chamo ${info?.nome}, tudo bem? Gostaria de tirar umas dúvidas com vocês :)`
+    }
+    return 'Olá, tudo bem? Gostaria de tirar umas dúvidas com vocês :)'
+  }
 
   searchProduct(event?: any){
     clearTimeout(this.timeout)
