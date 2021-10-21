@@ -9,6 +9,9 @@ import { LoginService } from '../../../services/login.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationsService } from 'angular2-notifications';
 import { Select } from '@ngxs/store';
+import { SocialAuthService } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
+
 
 
 @Component({
@@ -38,7 +41,7 @@ export class ModalLoginComponent implements OnInit {
   isLoading: boolean = false;
   token: any;
 
-  constructor(public dialogRef: MatDialogRef<ModalLoginComponent>, private router: Router, private authenticationService: AuthService, private loginService: LoginService, private notification: NotificationsService) { }
+  constructor(public dialogRef: MatDialogRef<ModalLoginComponent>, private router: Router, private authenticationService: AuthService, private loginService: LoginService, private notification: NotificationsService, private authService: SocialAuthService) { }
 
   ngOnInit(): void {
     this.stateLogin.subscribe((res: any) => {
@@ -47,6 +50,39 @@ export class ModalLoginComponent implements OnInit {
   }
 
   ngOnDestroy() {}
+
+  async signInWithGoogle() {
+    try {
+      const userGoogle = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+      let credentials = {
+        user: {
+          nome: userGoogle.name,
+          email: userGoogle.email
+        },
+        token: userGoogle.authToken
+      }
+
+      const user = await this.loginService.getUserByEmail(userGoogle.email).toPromise()
+      if(!user[0]) await this.loginService.fazerCadastroGoogle(credentials.user).toPromise()
+
+      this.auth(credentials)
+      this.notification.success('Sucesso!', `Seja bem-vindo(a) ${userGoogle.email}.`, {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+    } catch (error) {
+      this.notification.error('Erro!', 'Não foi possível entrar com o google.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+    }
+  }
+
+  signOut(): void {
+    this.authService.signOut();
+  }
 
   async register() {
     if(!this.registerForm.valid){
@@ -87,7 +123,7 @@ export class ModalLoginComponent implements OnInit {
     }
 
     try {
-      await this.loginService.fazerCadastro(this.registerForm.value.email, this.registerForm.value.senha, this.registerForm.value.nome).toPromise()
+      const result = await this.loginService.fazerCadastro(this.registerForm.value.email, this.registerForm.value.senha, this.registerForm.value.nome).toPromise()
       this.fazerLogin(this.registerForm.value.email, this.registerForm.value.senha)
     } catch (error) {
       this.notification.error('Erro!', 'Não foi possível efetuar cadastro.', {
@@ -130,29 +166,29 @@ export class ModalLoginComponent implements OnInit {
   }
 
   auth(cred: any){
-      const credential: Credentials = {
-        email: cred.user.email,
-        nome: cred.user.nome,
-        token: cred.token,
-      };
-      this.isLoading = true;
-      this.authenticationService
-      .login(credential)
-      .pipe(
-        finalize(() => {
-          this.isLoading = false;
-        }),
-        untilDestroyed(this)
-      )
-      .subscribe(
-        (credentials: any) => {
-          this.router.navigate(['home'])
-          this.dialogRef.close()
-        },
-        (error: any) => {
-          console.log(error)
-        }
-      );
+    const credential: Credentials = {
+      email: cred.user.email,
+      nome: cred.user.nome,
+      token: cred.token,
+    };
+    this.isLoading = true;
+    this.authenticationService
+    .login(credential)
+    .pipe(
+      finalize(() => {
+        this.isLoading = false;
+      }),
+      untilDestroyed(this)
+    )
+    .subscribe(
+      (credentials: any) => {
+        this.router.navigate(['home'])
+        this.dialogRef.close()
+      },
+      (error: any) => {
+        console.log(error)
+      }
+    );
   }
 
 }

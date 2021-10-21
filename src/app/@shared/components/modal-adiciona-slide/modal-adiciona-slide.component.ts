@@ -21,7 +21,6 @@ export class ModalAdicionaSlideComponent implements OnInit {
   }
 
   async adicionarSlide() {
-    console.log('aqui')
     if(!this.slideForm.valid) {
       this.notification.info("Atenção!", "Campo obrigatório inválido.", {
         timeOut: 5000,

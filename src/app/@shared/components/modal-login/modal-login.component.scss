@@ -94,7 +94,11 @@ h4 {
 }
 
 .btn-google {
-    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border: none;
     background-color: #28addd;
     color: white;
     font-size: 16px;
@@ -106,7 +110,16 @@ h4 {
     -ms-border-radius: 0px;
     -o-border-radius: 0px;
     width: 80%;
-    // padding: 1px 8% 1px 8%; 
+}
+
+.btn-google:hover {
+    background-color: #37809b;
+}
+
+.google {
+    margin-right: 7px;
+    background: url('https://api.iconify.design/flat-color-icons/google.svg') no-repeat center center / contain;
+    content: url('https://api.iconify.design/flat-color-icons/google.svg');
 }
 
 .form {

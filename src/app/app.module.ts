@@ -13,8 +13,8 @@ import { environment } from '../environments/environment';
 import { AuthStore } from './@state/login.store';
 import { CoreModule } from './@core';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-
-
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
 @NgModule({
   declarations: [
     AppComponent
@@ -25,6 +25,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     BrowserAnimationsModule,
     CoreModule,
     MaterialModule,
+    SocialLoginModule,
     PagesModule,
     LayoutModule,
     SharedModule,
@@ -34,7 +35,22 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
     }),
     SimpleNotificationsModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              environment.clientIdGoogle
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -29,10 +29,18 @@ export class LoginService {
     return this.httpClient.post('/user', {email: email, senha: senha, nome: nome}).pipe(catchError((err) => of(err.error.message)));
   }
 
+  fazerCadastroGoogle(payload: any) {
+    return this.httpClient.post('/user/google', payload).pipe(catchError((err) => of(err.error.message)));
+  }
+
   getUserByEmail(email: string){
     let params = new HttpParams();
     const filter = {email: email};
     params = params.append('filtros', JSON.stringify(filter));
     return this.httpClient.get(`/user`, { params }).pipe(catchError((err) => of(err.error.message)));
+  }
+
+  patchUser(id: any, updates: any) {
+    return this.httpClient.patch(`/user/${id}`, {updates: updates}).pipe(catchError((err) => of(err.error.message)));
   }
 }
