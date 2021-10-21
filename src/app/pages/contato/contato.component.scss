@@ -15,7 +15,7 @@
   width: 90%;
   max-width: 1300px;
   background-color: rgba(255, 255, 255, 0.335);
-  font-family: 'Courier New', Courier, monospace !important;
+  font-family: MyWebFont !important;
 }
 .header {
   display: flex;
@@ -30,7 +30,7 @@
 .header h1 {
   border-bottom: 1px solid white;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace !important;
+  font-family: MyWebFont !important;
 }
 
 .subtitle {
@@ -71,9 +71,9 @@
   display: flex;
   justify-content: center;
 }
-.btn-enviar {
+.btn {
   margin: 2%;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: MyWebFont;
   font-size: 18px;
   width: fit-content;
   background: #000000;
@@ -95,10 +95,7 @@
 .inputForm {
   margin-top: 5px;
   background-color: rgba(0, 0, 0, 0.205);
+  color: #fff;
   padding: 5px 20px 5px 20px;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+
 }

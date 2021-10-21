@@ -7,6 +7,11 @@ import { untilDestroyed } from '../../../@core/until-destroyed';
 import { Credentials } from '../../interfaces/credentials';
 import { LoginService } from '../../../services/login.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationsService } from 'angular2-notifications';
+import { Select } from '@ngxs/store';
+import { SocialAuthService } from "angularx-social-login";
+import { GoogleLoginProvider } from "angularx-social-login";
+
 
 
 @Component({
@@ -16,8 +21,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ModalLoginComponent implements OnInit {
 
-  views: Array<string> = ['registro-inicial', 'registro-email',  'login-inicial', 'login-email'];
-  view: string = 'login-inicial';
+  @Select((state: any) => state.login) stateLogin: any;
+
+  views: Array<string> = ['registro', 'login', 'esqueceu-senha'];
+  view: string = 'login';
 
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
@@ -26,7 +33,7 @@ export class ModalLoginComponent implements OnInit {
 
   registerForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
-    nome: new FormControl('', []),
+    nome: new FormControl('', [Validators.required]),
     senha: new FormControl('', [Validators.required]),
     confirmarSenha: new FormControl('', [Validators.required])
   });
@@ -34,66 +41,154 @@ export class ModalLoginComponent implements OnInit {
   isLoading: boolean = false;
   token: any;
 
-  constructor(public dialogRef: MatDialogRef<ModalLoginComponent>, private router: Router, private authenticationService: AuthService, private loginService: LoginService) { }
+  constructor(public dialogRef: MatDialogRef<ModalLoginComponent>, private router: Router, private authenticationService: AuthService, private loginService: LoginService, private notification: NotificationsService, private authService: SocialAuthService) { }
 
   ngOnInit(): void {
+    this.stateLogin.subscribe((res: any) => {
+      if(res.email) this.dialogRef.close()
+    })
   }
 
-  async login(){
-    if(!this.loginForm.valid) return
+  ngOnDestroy() {}
+
+  async signInWithGoogle() {
     try {
-      console.log(this.loginForm.value)
-      // const result = await this.loginService.fazerLogin(this.loginForm.value.email, this.loginForm.value.senha).toPromise()
-      // if(!result){
-      //   console.log('Email ou senha incorretos!')
-      //   return;
-      // }
-      // this.auth(result.token)
+      const userGoogle = await this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+      let credentials = {
+        user: {
+          nome: userGoogle.name,
+          email: userGoogle.email
+        },
+        token: userGoogle.authToken
+      }
+
+      const user = await this.loginService.getUserByEmail(userGoogle.email).toPromise()
+      if(!user[0]) await this.loginService.fazerCadastroGoogle(credentials.user).toPromise()
+
+      this.auth(credentials)
+      this.notification.success('Sucesso!', `Seja bem-vindo(a) ${userGoogle.email}.`, {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
     } catch (error) {
-      console.log(error)
+      this.notification.error('Erro!', 'Não foi possível entrar com o google.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
     }
+  }
+
+  signOut(): void {
+    this.authService.signOut();
   }
 
   async register() {
-    if(!this.registerForm.valid) return
+    if(!this.registerForm.valid){
+      this.notification.info('Atenção!', 'Campos inválidos.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+
+    if(this.registerForm.value.senha.length < 6) {
+      this.notification.info('Atenção!', 'Sua senha deve conter no mínimo 6 caracteres.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+
+    if(this.registerForm.value.senha !==  this.registerForm.value.confirmarSenha) {
+      this.notification.info('Atenção!', 'Suas senhas não coincidem.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+
+    const user = await this.loginService.getUserByEmail(this.registerForm.value.email).toPromise()
+    if(user[0]?.email) {
+      this.notification.info('Atenção!', 'Email já cadastrado no sistema.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+
     try {
-      console.log(this.registerForm.value)
-      // const result = await this.loginService.fazerCadastro(this.loginForm.value.email, this.loginForm.value.senha, this.loginForm.value.nome).toPromise()
-      // if(!result){
-      //   console.log('Email já cadastrado')
-      //   return;
-      // }
-      // this.auth(result.token)
+      const result = await this.loginService.fazerCadastro(this.registerForm.value.email, this.registerForm.value.senha, this.registerForm.value.nome).toPromise()
+      this.fazerLogin(this.registerForm.value.email, this.registerForm.value.senha)
     } catch (error) {
+      this.notification.error('Erro!', 'Não foi possível efetuar cadastro.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
       console.log(error)
     }
   }
 
-  // auth(token: any){
-  //     const credential: Credentials = {
-  //       email: this.loginForm.value.email,
-  //       token: token,
-  //     };
-  //     this.isLoading = true;
-  //     this.authenticationService
-  //     .login(credential)
-  //     .pipe(
-  //       finalize(() => {
-  //         this.isLoading = false;
-  //       }),
-  //       untilDestroyed(this)
-  //     )
-  //     .subscribe(
-  //       (credentials: any) => {
-  //         console.log(credentials)
-  //         this.router.navigate(['home']).then(() => {
-  //           window.location.reload();
-  //         });
-  //       },
-  //       (error: any) => {
-  //         console.log(error)
-  //       }
-  //     );
-  // }
+  async login(){
+    if(!this.loginForm.valid) {
+      this.notification.info('Atenção!', 'Campos inválidos.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+      return
+    }
+    this.fazerLogin(this.loginForm.value.email, this.loginForm.value.senha)
+  }
+
+  async fazerLogin(email: string, senha: string){
+    try {
+      const result = await this.loginService.fazerLogin(email, senha).toPromise()
+      this.auth(result)
+      this.notification.success('Sucesso!', `Seja bem-vindo(a) ${email}.`, {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+    } catch (error) {
+      this.notification.error('Erro!', 'Email ou senha incorretos.', {
+        timeOut: 5000,
+        showProgressBar: true,
+        pauseOnHover: true,
+      })
+    }
+  }
+
+  auth(cred: any){
+    const credential: Credentials = {
+      email: cred.user.email,
+      nome: cred.user.nome,
+      token: cred.token,
+    };
+    this.isLoading = true;
+    this.authenticationService
+    .login(credential)
+    .pipe(
+      finalize(() => {
+        this.isLoading = false;
+      }),
+      untilDestroyed(this)
+    )
+    .subscribe(
+      (credentials: any) => {
+        this.router.navigate(['home'])
+        this.dialogRef.close()
+      },
+      (error: any) => {
+        console.log(error)
+      }
+    );
+  }
 
 }

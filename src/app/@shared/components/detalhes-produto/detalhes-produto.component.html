@@ -7,16 +7,16 @@
 
 <div class="main" [ngClass]="{column: innerWidth < 1000}">
     <div class="imagem" [ngClass]="{imageMobile: innerWidth < 1000}">
-        <button *ngIf="produto.imagens.length > 1" class="ImageBtn back" (click)="backImagem()"><mat-icon>keyboard_arrow_left</mat-icon></button>
-        <img src='../../../assets/produtos/produtosBloco/{{produto.imagens[indexImagem]}}' style="width: 100%;"  alt="">
-        <button *ngIf="produto.imagens.length > 1" class="ImageBtn skip" (click)="skipImagem()"><mat-icon>keyboard_arrow_right</mat-icon></button>
+        <button *ngIf="produto.urlImagens.length > 1" class="ImageBtn back" (click)="backImagem()"><mat-icon>keyboard_arrow_left</mat-icon></button>
+        <img src='{{produto.urlImagens[indexImagem]}}'  alt="">
+        <button *ngIf="produto.urlImagens.length > 1" class="ImageBtn skip" (click)="skipImagem()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
     <div class="info" [ngClass]="{infoMobile: innerWidth < 1000}">
         <h1>{{produto.nome}}</h1>
         <div [ngClass]="{flex: innerWidth < 1000}">
-            <h2>R$ {{produto.preco}}</h2>
+            <h2><b>Preço: </b> R$ {{produto.preco}}</h2>
             <span *ngIf="innerWidth < 1000" class="spacer"></span>
-            <h3>{{produto.tipo}}</h3>
+            <h3><b>Tipo: </b> {{produto.tipo}}</h3>
             <span *ngIf="innerWidth < 1000" class="spacer"></span>
         </div>
         <h3 *ngIf="produto.descricao"><b>Descrição: </b> {{produto.descricao}}</h3>
@@ -24,10 +24,11 @@
         <div class="actions">
             <div class="flex" style="align-items: center;">
                 <h4>Quantidade: </h4>
-                <input id="mouse-only-number-input" type="number" min="1" max="100" onKeyDown="return false;" [(ngModel)]="quantidade">
+                <input tabindex="-1" id="mouse-only-number-input" type="number" min="1" max="100" onKeyDown="return false;" [(ngModel)]="quantidade">
             </div>
-            <button mat-raised-button class="btn">Comprar agora <mat-icon>arrow_right_alt</mat-icon></button>
-            <button mat-raised-button class="btn">Adicionar ao Carrinho <mat-icon>add_shopping_cart</mat-icon></button>    
+            <a href="https://wa.me/5561981889864?text={{getMensagem()}}" target="_blank" style="width: fit-content;">
+                <button mat-raised-button class="btn">Comprar agora <mat-icon>arrow_right_alt</mat-icon></button>
+            </a>
         </div>
     </div>
 </div>

@@ -23,10 +23,12 @@
     align-items: center;
     position: relative;
     width: 60%;
-    max-height: 100%;
-    overflow: hidden;
+    height: 100%;
     border: 1px solid black;
-    // margin: 1%;
+}
+
+.imagem img {
+    width: 100%; object-fit: cover; height: 100%;
 }
 
 .info {
@@ -39,7 +41,7 @@
 }
 
 .info h1 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
     padding: 5px 10px;
     background-color: rgb(0, 0, 0);
     margin-left: 0;
@@ -48,15 +50,15 @@
 }
 
 .info h2 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
 }
 
 .info h3 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
 }
 
 .info h4 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
     margin: 0;
     margin-right: 2%;
 }
@@ -74,13 +76,14 @@
 }
 
 .btn {
-    margin: 5%;
-    font-family: 'Courier New', Courier, monospace;
+
+    margin-top: 20px;
+    font-family: MyWebFont;
     max-width: 300px;
-    width: 100%;
+    width: fit-content;
     background: #000000;
     box-shadow: none;
-    padding: 0.5% 10%;
+    padding: 0.5% 30px;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;

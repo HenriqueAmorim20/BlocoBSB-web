@@ -1,0 +1,18 @@
+<div class="header">
+    <h2>Confirmar ação</h2>
+    <span style="flex: 1 1 auto;"></span>
+    <span class="close" aria-label="Close" (click)="dialogRef.close(false)">
+        <span aria-hidden="true">&times;</span>
+    </span>
+</div>
+
+<div class="content">
+    <div class="texto">
+        <h3>{{texto}}</h3>
+    </div>
+    <div class="flex">
+        <span class="spacer"></span>
+        <button mat-raised-button class="btn nao" (click)="dialogRef.close(false)">Não</button>
+        <button mat-raised-button class="btn sim" (click)="dialogRef.close(true)">Sim</button>
+    </div>
+</div>

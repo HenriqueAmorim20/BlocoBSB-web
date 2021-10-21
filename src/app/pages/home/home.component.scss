@@ -13,6 +13,13 @@
   align-items: center;
 }
 
+.logo {
+  width: 15%;
+  border: 1px solid black;
+  min-width: 170px;
+}
+
+
 .pc {
   height: calc(100vh - 150px);
 }
@@ -23,7 +30,7 @@
 
 .fillerHome h1 {
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: MyWebFont;
   color: #fff;
   padding: 2% 5%;
   background-color: rgba(0, 0, 0, 0.246);
@@ -44,7 +51,7 @@
   -moz-border-radius: 40%;
   -ms-border-radius: 40%;
   -o-border-radius: 40%;
-  margin-bottom: 2%;
+  margin-bottom: 5%;
 }
 
 .bounce {
@@ -100,6 +107,10 @@
   width: 100%;
 }
 
+.image {
+  width: 130%;
+}
+
 .ImageBtn {
   height: 100%;
   cursor: pointer;
@@ -135,20 +146,30 @@
   border-bottom-left-radius: 10px;
 }
 
-.novidades {
-  background-color: rgba(255, 255, 255, 0.87);
+.novidades, .destaque{
+  background-color: rgba(255, 255, 255, 0.555);
   padding: 2% 5%;
-  margin-bottom: 30px;
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 5%;
 }
 
-.titleNovidades {
-  font-family: 'Courier New', Courier, monospace;
-  border-bottom: 1px solid black;
-  padding-bottom: 5px;
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.507);
+  padding: 10px 0;
+  margin-bottom: 3%;
+  width: 100%;
+  color: white;
+}
+
+.header h1 {
+  border-bottom: 1px solid white;
+  margin: 0;
+  font-family: MyWebFont !important;
 }
 
 .imagesNovidades {
@@ -163,4 +184,138 @@
   min-width: 250px;
   height: 400px;
   margin: 1.5%;
+}
+
+.btn-editar-novidades {
+  background-color: #249bc5;
+}
+
+.btn-editar-novidades mat-icon {
+  margin-right: 7px;
+}
+
+.btn-editar-novidades:hover {
+  background-color: #37809b;
+}
+
+
+.btn-editar-slide {
+  background-color: #249bc5;
+  position: absolute;
+  left: 46%;
+  margin: 10px;
+  top: 0;
+}
+
+.btn-editar-slide mat-icon {
+  margin-right: 7px;
+}
+
+.btn-editar-slide:hover {
+  background-color: #37809b;
+}
+
+.produtoDestaque {
+  display: flex;
+  width: 100%;
+}
+
+.reversed {
+  flex-direction: row-reverse;
+}
+
+.produtoDestaqueMobile {
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagemDestaque {
+  width: 60%;
+  max-height: 500px;
+  object-fit: cover;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.616);
+  margin: 1%;
+}
+
+.imagemDestaqueMobile {
+  width: 100%;
+  max-width: 700px;
+  margin: 4% 1%;
+}
+
+.infoDestaque {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  min-height: 100%;
+}
+
+.infoDestaque h1{
+  font-family: MyWebFont;
+  padding: 5px 10px;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  margin-left: 0;
+  color:#fff;
+  width: fit-content;
+}
+
+.infoDestaque h3{
+  font-family: MyWebFont;
+}
+
+.infoDestaque button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5% auto;
+  font-family: MyWebFont;
+  max-width: 300px;
+  width: fit-content;
+  background: #000000;
+  box-shadow: none;
+  padding: 0.5% 20%;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.infoDestaque button:hover {
+  background: #249bc5;
+}
+
+.actionsAdminSlide {
+  display: flex;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.adicionar-slide {
+  margin: 2%;
+  background-color: #249bc5;
+}
+
+.adicionar-slide:hover {
+  background-color: #37809b;
+}
+
+
+.deleta-slide {
+  margin: 2%;
+  background-color: #e24d4d;
+}
+
+.deleta-slide:hover {
+  background-color: #b45454;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  margin: 2% 0;
 }

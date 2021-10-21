@@ -2,6 +2,7 @@
     margin-top: 20px;
     width: 100%;
     // margin-left: 15%;
+    object-fit: contain;
     height: 80%;
 }
 
@@ -9,7 +10,7 @@
     height: 7%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid white;
 }
 
 .close {
@@ -19,5 +20,5 @@
 }
 
 h2 {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
 }

@@ -6,6 +6,7 @@ import { CredentialsService } from './credentials.service';
 
 export interface LoginContext {
   email: string;
+  nome: string;
   token: string;
   remember?: boolean;
 }
@@ -20,6 +21,7 @@ export class AuthService {
   login(context: LoginContext): Observable<Credentials> {
     const data = {
       email: context.email,
+      nome: context.nome,
       token: context.token,
     };
     this.credentialsService.setCredentials(data, context.remember);

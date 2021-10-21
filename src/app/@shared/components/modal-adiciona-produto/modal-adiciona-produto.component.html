@@ -1,0 +1,65 @@
+<div class="header">
+    <h2>Adicionar produto</h2>
+    <span style="flex: 1 1 auto;"></span>
+    <span class="close" aria-label="Close" (click)="dialogRef.close()">
+        <span aria-hidden="true">&times;</span>
+    </span>
+</div>
+
+<form class="form" [formGroup]="produtoForm" (ngSubmit)="adicionarProduto()">
+    <div class="campos">
+        <div class="campo" style="width: 45%;">
+            <span>Nome *</span>
+            <input formControlName="nome" placeholder="Foguete Preta" required>
+        </div>
+        <div class="campo" style="width: 45%;">
+            <span>Preço *</span>
+            <input formControlName="preco" placeholder="75,90" required>
+        </div>
+    </div>
+    <div class="campo" style="flex-direction: row; align-items: center;">
+        <span>Tipo * </span>
+        <mat-form-field class="inputForm">
+            <mat-label>Selecione o tipo</mat-label>
+            <mat-select formControlName="tipo">
+                <mat-option [value]="adulto">
+                    Adulto
+                </mat-option>
+                <mat-option [value]="infantil">
+                    Infantil
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="campo" style="width: 100%;">
+        <span>Descrição *</span>
+        <textarea formControlName="descricao" rows="5" placeholder="Esse modelo foi inspirado no grandioso foguete de brasília, lugar que todo brasiliense conhece e remete a sua infância." required></textarea>
+    </div>
+    <div class="campo">
+        <span>Url Miniatura * </span>
+        <input formControlName="urlMiniatura" placeholder="https://i.ibb.co/dcg5Nd3/ana.jpg" required>
+    </div>
+    <div class="campo">
+        <span>Urls Imagens * </span>
+        <mat-chip-list #chipList aria-label="Urls" style="background-color:white;width: 92%;padding: 5px;">
+            <mat-chip *ngFor="let value of  produtoForm.value.urlImagens" [selectable]="selectable"
+                     [removable]="removable" (removed)="remove(value)">
+              {{value}}
+              <button matChipRemove *ngIf="removable">
+                <mat-icon>cancel</mat-icon>
+              </button>
+            </mat-chip>
+            <input style="" placeholder="Nova Url..."
+                   [matChipInputFor]="chipList"
+                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                   [matChipInputAddOnBlur]="addOnBlur"
+                   (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+    </div>
+    <div class="flex">
+        <span class="spacer"></span>
+        <button mat-raised-button class="btn sim" type="submit">Adicionar</button>
+    </div>
+</form>
+
+<simple-notifications></simple-notifications>

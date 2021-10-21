@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 import { ModalLoginComponent } from '../@shared/components/modal-login/modal-login.component';
 import { CredentialsService } from '../services/credentials.service';
 
@@ -16,7 +15,7 @@ export class AuthGuard implements CanActivate {
     if(this.credentialsService.isAuthenticated())
       return true;
     else {
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
       this.dialogRef.open(ModalLoginComponent,
         {
         maxWidth: '100vw',

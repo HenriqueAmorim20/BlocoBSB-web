@@ -1,0 +1,18 @@
+<div class="header">
+    <h2>Adicionar imagem ao Slide</h2>
+    <span style="flex: 1 1 auto;"></span>
+    <span class="close" aria-label="Close" (click)="dialogRef.close()">
+        <span aria-hidden="true">&times;</span>
+    </span>
+</div>
+
+<form class="form" [formGroup]="slideForm" (ngSubmit)="adicionarSlide()">
+    <div class="campo">
+        <span>Url *</span>
+        <input formControlName="url" placeholder="https://i.ibb.co/dcg5Nd3/ana.jpg" required>
+    </div>
+    <div class="flex">
+        <span class="spacer"></span>
+        <button mat-raised-button class="btn sim" type="submit">Adicionar</button>
+    </div>
+</form>

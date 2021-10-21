@@ -1,0 +1,76 @@
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.close {
+    font-size: 30px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+h2 {
+    font-family: MyWebFont;
+    margin: 0;
+}
+
+.btn {
+    margin: 20px 1%;
+    padding: 0 10%;
+}
+
+.sim {
+    background-color: #249bc5;
+}
+
+.sim:hover {
+    background-color: #37809b;
+}
+
+.nao {
+    background-color: #e24d4d;
+}
+
+.nao:hover {
+    background-color: #b45454;
+}
+
+.form {
+    font-family: MyWebFont;
+    background-color: rgba(0, 0, 0, 0.164);
+    margin-top: 20px;
+    display: flex;
+    color: #000 !important;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 200px;
+    margin: 5px 10px;
+}
+
+.campo span {
+    margin: 8px 0;
+}
+
+.campo input, textarea{
+    font-family: MyWebFont;
+    border: none;
+    border-radius: 0;
+    padding: 10px 10px;
+    width: 90%;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+.campo input:focus{
+    outline: none;
+}

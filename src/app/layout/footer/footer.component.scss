@@ -33,7 +33,7 @@
     width: 250px;
     padding: 0px 0px 20px 30px;
     font-size: 15px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
 }
 
 .subSection h3 {
@@ -111,7 +111,7 @@ li mat-icon {
 
 .underDiv h2 {
     margin: 10px 10px;
-    font-family:'Courier New', Courier, monospace;
+    font-family:MyWebFont;
 }
 
 .underDiv div {
@@ -121,22 +121,6 @@ li mat-icon {
     align-items: center;
     justify-content: center;
     min-width: 250px;
-}
-
-.underDiv input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 25px;
-    border: none;
-    width: 100%;
-    padding: 5px 10px;
-    max-width: 350px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
 }
 
 .btnParticipar {
@@ -172,4 +156,42 @@ li mat-icon {
 
 .click:hover {
     color: #249bc5;
+}
+
+.form {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 25px;
+    border: none;
+    width: 100%;
+    padding: 5px 10px;
+    max-width: 350px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.btn-download {
+    background-color: #249bc5;
+}
+
+.btn-download:hover {
+    background-color: #37809b;
+}
+
+.linkedin {
+    margin-right: 5px;
+    background: url('https://api.iconify.design/akar-icons/linkedin-fill.svg?color=%23249bc5') no-repeat center center / contain;
+    content: url('https://api.iconify.design/akar-icons/linkedin-fill.svg?color=%23249bc5');
 }

@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="upperDiv">
         <div [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo">
-            <img class="imagemLogo" src="../../../assets/logo/logo2.jpeg" alt="">
+            <img class="imagemLogo" src="../../../assets/logo/logowhite.png" alt="">
         </div>
         <!-- <span class="spacer"></span> -->
         <div class="section">
@@ -18,13 +18,12 @@
                 <h3>Pagamento</h3>
                 <ul>
                     <li>
-                        <mat-icon>payment</mat-icon>
-                        <span> Até 10x no cartão sem juros </span>
+                        <mat-icon>attach_money</mat-icon>
+                        <span> Transferência via TED ou PIX </span>
                     </li>
-                    <li>Inserir bandeiras dos cartões aqui</li>
                     <li>
-                        <mat-icon>payment</mat-icon>
-                        <span>Até 5% de desconto à vista</span>
+                        <mat-icon>local_shipping</mat-icon>
+                        <span>Entrega entre 2 e 5 dias úteis</span>
                     </li>
                 </ul>
             </div>
@@ -40,29 +39,33 @@
                 </ul>
             </div>
         </div>
-        <!-- <span class="spacer"></span> -->
         <div class="socialMedia">
-            <a href="https://web.whatsapp.com/" target="_blank" class="socialMediaIcon">
+            <a href="https://wa.me/5561981889864?text={{getMensagem()}}" target="_blank" class="socialMediaIcon">
                 <span class="wpp"></span>
             </a>
             <a href="https://www.instagram.com/bloco.bsb/" target="_blank" class="socialMediaIcon">
                 <span class="insta"></span>
             </a>
-            <a href="https://www.google.com.br/" style="color: white;" target="_blank" class="socialMediaIcon">
+            <!-- <a href="https://www.google.com.br/" style="color: white;" target="_blank" class="socialMediaIcon">
                 <mat-icon class="email">email</mat-icon>
-            </a>
+            </a> -->
         </div>
     </div>
     <div class="underDiv">
         <h2>Fique por dentro das novidades!</h2>
-        <div>
-            <input type="text" name="" id="" placeholder="Digite seu email aqui!">
-            <button class="btnParticipar">PARTICIPAR!</button>
-        </div>
+        <button *ngIf="userState.isAdmin" mat-raised-button class="btn-download" (click)="downloadNewsletter()"><mat-icon>download</mat-icon>Lista</button>
+        <form class="form" [formGroup]="newsletterForm">
+            <input type="text" placeholder="Digite seu email aqui!" formControlName="email" [value]="newsletterForm.value.email">
+            <button class="btnParticipar" (click)="addNewsletter()">PARTICIPAR!</button>
+        </form>
     </div>
     <div class="copyright">
-        <span class="spacer"></span>
         <span>&copy; {{ data }} BlocoBSB v1.0</span>
+        <span class="spacer"></span>
+        <a href="https://www.linkedin.com/in/henriqueamorim20/" target="_blank" class="flex" style="cursor: pointer; text-decoration: none; color: #fff;">
+            <div class="linkedin"></div>
+            <span>henriqueamorim20</span>
+        </a>
     </div>
 
 </footer>

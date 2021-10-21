@@ -1,1 +1,43 @@
-<p>conta works!</p>
+<div class="main">
+    <div class="contaContent">
+        <div class="header">
+            <h3>Olá, {{user?.nome}}</h3>
+            <span class="spacer"></span>
+            <div class="lineTransition" (click)="logout()">
+                <div class="logout">
+                    <div class="sair"></div> 
+                    Sair
+                </div>
+            </div>
+        </div>
+        <mat-tab-group>
+            <mat-tab label="Minha Conta"> 
+                <div class="tab">
+                    <h3>Email autenticado: {{user?.email}}</h3>
+                    <form [formGroup]="contaForm" (ngSubmit)="atualizarDados()" class="formConta">
+                        <div class="camposformConta">
+                            <div class="campoformConta">
+                                <span>Nome *</span>
+                                <input formControlName="nome" required>
+                            </div>
+                            <span class="spacer"></span>
+                            <div class="campoformConta">
+                                <span>Telefone</span>
+                                <input formControlName="telefone">
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <span class="spacer"></span>
+                            <button mat-raised-button class="btnformConta" type="submit"> Salvar </button>
+                        </div>
+                    </form>
+                </div>
+            </mat-tab>
+            <mat-tab label="Meus pedidos">
+                <div class="tab">
+                    <span>Em breve você também poderá vizualizar e gerenciar seus pedidos por aqui :)</span> 
+                </div>
+            </mat-tab>
+          </mat-tab-group>
+    </div>
+</div>

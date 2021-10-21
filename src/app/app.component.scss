@@ -1,8 +1,10 @@
+@font-face {
+    font-family: 'MyWebFont';
+    src: url("../assets/font/Hero-Regular.otf") format("opentype");
+}
+
 .window {
-    // min-height: 100%;
-    // height: auto !important;
-    // height: 100%;
-    // overflow: hidden;
+    overflow: hidden;
 }
 
 .background {
@@ -14,11 +16,12 @@
 }
 
 .body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: MyWebFont;
 }
 
 ::ng-deep .flex {
     display: flex;
+    align-items: center;
 }
 
 ::ng-deep .spacer{
@@ -35,12 +38,21 @@
     color: #000 !important;
 }
 
+::ng-deep .customDialogAdiciona mat-dialog-container {
+    background-color: rgba(255, 255, 255, 0.904) !important;
+    color: #000 !important;
+}
+
 ::ng-deep .detalheDialog mat-dialog-container {
     background-color: rgba(255, 255, 255, 0.883) !important;
     color: #000 !important;
     padding: 2%;
 }
 
+::ng-deep .customDialogTabela mat-dialog-container {
+    background-color: #2e5870!important;
+    color: #fff !important;
+}
 ::ng-deep .customDialogLogin mat-dialog-container {
     padding: 0;
     background-repeat: no-repeat;
@@ -48,4 +60,10 @@
     background-image: url("../assets/background/ana.jpg");
     background-size: cover;
     color: #fff !important;
+}
+
+::ng-deep button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { State, Action, StateContext } from '@ngxs/store';
+import { environment } from 'src/environments/environment';
 import { Credentials } from '../@shared/interfaces/credentials';
+import { Admin } from '../@shared/interfaces/credentials';
+
 
 export class Login {
   static readonly type = '[Login] Add';
@@ -12,11 +15,16 @@ export class Logout {
   constructor() {}
 }
 
+export class IsAdmin {
+  static readonly type = '[Admin] state';
+  constructor(public payload: Credentials | null) {}
+}
+
 @State({
   name: 'login',
   defaults: {
     email: null,
-    idConsulta: null,
+    isAdmin: null
   },
 })
 @Injectable()
@@ -34,6 +42,14 @@ export class AuthStore {
     ctx.setState({
       ...ctx.getState(),
       email: null,
+    });
+  }
+
+  @Action(IsAdmin)
+  public isAdmin(ctx: StateContext<Admin>, action: IsAdmin) {
+    ctx.setState({
+      ...ctx.getState(),
+      isAdmin: action.payload?.email === environment.admin ? true : false,
     });
   }
 }
