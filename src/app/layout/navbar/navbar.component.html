@@ -3,7 +3,7 @@
         <div class="media">
             <a class="socialMedia" href="https://web.whatsapp.com/" target="_blank">
                 <div class="wpp"></div>
-                <span class="imageIconText">(61) 981889864</span>
+                <span class="imageIconText">(61) 98188-9864</span>
             </a>
             <a class="socialMedia" href="https://www.instagram.com/bloco.bsb/" target="_blank">
                 <div class="insta"></div>
@@ -69,11 +69,30 @@
             </div>
         </div>
         <span class="divider"></span>
-        <div class="lineTransition">
-            <div [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem">
-                <div *ngIf="!userState.email" class="entrar"></div>
-                <mat-icon *ngIf="userState.email" style="margin-right: 7px;">account_circle</mat-icon>
-                <span>{{userState.email ? 'Conta' : 'Entrar'}}</span>
+        <div *ngIf="!userState.email" [routerLink]="['/conta']" routerLinkActive="router-link-active" class="lineTransition">
+            <div class="menuItem">
+                <div class="entrar"></div>
+                <span>Entrar</span>
+            </div>
+        </div>
+        <div *ngIf="userState.email" class="lineTransition">
+            <div [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem" style="display: flex; flex-direction: column; position: relative;">
+                <div class="flex" (mouseenter)="hideMenuConta = false" (mouseleave)="hideMenuConta = true">
+                    <mat-icon style="margin-right: 7px;">account_circle</mat-icon>
+                    <span>Conta</span>
+                </div>
+                <div class="dropDown conta" [ngClass]="{show: !hideMenuConta && userState.email}" (mouseenter)="hideMenuConta = false" (mouseleave)="hideMenuConta = true">
+                    <div class="dropDownItems" style="align-items: flex-end;" [ngClass]="{dark: scroll > 60, opaco: scroll <= 60}">
+                        <span class="menuItem" style="cursor: default;">{{userState.email}}</span>
+                        <div class="lineTransition">
+                            <div class="menuItem" (click)="logout()">
+                                <span class="spacer"></span>
+                                <div class="entrar"></div>
+                                <span> Sair</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </mat-toolbar>
@@ -139,10 +158,17 @@
             <span>Contato</span>
         </div>
         <span class="spacer"></span>
-        <div  (click)="toggleSidemenu();" [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem sideItem" style="margin-bottom: 30%;">
-            <div *ngIf="!userState.email" class="entrar"></div>
-            <mat-icon *ngIf="userState.email" style="margin-right: 7px;">account_circle</mat-icon>
-            <span>{{userState.email ? 'Conta' : 'Entrar'}}</span>
+        <div *ngIf="!userState.email" (click)="toggleSidemenu();" [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem sideItem" style="margin-bottom: 30%;">
+            <div class="entrar"></div>
+            <span>Entrar</span>
+        </div>
+        <div *ngIf="userState.email" (click)="toggleSidemenu();" [routerLink]="['/conta']" routerLinkActive="router-link-active" class="menuItem sideItem">
+            <mat-icon style="margin-right: 7px;">account_circle</mat-icon>
+            <span>Conta</span>
+        </div>
+        <div *ngIf="userState.email" (click)="toggleSidemenu(); logout();" class="menuItem sideItem" style="margin-bottom: 30%;">
+            <div class="entrar"></div>
+            <span>Sair</span>
         </div>
     </div>
 </div>

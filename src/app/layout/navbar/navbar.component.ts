@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Select } from '@ngxs/store';
+import { NotificationsService } from 'angular2-notifications';
 import { DetalhesProdutoComponent } from 'src/app/@shared/components/detalhes-produto/detalhes-produto.component';
 import { ModalTabelaTamanhosComponent } from 'src/app/@shared/components/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
 import { ModalTrocasComponent } from 'src/app/@shared/components/modal-trocas/modal-trocas.component';
@@ -20,6 +21,7 @@ export class NavbarComponent implements OnInit {
   @Input() userState: any;
   scroll: number = 0;
   hideMenu: boolean = true;
+  hideMenuConta: boolean = true;
   hideSidemenu: boolean = true;
   hideSobre: boolean = true;
   currentPage: string = '';
@@ -28,7 +30,7 @@ export class NavbarComponent implements OnInit {
   searchInput: string = '';
   timeout: any;
 
-  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router, private service: AppService) { }
+  constructor(public dialog: MatDialog, private notification: NotificationsService, private credentialService: CredentialsService, private route: ActivatedRoute, private router: Router, private service: AppService) { }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: any) {
@@ -47,6 +49,15 @@ export class NavbarComponent implements OnInit {
     this.timeout = setTimeout(async() => {
       this.searchResult = await this.service.searchProducts(this.searchInput).toPromise()
     }, 800);
+  }
+
+  logout() {
+    this.credentialService.setCredentials()
+    this.router.navigate(['/home']).then(()=>{ this.notification.success('Sucesso!', 'Você foi deslogado.', {
+      timeOut: 5000,
+      showProgressBar: true,
+      pauseOnHover: true,
+    })})
   }
 
   modalDetalhar(produto: any){
