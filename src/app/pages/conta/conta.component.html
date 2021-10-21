@@ -1,5 +1,5 @@
 <div class="main">
-    <div class="content">
+    <div class="contaContent">
         <div class="header">
             <h3>Olá, {{user?.nome}}</h3>
             <span class="spacer"></span>
@@ -10,26 +10,34 @@
                 </div>
             </div>
         </div>
-        <div class="TODO">
-            <h3>Email autenticado: {{user?.email}}</h3>
-            <form [formGroup]="contaForm" (ngSubmit)="atualizarDados()" class="form">
-                <div class="campos">
-                    <div class="campo">
-                        <span>Nome *</span>
-                        <input formControlName="nome" required>
-                    </div>
-                    <span class="spacer"></span>
-                    <div class="campo">
-                        <span>Telefone</span>
-                        <input formControlName="telefone">
-                    </div>
+        <mat-tab-group>
+            <mat-tab label="Minha Conta"> 
+                <div class="tab">
+                    <h3>Email autenticado: {{user?.email}}</h3>
+                    <form [formGroup]="contaForm" (ngSubmit)="atualizarDados()" class="formConta">
+                        <div class="camposformConta">
+                            <div class="campoformConta">
+                                <span>Nome *</span>
+                                <input formControlName="nome" required>
+                            </div>
+                            <span class="spacer"></span>
+                            <div class="campoformConta">
+                                <span>Telefone</span>
+                                <input formControlName="telefone">
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <span class="spacer"></span>
+                            <button mat-raised-button class="btnformConta" type="submit"> Salvar </button>
+                        </div>
+                    </form>
                 </div>
-                <div class="flex">
-                    <span class="spacer"></span>
-                    <button mat-raised-button class="btn" type="submit"> Salvar </button>
+            </mat-tab>
+            <mat-tab label="Meus pedidos">
+                <div class="tab">
+                    <span>Em breve você também poderá vizualizar e gerenciar seus pedidos por aqui :)</span> 
                 </div>
-            </form>
-            <span>Em breve você também poderá vizualizar e gerenciar seus pedidos por aqui :)</span>
-        </div>
+            </mat-tab>
+          </mat-tab-group>
     </div>
 </div>

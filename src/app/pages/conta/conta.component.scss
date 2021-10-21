@@ -1,17 +1,16 @@
 .main {
     display: flex;
-    flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 }
 
-.content {
-    margin: 5%;
+.contaContent {
+    margin: 5% 0;
     width: 90%;
     padding: 20px;
-    max-width: 650px;
+    max-width: 700px;
     background-color: rgba(255, 255, 255, 0.808);
     color: #000;
 }
@@ -24,7 +23,7 @@
     background-color: rgba(0, 0, 0, 0.658);
     padding: 2px 10px;
     color: #fff;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: MyWebFont;
     font-size: 20px;
     text-align: center;
     margin-right: 10px;
@@ -57,29 +56,38 @@
   }
 .lineTransition:hover:after { transform: scaleX(1); }
 
-.TODO h3 {
-    font-family: 'Courier New', Courier, monospace;
+.tab {
+    padding: 20px;
+    min-height: 250px;
+}
+
+.tab h3 {
+    font-family: MyWebFont;
     font-weight: 600;
 }
 
-.form {
+.formConta {
     margin: 0 0 20px;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.061);
 }
 
-.campos {
+.camposformConta {
     display: flex;
     flex-wrap: wrap;
 }
 
-.campo {
-    margin-top: 10px;
+.campoformConta {
+    margin-top: 10px;;
 }
 
-input {
-    margin-left: 20px;
-    font-family: 'Courier New', Courier, monospace;
+.campoformConta span {
+    margin-right: 20px;
+}
+
+.campoformConta input {
+    min-width: 200px;
+    font-family: MyWebFont;
     border: none;
     border-radius: 0;
     padding: 5px 10px;
@@ -89,12 +97,12 @@ input {
     -o-border-radius: 0;
 }
 
-input:focus {
+.campoformConta input:focus {
     outline: none;
 }
 
-.btn {
-    font-family: 'Courier New', Courier, monospace;
+.btnformConta {
+    font-family: MyWebFont;
     margin-top: 30px;
     font-size: 16px;
     font-weight: lighter;
@@ -105,8 +113,30 @@ input:focus {
     border: 1px solid black;
 }
 
-.btn:hover {
+.btnformConta:hover {
     border: 1px solid #28addd;
     color: #28addd
 }
 
+.mat-tab-label {
+    font-family: MyWebFont;
+    padding: 5px;
+    background-color: transparent;
+    color: black;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+    font-family: MyWebFont;
+    padding: 5px;
+    background-color: transparent;
+}
+
+/* Styles for the ink bar */
+.mat-tab-label-container{
+    .mat-tab-list{
+      .mat-ink-bar {
+        background-color: #28addd
+      }
+    }
+  }

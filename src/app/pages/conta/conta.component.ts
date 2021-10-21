@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Select } from '@ngxs/store';
@@ -9,7 +9,8 @@ import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-conta',
   templateUrl: './conta.component.html',
-  styleUrls: ['./conta.component.scss']
+  styleUrls: ['./conta.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ContaComponent implements OnInit {
 
