@@ -1,7 +1,7 @@
 <div class="main">
     <div class="content">
         <div class="header">
-            <h3>Olá, {{nome}}</h3>
+            <h3>Olá, {{user?.nome}}</h3>
             <span class="spacer"></span>
             <div class="lineTransition" (click)="logout()">
                 <div class="logout">
@@ -11,8 +11,25 @@
             </div>
         </div>
         <div class="TODO">
-            <h3>Email autenticado: {{email}}</h3>
-            <span>Em breve você poderá vizualizar e gerenciar seus pedidos por aqui :)</span>
+            <h3>Email autenticado: {{user?.email}}</h3>
+            <form [formGroup]="contaForm" (ngSubmit)="atualizarDados()" class="form">
+                <div class="campos">
+                    <div class="campo">
+                        <span>Nome *</span>
+                        <input formControlName="nome" required>
+                    </div>
+                    <span class="spacer"></span>
+                    <div class="campo">
+                        <span>Telefone</span>
+                        <input formControlName="telefone">
+                    </div>
+                </div>
+                <div class="flex">
+                    <span class="spacer"></span>
+                    <button mat-raised-button class="btn" type="submit"> Salvar </button>
+                </div>
+            </form>
+            <span>Em breve você também poderá vizualizar e gerenciar seus pedidos por aqui :)</span>
         </div>
     </div>
 </div>

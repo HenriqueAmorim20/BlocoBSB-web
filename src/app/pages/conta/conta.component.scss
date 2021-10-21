@@ -61,3 +61,52 @@
     font-family: 'Courier New', Courier, monospace;
     font-weight: 600;
 }
+
+.form {
+    margin: 0 0 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.061);
+}
+
+.campos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.campo {
+    margin-top: 10px;
+}
+
+input {
+    margin-left: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    border-radius: 0;
+    padding: 5px 10px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.btn {
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: lighter;
+    border-radius: 0px;
+    color: #000;
+    box-shadow: none;
+    background-color: transparent;
+    border: 1px solid black;
+}
+
+.btn:hover {
+    border: 1px solid #28addd;
+    color: #28addd
+}
+
