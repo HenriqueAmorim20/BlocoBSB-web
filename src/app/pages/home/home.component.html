@@ -1,6 +1,6 @@
 <div class="fillerHome" [ngClass]="{pc: innerWidth > 1000, mobile: innerWidth <= 1000}" id="fillerHome">
   <span class="spacer"></span>
-  <img class="logo" style="width: 15%; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.692); min-width: 170px;" src="../../../assets/logo/logo.jpeg" alt="">
+  <img class="logo" src="../../../assets/logo/logoPrincipal.png" alt="">
   <span class="spacer"></span>
   <mat-icon (click)="goToId('image')" class="fillerHomeIcon bounce">arrow_downward</mat-icon>
 </div>
@@ -12,7 +12,7 @@
         <button *ngIf="imagesSlide.length > 1" mat-raised-button class="deleta-slide" (click)="deletaSlide(imagesSlide[imageNumber]._id)"><mat-icon>delete</mat-icon></button>
       </div>
       <button *ngIf="imagesSlide.length > 1" class="ImageBtn back" (click)="backImage()"><mat-icon>keyboard_arrow_left</mat-icon></button>
-      <img class="image" id="image" src="{{imagesSlide[imageNumber].url}}" alt="">
+      <img class="image" [ngClass]="{increase: innerWidth < 1000}" id="image" src="{{imagesSlide[imageNumber].url}}" alt="">
       <button *ngIf="imagesSlide.length > 1" class="ImageBtn skip" (click)="skipImage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
   </div>

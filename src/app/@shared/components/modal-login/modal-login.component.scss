@@ -34,7 +34,7 @@ mat-dialog-content {
 
 h1 {
     font-size: 250%;
-    font-family:'Courier New', Courier, monospace;
+    font-family:MyWebFont;
     margin: 0;
 }
 
@@ -147,6 +147,6 @@ h4 {
     margin-left: 10px;
 }
 
-input, select, textarea{
+.formFields input, select, textarea{
     color: #ffF;
 }

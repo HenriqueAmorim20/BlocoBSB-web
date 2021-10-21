@@ -1,8 +1,10 @@
+@font-face {
+    font-family: 'MyWebFont';
+    src: url("../assets/font/Hero-Regular.otf") format("opentype");
+}
+
 .window {
-    // min-height: 100%;
-    // height: auto !important;
-    // height: 100%;
-    // overflow: hidden;
+    overflow: hidden;
 }
 
 .background {
@@ -14,7 +16,7 @@
 }
 
 .body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: MyWebFont;
 }
 
 ::ng-deep .flex {
@@ -58,4 +60,10 @@
     background-image: url("../assets/background/ana.jpg");
     background-size: cover;
     color: #fff !important;
+}
+
+::ng-deep button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
