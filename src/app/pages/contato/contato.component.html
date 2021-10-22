@@ -4,7 +4,19 @@
         <div class="header">
             <h1>CONTATE-NOS</h1>
         </div>
-        <span class="subtitle">blocobsb@gmail.com</span>
+        <div class="flex">
+            <span class="subtitle">blocobsb@gmail.com</span>
+            <div class="divisao"></div>
+            <a href="https://wa.me/5561981889864?text={{getMensagem()}}" target="_blank" >
+                <div class="wpp"></div>
+            </a>
+            <div class="divisao"></div>
+            <a href="https://www.instagram.com/bloco.bsb/" target="_blank">
+                <div class="insta"></div>
+            </a>
+            
+
+        </div>
 
         <form class="content" [formGroup]="contatoForm" (ngSubmit)="enviarMensagem()">
             <div *ngIf="!logado" class="superiores">

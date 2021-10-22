@@ -12,6 +12,7 @@ import { AppService } from '../../services/app.service';
 })
 export class ProdutosComponent implements OnInit {
 
+  loaded: any = 0;
   produtos: any;
   innerWidth: any;
   isAdmin: boolean = false;
@@ -34,6 +35,11 @@ export class ProdutosComponent implements OnInit {
 
   async getProdutos(){
     this.produtos = await this.service.getProdutos().toPromise()
+  }
+
+  render() {
+    console.log(this.loaded)
+    this.produtos?.length === this.loaded ? true : false
   }
 
   adicionaProduto(){

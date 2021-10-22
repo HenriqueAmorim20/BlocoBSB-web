@@ -20,6 +20,7 @@ export class ContatoComponent implements OnInit {
     mensagem: new FormControl('', [Validators.required, Validators.minLength(3)])
   });
 
+  user: any;
   logado: boolean = false;
   @Select((state: any) => state.login) stateLogin: any;
 
@@ -29,11 +30,19 @@ export class ContatoComponent implements OnInit {
     this.stateLogin.subscribe(async (res: any) => {
       this.logado = res.email? true : false
       if(this.logado) {
-        const user = this.credentialService.credentials
-        this.contatoForm.patchValue({email: user?.email})
-        this.contatoForm.patchValue({nome: user?.nome})
+        this.user = this.credentialService.credentials
+        this.contatoForm.patchValue({email: this.user?.email})
+        this.contatoForm.patchValue({nome: this.user?.nome})
       }
     });
+  }
+
+  getMensagem(){
+    if(this.user.email){
+      let info = this.credentialService.credentials
+      return `Olá, me chamo ${info?.nome}, tudo bem? Gostaria de tirar umas dúvidas com vocês :)`
+    }
+    return 'Olá, tudo bem? Gostaria de tirar umas dúvidas com vocês :)'
   }
 
   async enviarMensagem(){
