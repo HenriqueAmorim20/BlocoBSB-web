@@ -6,20 +6,24 @@
 </div>
 
 <div class="main" [ngClass]="{column: innerWidth < 1000}">
+    <img hidden src="{{produto.urlImagens[indexImagem]}}" (load)="loaded = true">
     <div class="imagem" [ngClass]="{imageMobile: innerWidth < 1000}">
         <button *ngIf="produto.urlImagens.length > 1" class="ImageBtn back" (click)="backImagem()"><mat-icon>keyboard_arrow_left</mat-icon></button>
-        <img src='{{produto.urlImagens[indexImagem]}}'  alt="">
+        <div *ngIf="!loaded" class="uploader-status" style="width: 100%; display: flex; justify-content: center;">
+            <mat-spinner></mat-spinner>
+        </div>
+        <img *ngIf="loaded" src='{{produto.urlImagens[indexImagem]}}'  alt="">
         <button *ngIf="produto.urlImagens.length > 1" class="ImageBtn skip" (click)="skipImagem()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
     <div class="info" [ngClass]="{infoMobile: innerWidth < 1000}">
         <h1>{{produto.nome}}</h1>
         <div [ngClass]="{flex: innerWidth < 1000}">
-            <h2><b>Preço: </b> R$ {{produto.preco}}</h2>
+            <h2><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Preço: </span> R$ {{produto.preco}}</h2>
             <span *ngIf="innerWidth < 1000" class="spacer"></span>
-            <h3><b>Tipo: </b> {{produto.tipo}}</h3>
+            <h3><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Tipo: </span> {{produto.tipo}}</h3>
             <span *ngIf="innerWidth < 1000" class="spacer"></span>
         </div>
-        <h3 *ngIf="produto.descricao"><b>Descrição: </b> {{produto.descricao}}</h3>
+        <h3 *ngIf="produto.descricao"><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Descrição: </span> {{produto.descricao}}</h3>
         <span class="spacer"></span>
         <div class="actions">
             <div class="flex" style="align-items: center;">

@@ -34,7 +34,7 @@
 }
 
 .subtitle {
-  margin: 10px;
+  margin: 10px 0;
   font-size: 20px;
 }
 
@@ -98,4 +98,22 @@
   color: #fff;
   padding: 5px 20px 5px 20px;
 
+}
+
+.wpp {
+  width: 20px;
+  background: url('https://api.iconify.design/mdi/whatsapp.svg?color=black') no-repeat center center / contain;
+  content: url('https://api.iconify.design/mdi/whatsapp.svg?color=black');
+}
+
+.insta {
+  width: 18px;
+  background: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=black') no-repeat center center / contain;
+  content: url('https://api.iconify.design/akar-icons/instagram-fill.svg?color=black');
+}
+
+.divisao {
+  border-left: 1px solid black;
+  margin: 0px 10px;
+  height: 50%;
 }

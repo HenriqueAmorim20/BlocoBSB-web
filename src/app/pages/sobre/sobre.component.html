@@ -1,12 +1,15 @@
-<!-- <div id="fillerSobre"></div> -->
+<img class="imagem" hidden src="/assets/imagemSobre/{{imagemSobre}}" (load)="loading = false">
 <div class="main">
-    <div class="sobre" id="sobre">
+    <div *ngIf="loading" class="uploader-status" style="margin-bottom: 100px;">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="!loading" class="sobre">
         <div class="header">
             <h1>Sobre a Bloco</h1>
         </div>
         <span class="subtitle">De Brasília, nascida e criada.</span>
         <div class="content">
-            <img class="imagem" src="/assets/imagemSobre/{{imagemSobre}}">
+            <img class="imagem" src="/assets/imagemSobre/{{imagemSobre}}" (load)="loading = false">
             <div class="texto">
                 <h2>- Sobre nós</h2>
                 <p>A Bloco surgiu a partir da vontade de externalizar o amor por Brasília, trazendo elementos inspirados no típico cotidiano brasiliense, com sua arquitetura inesperada e sua natureza particular, que tanto nos encantam. </p>

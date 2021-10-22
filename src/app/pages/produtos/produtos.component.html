@@ -1,6 +1,11 @@
-<!-- <img class="imagemPrincipal" src="../../../assets/background/ana.png" alt=""> -->
 <div class="main">
-    <div class="produtos">
+    <div *ngFor="let produto of produtos">
+        <img hidden src="{{produto.urlMiniatura}}" (load)="loaded = loaded + 1">
+    </div>
+    <div *ngIf="produtos?.length !== loaded" class="uploader-status" style="margin-bottom: 100px;">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="produtos" *ngIf="produtos?.length === loaded">
         <div *ngIf="isAdmin" class="flex" style="width: 100%; margin: 20px;">
             <span class="spacer"></span>
             <button mat-raised-button class="btn-add-produto" (click)="adicionaProduto()"><mat-icon>add</mat-icon> Novo produto</button>

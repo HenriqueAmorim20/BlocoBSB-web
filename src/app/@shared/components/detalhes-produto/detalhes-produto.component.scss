@@ -24,7 +24,8 @@
     position: relative;
     width: 60%;
     height: 100%;
-    border: 1px solid black;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.363);
+    margin: 2%;
 }
 
 .imagem img {
@@ -140,16 +141,26 @@
     background-color: transparent;
     border: none;
     z-index: 2;
+    background-color: rgba(255, 255, 255, 0.39);
   }
 
   .ImageBtn:hover {
     background-color: rgba(0, 0, 0, 0.349);
+    color: white;
   }
   
   .back {
     left: -1px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
   }
   
   .skip {
     right: -1px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+
+  .uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
   }

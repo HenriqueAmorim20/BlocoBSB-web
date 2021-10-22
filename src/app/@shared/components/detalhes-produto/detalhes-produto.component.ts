@@ -15,6 +15,7 @@ export class DetalhesProdutoComponent implements OnInit {
   quantidade: number = 1;
   innerWidth: any;
   produto: any;
+  loaded: any = false;
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<DetalhesProdutoComponent>, private credentialService: CredentialsService) { }
@@ -33,11 +34,13 @@ export class DetalhesProdutoComponent implements OnInit {
   skipImagem(){
     if(this.produto.urlImagens.length - 1 === this.indexImagem) this.indexImagem = 0
     else this.indexImagem = 1 + this.indexImagem
+    this.loaded = false
   }
 
   backImagem(){
     if(0 === this.indexImagem) this.indexImagem = this.produto.urlImagens.length - 1
     else this.indexImagem = this.indexImagem - 1
+    this.loaded = false
   }
 
   getMensagem(){

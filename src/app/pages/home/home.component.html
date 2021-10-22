@@ -26,7 +26,7 @@
         <div class="infoDestaque">
           <h1>{{produtoDestaque?.nome}}</h1>
           <span class="spacer"></span>
-          <h3 *ngIf="produtoDestaque?.descricao"><b>Descrição: </b> {{produtoDestaque?.descricao}}</h3>
+          <h3 *ngIf="produtoDestaque?.descricao"><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Descrição: </span> {{produtoDestaque?.descricao}}</h3>
           <button mat-raised-button (click)="modalDetalhar(produtoDestaque)"><mat-icon>info</mat-icon> Detalhar</button>
           <span class="spacer"></span>
         </div>
@@ -42,7 +42,7 @@
             <div class="infoDestaque">
               <h1>{{produto.nome}}</h1>
               <span class="spacer"></span>
-              <h3 *ngIf="produto.descricao"><b>Descrição: </b> {{produto.descricao}}</h3>
+              <h3 *ngIf="produto.descricao"><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Descrição: </span> {{produto.descricao}}</h3>
               <button mat-raised-button (click)="modalDetalhar(produto)"><mat-icon>info</mat-icon> Detalhar</button>
               <span class="spacer"></span>
             </div>

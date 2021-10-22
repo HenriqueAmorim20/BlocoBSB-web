@@ -36,15 +36,15 @@
 .topImages {
     display: flex;
     justify-content: center;
-    flex-flow: wrap;
+    width: fit-content;
+    flex-wrap: wrap;
 }
 
 .topImage {
     position: relative;
-    width: 300px;
-    min-width: 250px;
-    height: 400px;
-    margin: 1.5%;
+    width: 250px;
+    height: 300px;
+    margin: 2%;
 }
 
 .btn-add-produto {
@@ -88,3 +88,7 @@
 .btn-destaca-produto:hover {
     background-color: #37809b;
 }
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+  }

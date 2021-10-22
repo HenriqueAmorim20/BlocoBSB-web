@@ -9,7 +9,8 @@ import { AppService } from '../../services/app.service';
 export class SobreComponent implements OnInit {
 
   imagemSobre: any;
-
+  loading: boolean = true
+  
   constructor(private service: AppService) { }
 
   ngOnInit(): void {
