@@ -77,14 +77,15 @@
 }
 
 .btn {
-
     margin-top: 20px;
     font-family: MyWebFont;
-    max-width: 300px;
-    width: fit-content;
+    width: 200px;
+    height: 35px;
+    color: #fff;
     background: #000000;
-    box-shadow: none;
-    padding: 0.5% 30px;
+    box-shadow: inset 0px 0px 0px #2F3B47;
+    transition: all 1s !important;
+    border: none;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -93,8 +94,7 @@
 }
 
 .btn:hover {
-    background: #249bc5;
-    color: white;
+    box-shadow: inset 200px 0px 0px #28addd;
 }
 
 .imageMobile {

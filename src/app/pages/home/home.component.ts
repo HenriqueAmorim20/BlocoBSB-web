@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
 
   async load() {
     this.imagesSlide = await this.service.getSlideHome().toPromise()
+    this.imagesSlide.unshift({url: '../../assets/slideHome/sobre.jpeg'})
     this.startSlideShow()
     this.produtosNovidades = await this.service.getNovidades().toPromise()
     this.produtosNovidades = this.produtosNovidades.slice(-3)

@@ -26,7 +26,7 @@ mat-dialog-content {
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.678);
+    background-color: rgba(0, 0, 0, 0.424);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -73,24 +73,25 @@ h4 {
 }
 
 .btn-email {
-    font-size: 16px;
-    font-weight: lighter;
-    border-radius: 0px;
-    color: #fff;
-    box-shadow: none;
-    background-color: transparent;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
-    // padding: 1px 8% 1px 8%;
+    margin-top: 20px;
+    font-family: MyWebFont;
     width: 80%;
+    height: 35px;
+    color: #fff;
     border: 1px solid white;
+    background: #000000;
+    box-shadow: inset 0px 0px 0px #2F3B47;
+    transition: all 1s !important;
+    // border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
 
 .btn-email:hover {
-    border: 1px solid #28addd;
-    color: #28addd
+    box-shadow: inset 500px 0px 0px #28addd;
 }
 
 .btn-google {

@@ -122,7 +122,7 @@ export class NavbarComponent implements OnInit {
 
   goToId(id: string){
     if(this.currentPage !== 'home'){
-      this.router.navigate(['/home'], {relativeTo: this.route}).then(() => { setTimeout(() =>{this.scrollToId(id)}, 500) })
+      this.router.navigate(['/home'], {relativeTo: this.route}).then(() => { setTimeout(() =>{this.scrollToId(id)}, 800) })
     } else this.scrollToId(id)
   }
 

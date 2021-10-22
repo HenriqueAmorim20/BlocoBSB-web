@@ -38,7 +38,7 @@ export class ContatoComponent implements OnInit {
   }
 
   getMensagem(){
-    if(this.user.email){
+    if(this.user?.email){
       let info = this.credentialService.credentials
       return `Olá, me chamo ${info?.nome}, tudo bem? Gostaria de tirar umas dúvidas com vocês :)`
     }

@@ -107,7 +107,7 @@
   width: 100%;
 }
 
-.image {
+.increase {
   width: 130%;
 }
 
@@ -149,7 +149,8 @@
 .novidades, .destaque{
   background-color: rgba(255, 255, 255, 0.555);
   padding: 2% 5%;
-  width: 80%;
+  width: 90%;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,7 +167,7 @@
   color: white;
 }
 
-.header h1 {
+.header h2 {
   border-bottom: 1px solid white;
   margin: 0;
   font-family: MyWebFont !important;
@@ -267,14 +268,17 @@
 .infoDestaque button{
   display: flex;
   align-items: center;
+  cursor: pointer;
   justify-content: center;
   margin: 5% auto;
   font-family: MyWebFont;
-  max-width: 300px;
-  width: fit-content;
+  width: 250px;
+  height: 35px;
   background: #000000;
-  box-shadow: none;
-  padding: 0.5% 20%;
+  color: #fff;
+  border: none;
+  box-shadow: inset 0px 0px 0px #2F3B47;
+  transition: all 1s !important;
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -283,7 +287,15 @@
 }
 
 .infoDestaque button:hover {
-  background: #249bc5;
+  box-shadow: inset 250px 0px 0px #28addd;
+}
+
+.infoDestaque button:focus {
+  outline: none;
+}
+
+.infoDestaque mat-icon {
+  margin-right: 7px;
 }
 
 .actionsAdminSlide {
@@ -317,5 +329,47 @@
   flex-direction: column;
   align-items: center;
   width: 90%;
-  margin: 2% 0;
+  margin:  0 0 2% 0;
+}
+
+.btnSlideSobre {
+  cursor: pointer;
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  bottom: 50%;
+  font-family: MyWebFont;
+  width: 150px;
+  height: 35px;
+  color: #fff;
+  border: none;
+  opacity: 0;
+  z-index: -1;
+  background: #518fb8;
+  box-shadow: inset 0px 0px 0px #2F3B47;
+  transition: all 1s !important;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  -webkit-transition: all 1s !important;
+  -moz-transition: all 1s !important;
+  -ms-transition: all 1s !important;
+  -o-transition: all 1s !important;
+}
+
+.btnSlideSobre:hover {
+  box-shadow: inset 150px 0px 0px #000;
+
+}
+
+.showBtnSlideSobre {
+  opacity: 1;
+  z-index: 1;
+  transition: all 1s !important;
+  -webkit-transition: all 1s !important;
+  -moz-transition: all 1s !important;
+  -ms-transition: all 1s !important;
+  -o-transition: all 1s !important;
 }

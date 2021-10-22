@@ -53,7 +53,7 @@ export class AppService {
   }
 
   getImagemSobre(){
-    return ["sobre.jpg"]
+    return ["/assets/imagemSobre/sobre.jpeg"]
   }
 
   searchProducts(nome: any){
