@@ -1,10 +1,14 @@
 <div class="card" (mouseenter)="hideActions = false" (mouseleave)="hideActions = true">
     <span *ngIf="hideActions" class="cardTitle">{{produto.nome}}</span>
     <img class="image" src="{{produto.urlMiniatura}}" alt="">
-    <div class="actions" [ngClass]="{show: !hideActions}">
+    <div class="actions" *ngIf="!hideActions">
         <h3>{{produto.nome}}</h3>
         <h4>{{produto.tipo}}</h4>
         <h3>R$: {{produto.preco}}</h3>
-        <button class="btn-detalhes" (click)="modalDetalhar()">Detalhar</button>
+        <span class="spacer"></span>
+        <button class="btn-detalhes" (click)="modalDetalhar()">
+            <mat-icon style="margin-right: 7px;">info</mat-icon>
+            <span>Detalhar</span>
+        </button>
     </div>
 </div>

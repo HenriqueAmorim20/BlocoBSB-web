@@ -10,11 +10,9 @@
 
 .navbar {
     position: relative;
-    font-size: 20px;
     z-index: 4;
     padding-right: 3%;
     font-family: MyWebFont;
-    text-transform: uppercase;
     background-color: transparent;
     color: white;
     height: 90px;
@@ -40,6 +38,10 @@
     width: 140px;
     cursor: pointer;
     margin-right: 20px;
+}
+
+.whiteborder {
+    border: 1px solid white;
 }
 
 .divider {

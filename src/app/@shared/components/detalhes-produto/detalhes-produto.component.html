@@ -15,6 +15,7 @@
         <img *ngIf="loaded" src='{{produto.urlImagens[indexImagem]}}'  alt="">
         <button *ngIf="produto.urlImagens.length > 1" class="ImageBtn skip" (click)="skipImagem()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
+    <span class="spacer"></span>
     <div class="info" [ngClass]="{infoMobile: innerWidth < 1000}">
         <h1>{{produto.nome}}</h1>
         <div [ngClass]="{flex: innerWidth < 1000}">
@@ -30,8 +31,8 @@
                 <h4>Quantidade: </h4>
                 <input tabindex="-1" id="mouse-only-number-input" type="number" min="1" max="100" onKeyDown="return false;" [(ngModel)]="quantidade">
             </div>
-            <a href="https://wa.me/5561981889864?text={{getMensagem()}}" target="_blank" style="width: fit-content;">
-                <button mat-raised-button class="btn">Comprar agora <mat-icon>arrow_right_alt</mat-icon></button>
+            <a href="https://wa.me/5561981889864?text={{getMensagem()}}" target="_blank" style="width: fit-content; text-decoration: none;">
+                <button class="btn">Comprar agora <mat-icon style="margin-left: 7px;">arrow_right_alt</mat-icon></button>
             </a>
         </div>
     </div>

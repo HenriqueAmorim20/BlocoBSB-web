@@ -102,20 +102,24 @@
 }
 
 .btnformConta {
+    margin-top: 40px;
     font-family: MyWebFont;
-    margin-top: 30px;
-    font-size: 16px;
-    font-weight: lighter;
-    border-radius: 0px;
-    color: #000;
-    box-shadow: none;
-    background-color: transparent;
-    border: 1px solid black;
+    width: 200px;
+    height: 35px;
+    color: #fff;
+    background: #000000;
+    box-shadow: inset 0px 0px 0px #2F3B47;
+    transition: all 1s !important;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
 
 .btnformConta:hover {
-    border: 1px solid #28addd;
-    color: #28addd
+    box-shadow: inset 200px 0px 0px #28addd;
 }
 
 .mat-tab-label {
@@ -136,7 +140,7 @@
 .mat-tab-label-container{
     .mat-tab-list{
       .mat-ink-bar {
-        background-color: #28addd
+        background-color: black
       }
     }
   }

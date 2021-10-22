@@ -13,41 +13,47 @@
       </div>
       <button *ngIf="imagesSlide.length > 1" class="ImageBtn back" (click)="backImage()"><mat-icon>keyboard_arrow_left</mat-icon></button>
       <img class="image" [ngClass]="{increase: innerWidth < 1000}" id="image" src="{{imagesSlide[imageNumber].url}}" alt="">
+      <button class="btnSlideSobre" [ngClass]="{showBtnSlideSobre: imageNumber === 0}" [routerLink]="['/sobre']" routerLinkActive="router-link-active" >
+        <span>Sobre a bloco</span>
+        <mat-icon style="margin-left: 7px;">arrow_right_alt</mat-icon>
+      </button>
       <button *ngIf="imagesSlide.length > 1" class="ImageBtn skip" (click)="skipImage()"><mat-icon>keyboard_arrow_right</mat-icon></button>
     </div>
   </div>
-  <div class="content" *ngIf="produtoDestaque && produtosNovidades">
+  <div class="content">
     <div class="destaque" id="destaque">
       <div class="header" id="novidadesTitulo">
-        <h1>DESTAQUE</h1>
+        <h2>DESTAQUE</h2>
       </div>
-      <div class="produtoDestaque" [ngClass]="{produtoDestaqueMobile: innerWidth < 1001}">
+      <div *ngIf="produtoDestaque" class="produtoDestaque" [ngClass]="{produtoDestaqueMobile: innerWidth < 1001}">
         <img class="imagemDestaque" [ngClass]="{imagemDestaqueMobile: innerWidth < 1001}" src="{{produtoDestaque?.urlImagens[0]}}">
         <div class="infoDestaque">
           <h1>{{produtoDestaque?.nome}}</h1>
           <span class="spacer"></span>
           <h3 *ngIf="produtoDestaque?.descricao"><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Descrição: </span> {{produtoDestaque?.descricao}}</h3>
-          <button mat-raised-button (click)="modalDetalhar(produtoDestaque)"><mat-icon>info</mat-icon> Detalhar</button>
+          <button (click)="modalDetalhar(produtoDestaque)"><mat-icon>info</mat-icon> Detalhar</button>
           <span class="spacer"></span>
         </div>
       </div>
     </div>
      <div class="novidades" id="novidades">
         <div class="header" id="novidadesTitulo">
-          <h1>NOVIDADES</h1>
+          <h2>NOVIDADES</h2>
         </div>
-        <div *ngFor="let produto of produtosNovidades">
-          <div class="produtoDestaque" [ngClass]="{produtoDestaqueMobile: innerWidth < 1001, reversed: produto !== produtosNovidades[1] && innerWidth > 1000}">
-            <img class="imagemDestaque" [ngClass]="{imagemDestaqueMobile: innerWidth < 1001}" src="{{produto.urlImagens[0]}}">
-            <div class="infoDestaque">
-              <h1>{{produto.nome}}</h1>
-              <span class="spacer"></span>
-              <h3 *ngIf="produto.descricao"><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Descrição: </span> {{produto.descricao}}</h3>
-              <button mat-raised-button (click)="modalDetalhar(produto)"><mat-icon>info</mat-icon> Detalhar</button>
-              <span class="spacer"></span>
+        <div *ngIf="produtosNovidades">
+          <div *ngFor="let produto of produtosNovidades">
+            <div class="produtoDestaque" [ngClass]="{produtoDestaqueMobile: innerWidth < 1001, reversed: produto !== produtosNovidades[1] && innerWidth > 1000}">
+              <img class="imagemDestaque" [ngClass]="{imagemDestaqueMobile: innerWidth < 1001}" src="{{produto.urlImagens[0]}}">
+              <div class="infoDestaque">
+                <h1>{{produto.nome}}</h1>
+                <span class="spacer"></span>
+                <h3 *ngIf="produto.descricao"><span style="font-weight: bold; font-family: 'Courier New', Courier, monospace;">Descrição: </span> {{produto.descricao}}</h3>
+                <button (click)="modalDetalhar(produto)"><mat-icon>info</mat-icon> Detalhar</button>
+                <span class="spacer"></span>
+              </div>
             </div>
+            <div style="width: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.425); margin: 5% 0;"></div>
           </div>
-          <div style="width: 100%; border-bottom: 1px solid rgba(0, 0, 0, 0.425); margin: 5% 0;"></div>
         </div>
     </div>
   </div>

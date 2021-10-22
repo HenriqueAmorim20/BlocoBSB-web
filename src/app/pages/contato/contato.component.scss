@@ -21,13 +21,13 @@
   display: flex;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.507);
-  padding: 15px 10%;
+  padding: 10px 0%;
   margin-bottom: 1%;
-  width: fit-content;
+  width: 90%;
   color: white;
 }
 
-.header h1 {
+.header h2 {
   border-bottom: 1px solid white;
   margin: 0;
   font-family: MyWebFont !important;
@@ -71,14 +71,17 @@
   display: flex;
   justify-content: center;
 }
-.btn {
-  margin: 2%;
+
+.btnContato {
+  margin: 40px 0;
   font-family: MyWebFont;
-  font-size: 18px;
-  width: fit-content;
+  width: 250px;
+  height: 35px;
+  color: #fff;
   background: #000000;
-  padding: 0.5% 10%;
-  box-shadow: 3px 3px 4px rgba(128, 128, 128, 0.678);
+  box-shadow: inset 0px 0px 0px #2F3B47;
+  transition: all 1s !important;
+  border: none;
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -86,9 +89,8 @@
   -o-border-radius: 0;
 }
 
-.transicao:hover {
-  background: #249bc5;
-  color: white;
+.btnContato:hover {
+  box-shadow: inset 250px 0px 0px #28addd;
 }
 
 
