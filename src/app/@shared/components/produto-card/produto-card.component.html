@@ -1,18 +1,23 @@
+<img hidden src="{{produto.urlMiniatura}}" (load)="loaded=true">
 <div class="card" [ngClass]="{cardMobile: innerWidth < 1000}" (mouseenter)="hideActions = false" (mouseleave)="hideActions = true">
-    <!-- <div  class="cardTitle">{{produto.nome}}</div> -->
-    <img class="image" src="{{produto.urlMiniatura}}" alt="">
-    <div *ngIf="hideActions" class="info">
-        <span>{{produto.nome}}</span>
+    <div *ngIf="loaded" style="height: 100%; width: 100%;">
+        <img class="image" src="{{produto.urlMiniatura}}" alt="">
+        <div *ngIf="hideActions" class="info">
+            <span>{{produto.nome}}</span>
+        </div>
+        <div class="actions" *ngIf="!hideActions">
+            <h3>{{produto.nome}}</h3>
+            <h4>{{produto.tipo}}</h4>
+            <h3>R$: {{produto.preco}}</h3>
+            <span class="spacer"></span>
+            <button class="btn-detalhes" (click)="modalDetalhar()">
+                <mat-icon style="margin-right: 7px;">info</mat-icon>
+                <span>Detalhar</span>
+            </button>
+        </div>
     </div>
-    <div class="actions" *ngIf="!hideActions">
-        <h3>{{produto.nome}}</h3>
-        <h4>{{produto.tipo}}</h4>
-        <h3>R$: {{produto.preco}}</h3>
-        <span class="spacer"></span>
-        <button class="btn-detalhes" (click)="modalDetalhar()">
-            <mat-icon style="margin-right: 7px;">info</mat-icon>
-            <span>Detalhar</span>
-        </button>
+    <div *ngIf="!loaded" class="uploader-status" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+        <mat-spinner></mat-spinner>
     </div>
     <button *ngIf="isAdmin" mat-raised-button class="btn-remove-produto" (click)="modalConfirmacao(true, produto._id)"><mat-icon>delete</mat-icon></button>
     <button *ngIf="isAdmin" mat-raised-button class="btn-destaca-produto" (click)="modalConfirmacao(false, produto._id)"><mat-icon>star</mat-icon></button>

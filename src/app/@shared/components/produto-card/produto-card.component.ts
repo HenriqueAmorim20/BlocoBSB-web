@@ -14,6 +14,7 @@ export class ProdutoCardComponent implements OnInit {
 
   hideActions: boolean = true;
   isAdmin: boolean = false;
+  loaded: boolean = false;
   @Input() produto: any;
   @Input() innerWidth: any;
   @Select((state: any) => state.login) stateLogin: any;

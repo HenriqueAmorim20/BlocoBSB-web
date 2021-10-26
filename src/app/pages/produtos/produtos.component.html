@@ -1,11 +1,5 @@
 <div class="main">
-    <div *ngFor="let produto of produtos">
-        <img hidden src="{{produto.urlMiniatura}}" (load)="loaded = loaded + 1">
-    </div>
-    <div *ngIf="produtos?.length !== loaded" class="uploader-status" style="margin-bottom: 100px;">
-        <mat-spinner></mat-spinner>
-    </div>
-    <div class="produtos" *ngIf="produtos?.length === loaded">
+    <div class="produtos">
         <div class="header">
             <h2 class="headerTitle">PRODUTOS</h2>
         </div>
@@ -14,11 +8,9 @@
             <button mat-raised-button class="btn-add-produto" (click)="adicionaProduto()"><mat-icon>add</mat-icon> Novo produto</button>
         </div>
         <div class="topImages">
-            <!-- <div class="topImage"> -->
-            <app-produto-card  *ngFor="let produto of produtos" [innerWidth]="innerWidth" [produto]="produto"></app-produto-card>
-                <!-- <button *ngIf="isAdmin" mat-raised-button class="btn-remove-produto" (click)="modalConfirmacao(true, produto._id)"><mat-icon>delete</mat-icon></button>
-                <button *ngIf="isAdmin" mat-raised-button class="btn-destaca-produto" (click)="modalConfirmacao(false, produto._id)"><mat-icon>star</mat-icon></button>
-            </div> -->
+            <div *ngFor="let produto of produtos">
+                <app-produto-card  [innerWidth]="innerWidth" [produto]="produto"></app-produto-card>
+            </div>
         </div>
     </div>
 </div>

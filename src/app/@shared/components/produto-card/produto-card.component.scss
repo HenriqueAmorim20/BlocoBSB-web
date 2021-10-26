@@ -129,3 +129,7 @@ h4 {
 .btn-destaca-produto:hover {
     background-color: #37809b;
 }
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+  }
