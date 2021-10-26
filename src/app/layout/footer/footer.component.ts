@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Select } from '@ngxs/store';
 import { NotificationsService } from 'angular2-notifications';
 import { ModalTabelaTamanhosComponent } from 'src/app/@shared/components/modal-tabela-tamanhos/modal-tabela-tamanhos.component';
 import { ModalTrocasComponent } from 'src/app/@shared/components/modal-trocas/modal-trocas.component';
@@ -85,28 +84,4 @@ export class FooterComponent implements OnInit {
     } : {panelClass: 'customDialogTabela'}
     this.dialog.open(ModalTabelaTamanhosComponent, params);
   }
-
-  async downloadNewsletter(){
-    this.newsletter = await this.service.getNewsletter().toPromise()
-    let texto = 'Lista de emails inscritos: \n\n'
-    this.newsletter.forEach((element: any) => {
-      texto += element.email + '\n'
-    });
-    var file = new Blob([texto], {type: '.txt'});
-    if (window.navigator.msSaveOrOpenBlob) // IE10+
-        window.navigator.msSaveOrOpenBlob(file, texto);
-    else { // Others
-        var a = document.createElement("a"),
-                url = URL.createObjectURL(file);
-        a.href = url;
-        a.download = 'listaNewsletter';
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(function() {
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }, 0);
-    }
-  }
-
 }
