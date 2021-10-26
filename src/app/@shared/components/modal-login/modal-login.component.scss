@@ -26,7 +26,7 @@ mat-dialog-content {
     width: 100%;
     height: 100%;
     display: flex;
-    background-color: rgba(0, 0, 0, 0.424);
+    background-color: rgba(0, 0, 0, 0.712);
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -79,10 +79,10 @@ h4 {
     height: 35px;
     color: #fff;
     border: 1px solid white;
-    background: #000000;
+    background: #2e2e2e;
     box-shadow: inset 0px 0px 0px #2F3B47;
     transition: all 0.5s !important;
-    // border: none;
+    border: none;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -91,30 +91,29 @@ h4 {
 }
 
 .btn-email:hover {
-    box-shadow: inset 500px 0px 0px #28addd;
+    box-shadow: inset 500px 0px 0px #518fb8;
 }
 
 .btn-google {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-    border: none;
-    background-color: #28addd;
-    color: white;
-    font-size: 16px;
-    font-weight: lighter;
-    border-radius: 0px;
-    box-shadow: none;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
+    font-family: MyWebFont;
     width: 80%;
+    height: 35px;
+    color: #000;
+    border: 1px solid white;
+    background: #fff;
+    box-shadow: inset 0px 0px 0px #2F3B47;
+
+    transition: all 0.5s !important;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
 }
 
 .btn-google:hover {
-    background-color: #37809b;
+    box-shadow: inset 500px 0px 0px #518fb8;
 }
 
 .google {

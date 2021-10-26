@@ -10,7 +10,8 @@ import { CredentialsService } from './services/credentials.service';
 export class AppComponent {
   title = 'front';
   innerWidth: any;
-  userState: any
+  userState: any;
+  loaded: boolean = false;
   @Select((state: any) => state.login) stateLogin: any;
 
   @HostListener('window:resize', ['$event'])

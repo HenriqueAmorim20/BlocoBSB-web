@@ -14,6 +14,7 @@
 
 .body {
     font-family: MyWebFont;
+    min-height: 80vh;
 }
 
 ::ng-deep .flex {
@@ -65,3 +66,7 @@
     justify-content: center;
     cursor: pointer;
 }
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+  }

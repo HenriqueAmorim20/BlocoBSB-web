@@ -11,9 +11,8 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 1%;
-    padding: 1% 3%;
     width: 90%;
-    max-width: 1300px;
+    max-width: 1500px;
     background-color: rgba(255, 255, 255, 0.335);
 }
 
@@ -22,7 +21,7 @@
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.507);
     padding: 15px 0%;
-    margin-bottom: 5%;
+    margin: 2% 0;
     width: 90%;
     color: white;
 }
@@ -36,56 +35,16 @@
 .topImages {
     display: flex;
     justify-content: center;
-    width: fit-content;
     flex-wrap: wrap;
-}
-
-.topImage {
-    position: relative;
-    width: 250px;
-    height: 300px;
-    margin: 2%;
+    padding-bottom: 2%;
 }
 
 .btn-add-produto {
     background-color: #249bc5;
+    margin-right: 10px;
 }
 
 .btn-add-produto:hover {
-    background-color: #37809b;
-}
-
-.btn-remove-produto {
-    background-color: #e24d4d;
-    position: absolute;
-    bottom: 0%;
-    left: -1%;
-    padding: 2px 0;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-.btn-remove-produto:hover {
-    background-color: #b45454;
-}
-
-.btn-destaca-produto {
-    background-color: #249bc5;
-    position: absolute;
-    top: 0%;
-    left: -1%;
-    padding: 2px 0;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-.btn-destaca-produto:hover {
     background-color: #37809b;
 }
 

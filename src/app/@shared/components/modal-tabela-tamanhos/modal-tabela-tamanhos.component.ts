@@ -8,6 +8,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class ModalTabelaTamanhosComponent implements OnInit {
 
+  loaded: boolean = false
+
   constructor(public dialogRef: MatDialogRef<ModalTabelaTamanhosComponent>) { }
 
   ngOnInit(): void {
