@@ -29,7 +29,8 @@
         <div class="actions">
             <div class="flex" style="align-items: center;">
                 <h4>Quantidade: </h4>
-                <input tabindex="-1" id="mouse-only-number-input" type="number" min="1" max="100" onKeyDown="return false;" [(ngModel)]="quantidade">
+                <input tabindex="-1" id="mouse-only-number-input" type="number" min="1" max="100" oninput="(!validity.rangeOverflow||(value=100)) && (!validity.rangeUnderflow||(value=1)) &&
+                (!validity.stepMismatch||(value=parseInt(this.value)));" [(ngModel)]="quantidade">
             </div>
             <a href="https://wa.me/5561981889864?text={{getMensagem()}}" target="_blank" style="width: fit-content; text-decoration: none;">
                 <button class="btn">Comprar agora <mat-icon style="margin-left: 7px;">arrow_right_alt</mat-icon></button>
