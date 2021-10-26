@@ -78,4 +78,12 @@ export class AppService {
       { observe: "response" }
     );
   }
+
+  getMensagensAdmin(pagina = 0, pageSize = 20, filter = {}) {
+    return this.httpClient.get(`/feedback?pagina=${pagina}&tamanhoPagina=${pageSize}&filtros=${JSON.stringify(
+        filter
+      )}`,
+      { observe: "response" }
+    );
+  }
 }

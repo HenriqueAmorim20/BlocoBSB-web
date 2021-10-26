@@ -39,9 +39,39 @@
                 </div>
             </mat-tab>
             <mat-tab *ngIf="isAdmin" label="Mensagens">
-                <div class="tab">
-                    <span>Em breve você também poderá vizualizar e gerenciar seus pedidos por aqui :)</span> 
-                </div>
+                <h3 style="background-color: #000000a8; color: #fff; padding: 3px 10px; margin: 0; margin-top: 10px;">Mensagens de contato</h3>
+                <table mat-table [dataSource]="dataSourceMensagens">
+                    <div class="flex">
+                        <ng-container matColumnDef="emailMensagem">
+                            <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="nome">
+                            <mat-header-cell *matHeaderCellDef> Nome </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.nome }} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="assunto">
+                            <mat-header-cell *matHeaderCellDef> Assunto </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.assunto }} </mat-cell>
+                        </ng-container>
+                        <ng-container matColumnDef="mensagem">
+                            <mat-header-cell *matHeaderCellDef> Mensagem </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.mensagem }} </mat-cell>
+                        </ng-container>
+                        <!-- <ng-container matColumnDef="copiar">
+                            <mat-header-cell *matHeaderCellDef> Copiar </mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                                <button mat-icon-button (click)="copyMessage(element.email)">
+                                    <div title="Copiar para clipboard" class="copiar"></div>
+                                </button>
+                            </mat-cell>
+                        </ng-container> -->
+                    </div>
+                    <mat-header-row *matHeaderRowDef="displayedColumnsMensagens"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumnsMensagens;"></mat-row>
+                </table>
+                <mat-paginator [length]="lengthMensagens" [pageIndex]="pagina" [pageSize]="5"
+                [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent($event)"></mat-paginator>
             </mat-tab>
             <mat-tab *ngIf="isAdmin" label="Newsletter">
                 <h3 style="background-color: #000000a8; color: #fff; padding: 3px 10px; margin: 0; margin-top: 10px;">Lista de emails incritos na newsletter</h3>
@@ -51,7 +81,6 @@
                             <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
                             <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
                         </ng-container>
-                        <span class="spacer"></span>
                         <ng-container matColumnDef="copiar">
                             <mat-header-cell *matHeaderCellDef> Copiar </mat-header-cell>
                             <mat-cell *matCellDef="let element">

@@ -25,10 +25,13 @@ export class ContaComponent implements OnInit {
     telefone: new FormControl('', []),
   });;
   dataSource: any;
+  dataSourceMensagens: any;
   pagina: number = 0;
   resultsCount: any;
   displayedColumns = ['email', 'copiar'];
+  displayedColumnsMensagens = ['emailMensagem', 'nome', 'assunto', 'mensagem'];
   length: any;
+  lengthMensagens: any;
   page: any;
   tamanhoPagina: any = 5;
 
@@ -36,6 +39,7 @@ export class ContaComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource();
+    this.dataSourceMensagens = new MatTableDataSource();
     this.refreshResults();
     this.stateLogin.subscribe((res: any) => {
       this.isAdmin = res?.isAdmin
@@ -51,9 +55,12 @@ export class ContaComponent implements OnInit {
   }
 
   async refreshResults() {
-    const result: any = await this.appService.getNewsletterAdmin(this.page, this.tamanhoPagina, {}).toPromise()
-    this.dataSource.data = result.body.newsletters
-    this.length = result.body.count
+    const newsletters: any = await this.appService.getNewsletterAdmin(this.page, this.tamanhoPagina, {}).toPromise()
+    this.dataSource.data = newsletters.body.newsletters
+    this.length = newsletters.body.count
+    const mensagens: any = await this.appService.getMensagensAdmin(this.page, this.tamanhoPagina, {}).toPromise()
+    this.dataSourceMensagens.data = mensagens.body.feedbacks
+    this.lengthMensagens = mensagens.body.count
   }
 
   copyMessage(val: string){

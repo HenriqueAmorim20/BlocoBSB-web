@@ -153,14 +153,68 @@
 
 table {
     width: 100%;
-    position: relative;
+    overflow-wrap: break-word;
 }
 
 .mat-column-email {
     word-wrap: break-word !important;
+    margin: 0 0.5%;
     white-space: unset !important;
     flex: 0 0 80% !important;
     width: 80% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+
+.mat-column-emailMensagem {
+    word-wrap: break-word !important;
+    margin: 0 0.5%;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.mat-column-nome {
+    word-wrap: break-word !important;
+    margin: 0 0.5%;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-assunto {
+    word-wrap: break-word !important;
+    margin: 0 0.5%;
+    white-space: unset !important;
+    flex: 0 0 20% !important;
+    width: 20% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-mensagem {
+    word-wrap: break-word !important;
+    margin: 0 0.5%;
+    white-space: unset !important;
+    // flex: 0 0 fit-content !important;
+    width: fit-content !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
