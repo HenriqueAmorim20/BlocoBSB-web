@@ -278,7 +278,7 @@
   color: #fff;
   border: none;
   box-shadow: inset 0px 0px 0px #2F3B47;
-  transition: all 1s !important;
+  transition: all 0.5s !important;
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -347,16 +347,16 @@
   z-index: -1;
   background: #518fb8;
   box-shadow: inset 0px 0px 0px #2F3B47;
-  transition: all 1s !important;
+  transition: all 0.5s !important;
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
-  -webkit-transition: all 1s !important;
-  -moz-transition: all 1s !important;
-  -ms-transition: all 1s !important;
-  -o-transition: all 1s !important;
+  -webkit-transition: all 0.5s !important;
+  -moz-transition: all 0.5s !important;
+  -ms-transition: all 0.5s !important;
+  -o-transition: all 0.5s !important;
 }
 
 .btnSlideSobre:hover {
@@ -367,9 +367,9 @@
 .showBtnSlideSobre {
   opacity: 1;
   z-index: 1;
-  transition: all 1s !important;
-  -webkit-transition: all 1s !important;
-  -moz-transition: all 1s !important;
-  -ms-transition: all 1s !important;
-  -o-transition: all 1s !important;
+  transition: all 0.5s !important;
+  -webkit-transition: all 0.5s !important;
+  -moz-transition: all 0.5s !important;
+  -ms-transition: all 0.5s !important;
+  -o-transition: all 0.5s !important;
 }

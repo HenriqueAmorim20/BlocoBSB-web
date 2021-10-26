@@ -53,7 +53,6 @@
     </div>
     <div class="underDiv">
         <h2>Fique por dentro das novidades!</h2>
-        <button *ngIf="userState.isAdmin" mat-raised-button class="btn-download" (click)="downloadNewsletter()"><mat-icon>download</mat-icon>Lista</button>
         <form class="form" [formGroup]="newsletterForm">
             <input type="text" placeholder="Digite seu email aqui!" formControlName="email" [value]="newsletterForm.value.email">
             <button class="btnParticipar" (click)="addNewsletter()"><mat-icon style="margin-right: 7px;">group</mat-icon> Participar</button>

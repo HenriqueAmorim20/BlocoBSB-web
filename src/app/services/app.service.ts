@@ -70,4 +70,20 @@ export class AppService {
   getNewsletter(){
     return this.httpClient.get(`/newsletter`).pipe(catchError((err) => of(err.error.message)));
   }
+
+  getNewsletterAdmin(pagina = 0, pageSize = 20, filter = {}) {
+    return this.httpClient.get(`/newsletter?pagina=${pagina}&tamanhoPagina=${pageSize}&filtros=${JSON.stringify(
+        filter
+      )}`,
+      { observe: "response" }
+    );
+  }
+
+  getMensagensAdmin(pagina = 0, pageSize = 20, filter = {}) {
+    return this.httpClient.get(`/feedback?pagina=${pagina}&tamanhoPagina=${pageSize}&filtros=${JSON.stringify(
+        filter
+      )}`,
+      { observe: "response" }
+    );
+  }
 }

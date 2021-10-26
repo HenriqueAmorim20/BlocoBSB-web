@@ -21,12 +21,6 @@ export class DetalhesProdutoComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialogRef: MatDialogRef<DetalhesProdutoComponent>, private credentialService: CredentialsService) { }
 
   ngOnInit(): void {
-    const mouseOnlyNumberInputField = document.getElementById("mouse-only-number-input");
-    window.onload = () => {
-      mouseOnlyNumberInputField?.addEventListener("keypress", (event) => {
-        event.preventDefault();
-      });
-    }
     this.innerWidth = this.data.innerWidth;
     this.produto = this.data.produto
   }

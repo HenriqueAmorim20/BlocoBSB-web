@@ -3,11 +3,8 @@
     src: url("../assets/font/Hero-Regular.otf") format("opentype");
 }
 
-.window {
-    overflow: hidden;
-}
-
 .background {
+    overflow: hidden;
     background-image: url('../assets/background/museu.jpeg');
     background-size:cover;
     background-position: 0% 15%;
