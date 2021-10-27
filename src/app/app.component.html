@@ -1,12 +1,12 @@
 <img hidden src="../assets/background/museu.jpeg" (load)="loaded = true">
-<div *ngIf="!loaded" class="uploader-status" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background-color: #29516e;">
+<div *ngIf="!loaded" class="uploader-status loader">
   <mat-spinner></mat-spinner>
 </div>
 <div *ngIf="loaded" class="background">
-    <app-navbar [innerWidth]="innerWidth" [userState]="userState"></app-navbar>
-    <div class="body">
-      <router-outlet></router-outlet>
-    </div>
+  <app-navbar [innerWidth]="innerWidth" [userState]="userState"></app-navbar>
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
   <app-footer [innerWidth]="innerWidth" [userState]="userState"></app-footer>
 </div>
 <simple-notifications></simple-notifications>

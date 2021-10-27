@@ -15,7 +15,7 @@
     font-family: MyWebFont;
     background-color: transparent;
     color: white;
-    height: 90px;
+    height: 80px;
     width: 100%;
     transition: 0.5s all ease;
     -webkit-transition: 0.5s all ease;
@@ -41,7 +41,7 @@
 }
 
 .whiteborder {
-    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.678);
 }
 
 .divider {
@@ -139,11 +139,6 @@
     display: flex;
     flex-direction: column;
     padding: 10px 10px 10px 10px;
-    // border-radius: 15px;
-    // -webkit-border-radius: 15px;
-    // -moz-border-radius: 15px;
-    // -ms-border-radius: 15px;
-    // -o-border-radius: 15px;
 }
 
 
@@ -152,7 +147,6 @@
 .media {
     display: flex;
     align-items: center;
-    // position: absolute;
     right: 1%;
 }
 
@@ -178,24 +172,18 @@
 }
 
 .pesquisaIcon {
-    cursor: default;
+    cursor: pointer;
     margin-right: 10px;
 }
 
 .pesquisaForm input {
     background-color: #fff;
     padding: 10px;
-    // border-radius: 5px;
     border: none;
-    border-bottom: 1px solid black;
     height: 10px;
     outline: none;
     width: 100%;
     color: black;
-    // -webkit-border-radius: 5px;
-    // -moz-border-radius: 5px;
-    // -ms-border-radius: 5px;
-    // -o-border-radius: 5px;
 }
 
 .searchResults {
@@ -207,13 +195,9 @@
     z-index: 11;
     position: absolute;
     margin-top: 50px;
-    width: 90%;
-    // border-radius: 10px;
+    width: 89%;
+    right: 0px;
     padding: 10px;
-    // -webkit-border-radius: 10px;
-    // -moz-border-radius: 10px;
-    // -ms-border-radius: 10px;
-    // -o-border-radius: 10px;
     max-height: 550px;
     overflow:auto;
 }

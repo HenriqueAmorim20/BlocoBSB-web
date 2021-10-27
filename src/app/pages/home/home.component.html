@@ -1,16 +1,18 @@
 <div class="fillerHome" [ngClass]="{pc: innerWidth > 1000, mobile: innerWidth <= 1000}" id="fillerHome">
   <span class="spacer"></span>
-  <img class="logo" src="../../../assets/logo/logoPrincipal.png" alt="">
+  <div class="coverLogo">
+    <img class="logo" src="../../../assets/logo/logoPrincipal.png" alt="">
+  </div>
   <span class="spacer"></span>
   <mat-icon (click)="goToId('image')" class="fillerHomeIcon bounce">arrow_downward</mat-icon>
 </div>
 <div *ngFor="let imagem of imagesSlide">
   <img hidden src="{{imagem.url}}" (load)="loaded = loaded + 1">
 </div>
-<div *ngIf="loaded !== imagesSlide.length" class="uploader-status" style="width: 100%; display: flex; justify-content: center;">
+<div *ngIf="loaded !== imagesSlide?.length" class="uploader-status" style="width: 100%; display: flex; justify-content: center;">
   <mat-spinner></mat-spinner>
 </div>
-<div *ngIf="loaded === imagesSlide.length" class="main">
+<div *ngIf="loaded === imagesSlide?.length" class="main">
   <div *ngIf="imagesSlide?.length > 0">
     <div class="slide" style="background-image: url('{{imagesSlide[imageNumber].url}}');">
       <div *ngIf="isAdmin" class="actionsAdminSlide">

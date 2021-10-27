@@ -33,7 +33,7 @@
         </div>
     </mat-toolbar>
     <mat-toolbar class="navbar" [ngClass]="{'dark fixed': scroll >60}">
-        <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" [ngClass]="{'whiteborder': scroll >60}" src="../../../assets/logo/{{scroll > 60 ? 'logowhite.png' : 'logoPrincipal.png'}}" alt="">
+        <img [routerLink]="['/home']" routerLinkActive="router-link-active"  class="logo" [ngClass]="{'whiteborder': scroll >60}" src="../../../assets/logo/logoPrincipal.png" alt="">
         <div class="lineTransition" [routerLink]="['/produtos']" routerLinkActive="router-link-active">
             <div class="menuItem">
                 <div class="produtos"></div>
@@ -96,7 +96,7 @@
             </div>
         </div>
     </mat-toolbar>
-    <div *ngIf="scroll >60" style="height: 90px;"></div>
+    <div *ngIf="scroll >60" style="height: 80px;"></div>
 </div>
 
 <div *ngIf="innerWidth <= 1000">

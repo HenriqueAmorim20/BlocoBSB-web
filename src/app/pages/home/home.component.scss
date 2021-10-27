@@ -13,27 +13,23 @@
   align-items: center;
 }
 
-.logo {
+.coverLogo {
   width: 15%;
-  border: 1px solid black;
   min-width: 170px;
+}
+
+.logo {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.404);
 }
 
 
 .pc {
-  height: calc(100vh - 150px);
+  height: calc(100vh - 140px);
 }
 
 .mobile {
   height: calc(100vh - 60px);
-}
-
-.fillerHome h1 {
-  text-align: center;
-  font-family: MyWebFont;
-  color: #fff;
-  padding: 2% 5%;
-  background-color: rgba(0, 0, 0, 0.246);
 }
 
 .fillerHomeIcon {
@@ -147,7 +143,7 @@
 }
 
 .novidades, .destaque{
-  background-color: rgba(255, 255, 255, 0.555);
+  background-color: rgba(255, 255, 255, 0.87);
   padding: 2% 5%;
   width: 90%;
   max-width: 1000px;
