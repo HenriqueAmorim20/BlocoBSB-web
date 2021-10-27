@@ -72,6 +72,10 @@
     align-items: center;
 }
 
+.actions a {
+    margin-top: 10px;
+}
+
 .actions input {
     font-size: 15px;
 }
@@ -94,7 +98,7 @@
 }
 
 .btn:hover {
-    box-shadow: inset 200px 0px 0px #28addd;
+    box-shadow: inset 200px 0px 0px #518fb8;
 }
 
 .imageMobile {

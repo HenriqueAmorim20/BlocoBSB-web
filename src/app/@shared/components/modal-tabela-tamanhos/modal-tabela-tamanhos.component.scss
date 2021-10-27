@@ -22,3 +22,7 @@
 h2 {
     font-family: MyWebFont;
 }
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+}

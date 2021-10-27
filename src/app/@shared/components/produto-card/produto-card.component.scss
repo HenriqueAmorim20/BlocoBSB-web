@@ -1,6 +1,15 @@
 .card {
     position: relative;
-    height: 98%;
+    // width: 100%;
+    // height: 100%;
+    width: 350px;
+    height: 420px;
+    margin: 10px;
+}
+
+.cardMobile {
+    width: 250px;
+    height: 300px;
 }
 
 .cardTitle {
@@ -23,7 +32,7 @@
 
 
 .actions {
-    padding: 30% 10% 10%;
+    padding: 50% 10% 10%;
     left: 0;
     top: 0;
     right: 0;
@@ -33,8 +42,29 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.459);
+    background-image: linear-gradient(rgba(2, 2, 2, 0), rgb(0, 0, 0));
     color: #fff;
+}
+
+.info {
+    // padding: 30% 10% 10%;
+    left: 0;
+    top: 0%;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(  rgba(0, 0, 0, 0) 45%, rgba(0, 0, 0, 0.931) 90%);
+    color: #fff;
+}
+
+.info span {
+    font-size: 17px;
+    position: absolute;
+    bottom: 5%;
 }
 
 h3 {
@@ -54,7 +84,6 @@ h4 {
     align-items: center;
     border: none;
     background-color: #3838387e;
-    // border: 1px solid white;
     box-shadow: inset 0px 0px 0px #2F3B47;
     transition: all 0.5s !important;
     color: rgb(255, 255, 255);
@@ -64,5 +93,43 @@ h4 {
 }
 
 .btn-detalhes:hover {
-    box-shadow: inset 180px 0px 0px #28addd;
+    box-shadow: inset 180px 0px 0px #518fb8;
 }
+
+.btn-remove-produto {
+    background-color: #e24d4d;
+    position: absolute;
+    top: 0%;
+    right: -1%;
+    padding: 2px 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.btn-remove-produto:hover {
+    background-color: #b45454;
+}
+
+.btn-destaca-produto {
+    background-color: #249bc5;
+    position: absolute;
+    top: 0%;
+    left: -1%;
+    padding: 2px 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.btn-destaca-produto:hover {
+    background-color: #37809b;
+}
+
+.uploader-status ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #000000;
+  }

@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   innerWidth: any;
   @Select((state: any) => state.login) stateLogin: any;
   isAdmin: boolean = false;
+  loaded: number = 0;
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
