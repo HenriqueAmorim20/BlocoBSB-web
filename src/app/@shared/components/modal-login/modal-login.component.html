@@ -61,7 +61,11 @@
                     <mat-label>Senha*</mat-label>
                     <input formControlName="senha" matInput type="password">
                 </mat-form-field>
-                <span class="esqueceu">Esqueceu sua senha?</span>
+                <div>
+                    <input formControlName="remember" type="checkbox">
+                    <mat-label style="color: white; margin-left: 10px;">Lembre-se de mim.</mat-label>
+                </div>
+                <!-- <span class="esqueceu">Esqueceu sua senha?</span> -->
             </div>
             <button class="btn-email" type="submit">Entrar</button>
         </form>

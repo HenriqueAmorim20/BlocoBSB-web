@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
 
   goToId(id: string){
     const el = document.getElementById(id) as HTMLElement
-    const y = el?.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 90 : 60);
+    const y = el?.getBoundingClientRect().top + window.pageYOffset - (this.innerWidth > 1000 ? 80 : 60);
     window.scrollTo({top: y, behavior: 'smooth'});
   }
 

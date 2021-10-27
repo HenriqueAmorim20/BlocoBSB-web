@@ -38,10 +38,17 @@
     width: 140px;
     cursor: pointer;
     margin-right: 20px;
+    transition: 0.5s all ease;
+
 }
 
 .whiteborder {
+    transition: 0.5s all ease;
     background-color: rgba(255, 255, 255, 0.678);
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
 }
 
 .divider {

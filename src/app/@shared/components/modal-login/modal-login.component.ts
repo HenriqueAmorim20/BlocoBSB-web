@@ -6,7 +6,7 @@ import { finalize } from 'rxjs/operators';
 import { untilDestroyed } from '../../../@core/until-destroyed';
 import { Credentials } from '../../interfaces/credentials';
 import { LoginService } from '../../../services/login.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService, LoginContext } from 'src/app/services/auth.service';
 import { NotificationsService } from 'angular2-notifications';
 import { Select } from '@ngxs/store';
 import { SocialAuthService } from "angularx-social-login";
@@ -25,10 +25,10 @@ export class ModalLoginComponent implements OnInit {
 
   views: Array<string> = ['registro', 'login', 'esqueceu-senha'];
   view: string = 'login';
-
   loginForm: FormGroup = new FormGroup({
     email: new FormControl('', [Validators.email, Validators.required ]),
-    senha: new FormControl('', [Validators.required])
+    senha: new FormControl('', [Validators.required]),
+    remember: new FormControl(false, [])
   });
 
   registerForm: FormGroup = new FormGroup({
@@ -166,10 +166,11 @@ export class ModalLoginComponent implements OnInit {
   }
 
   auth(cred: any){
-    const credential: Credentials = {
+    const credential: LoginContext = {
       email: cred.user.email,
       nome: cred.user.nome,
       token: cred.token,
+      remember: this.loginForm.value.remember
     };
     this.isLoading = true;
     this.authenticationService

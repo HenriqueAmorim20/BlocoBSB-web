@@ -6,6 +6,14 @@
     overflow: hidden;
 }
 
+.loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .sobre {
   display: flex;
   flex-direction: column;

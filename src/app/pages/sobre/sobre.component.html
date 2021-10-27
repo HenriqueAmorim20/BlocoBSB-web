@@ -1,6 +1,6 @@
 <img class="imagem" hidden src="{{imagemSobre}}" (load)="loading = false">
 <div class="main">
-    <div *ngIf="loading" class="uploader-status" style="margin-bottom: 100px;">
+    <div *ngIf="loading" class="uploader-status loader">
         <mat-spinner></mat-spinner>
     </div>
     <div *ngIf="!loading" class="sobre">
